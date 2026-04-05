@@ -1,0 +1,379 @@
+- generic [active] [ref=e1]:
+  - generic: â–¡
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#MainContent"
+  - banner [ref=e5]:
+    - generic [ref=e6]:
+      - generic [ref=e7]:
+        - button "Close menu" [ref=e8] [cursor=pointer]:
+          - img [ref=e9]
+        - link "Marlene's" [ref=e11] [cursor=pointer]:
+          - /url: /
+          - img "Marlene's" [ref=e12]
+        - link "Cart" [ref=e13] [cursor=pointer]:
+          - /url: /cart
+          - img [ref=e14]
+      - generic [ref=e19]:
+        - navigation [ref=e20]:
+          - list [ref=e21]:
+            - listitem [ref=e22]:
+              - link "Home" [ref=e23] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e24]:
+              - link "Marlene's Selection" [ref=e25] [cursor=pointer]:
+                - /url: /collections/marlenes-top-picks-2024
+            - listitem [ref=e26]:
+              - link "Ask Marlene" [ref=e27] [cursor=pointer]:
+                - /url: /pages/contact
+            - listitem [ref=e28]:
+              - link "Track Your Package" [ref=e29] [cursor=pointer]:
+                - /url: /pages/track-package
+        - generic [ref=e30]:
+          - generic [ref=e31]:
+            - button "English English" [ref=e32] [cursor=pointer]:
+              - img "English" [ref=e33]
+              - generic [ref=e34]: English
+              - img [ref=e35]
+            - button "Uzbekistan UZS so'm" [ref=e37] [cursor=pointer]:
+              - img "Uzbekistan" [ref=e38]
+              - generic [ref=e39]: UZS so'm
+              - img [ref=e40]
+          - generic [ref=e43]:
+            - link "Facebook" [ref=e44] [cursor=pointer]:
+              - /url: https://facebook.com/marlenespetshop
+              - img [ref=e45]
+            - link "Instagram" [ref=e47] [cursor=pointer]:
+              - /url: https://instagram.com/marlenespetshop
+              - img [ref=e48]
+          - generic [ref=e51]:
+            - img [ref=e52]
+            - link "help@marlenespetshop.com" [ref=e56] [cursor=pointer]:
+              - /url: mailto:help@marlenespetshop.com
+          - generic [ref=e57]: © 2026 Marlene's Pet Shop
+          - generic:
+            - img "Marlene's Cat"
+    - link "Marlene's Pet Shop" [ref=e58] [cursor=pointer]:
+      - /url: /
+      - img "Marlene's Pet Shop" [ref=e60]
+    - navigation [ref=e61]:
+      - list [ref=e62]:
+        - listitem [ref=e63]:
+          - link "Home" [ref=e64] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e65]: Home
+        - listitem [ref=e66]:
+          - link "Marlene's Selection" [ref=e67] [cursor=pointer]:
+            - /url: /collections/marlenes-top-picks-2024
+            - generic [ref=e68]: Marlene's Selection
+        - listitem [ref=e69]:
+          - link "Ask Marlene" [ref=e70] [cursor=pointer]:
+            - /url: /pages/contact
+            - generic [ref=e71]: Ask Marlene
+        - listitem [ref=e72]:
+          - link "Track Your Package" [ref=e73] [cursor=pointer]:
+            - /url: /pages/track-package
+            - generic [ref=e74]: Track Your Package
+    - generic [ref=e75]:
+      - generic [ref=e77] [cursor=pointer]:
+        - img "UZ" [ref=e80]
+        - generic [ref=e81]: UZS so'm
+      - generic [ref=e83] [cursor=pointer]:
+        - img "en" [ref=e85]
+        - generic [ref=e86]: English
+      - button "Cart" [ref=e87] [cursor=pointer]:
+        - img [ref=e88]
+        - generic [ref=e92]: Cart
+  - main [ref=e93]:
+    - generic [ref=e97]:
+      - region "Gallery Viewer" [ref=e99]:
+        - generic [ref=e107]:
+          - button "Slide left" [disabled] [ref=e108] [cursor=pointer]:
+            - img [ref=e109]
+          - list [ref=e111]:
+            - listitem [ref=e112]:
+              - button "Load image 1 in gallery view" [ref=e113] [cursor=pointer]:
+                - img "Kitty Kurlz™"
+            - listitem [ref=e114]:
+              - button "Load image 2 in gallery view" [ref=e115] [cursor=pointer]:
+                - img "Kitty Kurlz™"
+            - listitem [ref=e116]:
+              - button "Load image 3 in gallery view" [ref=e117] [cursor=pointer]:
+                - img "Kitty Kurlz™"
+            - listitem [ref=e118]:
+              - button "Load image 4 in gallery view" [ref=e119] [cursor=pointer]:
+                - img "Kitty Kurlz™"
+            - listitem [ref=e120]:
+              - button "Load image 5 in gallery view" [ref=e121] [cursor=pointer]:
+                - img "Kitty Kurlz™"
+            - listitem [ref=e122]:
+              - button "Load image 6 in gallery view" [ref=e123] [cursor=pointer]:
+                - img "Kitty Kurlz™"
+          - button "Slide right" [ref=e124] [cursor=pointer]:
+            - img [ref=e125]
+      - generic [ref=e128]:
+        - generic [ref=e129]:
+          - heading "Kitty Kurlz™" [level=1] [ref=e131]
+          - status [ref=e132]:
+            - generic [ref=e135]:
+              - generic [ref=e137]: 741 000 UZS
+              - generic [ref=e138]: 371 000 UZS
+        - link "4.5 ( 4348 reviews )" [ref=e141] [cursor=pointer]:
+          - /url: "#tr-review-box"
+          - generic [ref=e142]:
+            - generic [ref=e143]:
+              - generic [ref=e144]:
+                - img [ref=e146]
+                - img [ref=e149]
+                - img [ref=e152]
+                - img [ref=e155]
+                - img [ref=e158]
+              - generic [ref=e160]:
+                - img [ref=e162]
+                - img [ref=e165]
+                - img [ref=e168]
+                - img [ref=e171]
+                - img [ref=e174]
+            - generic [ref=e176]:
+              - generic [ref=e177]: "4.5"
+              - generic [ref=e178]: (
+              - generic [ref=e179]: "4348"
+              - generic [ref=e180]: reviews
+              - generic [ref=e181]: )
+        - generic [ref=e182]:
+          - text: "Voted #1 Toy By Over 1300+ Cat Families"
+          - superscript [ref=e183]: "[1]"
+        - generic [ref=e184]:
+          - generic [ref=e185]:
+            - img [ref=e186]
+            - generic [ref=e187]: International Shipping Available
+          - generic [ref=e188]:
+            - img [ref=e189]
+            - generic [ref=e190]: 30 Day Money Back Guarantee
+          - generic [ref=e191]:
+            - img [ref=e192]
+            - generic [ref=e193]: Buyer Protection
+          - generic [ref=e194]:
+            - img [ref=e195]
+            - generic [ref=e196]: Premium Quality Materials
+        - generic [ref=e197]:
+          - generic [ref=e198]:
+            - generic [ref=e200]:
+              - paragraph [ref=e201]: BUY 1
+              - paragraph [ref=e202]: And
+              - paragraph [ref=e203]: GET 1 FREE
+            - img "Kitty Kurlz™ [BUY 1 GET 1 FREE]" [ref=e205]
+            - button "What's Included?" [ref=e208] [cursor=pointer]:
+              - img [ref=e210]
+              - paragraph [ref=e214]: What's Included?
+            - img [ref=e216]
+          - generic [ref=e218]:
+            - generic [ref=e220]:
+              - paragraph [ref=e221]: BUY 2
+              - paragraph [ref=e222]: And
+              - paragraph [ref=e223]: GET 2 FREE
+            - img "Kitty Kurlz™ [BUY 2 GET 2 FREE]" [ref=e225]
+            - button "What's Included?" [ref=e228] [cursor=pointer]:
+              - img [ref=e230]
+              - paragraph [ref=e234]: What's Included?
+            - img [ref=e236]
+        - generic [ref=e241]:
+          - button "Add to cart" [ref=e242] [cursor=pointer]:
+            - generic [ref=e243]: Add to cart
+          - link "More payment options" [ref=e247] [cursor=pointer]:
+            - /url: "#"
+    - generic [ref=e252]:
+      - generic [ref=e254]:
+        - button "Volume down" [ref=e259] [cursor=pointer]:
+          - img "Volume down" [ref=e260]
+        - button "Volume down" [ref=e265] [cursor=pointer]:
+          - img "Volume down" [ref=e266]
+        - button "Volume down" [ref=e271] [cursor=pointer]:
+          - img "Volume down" [ref=e272]
+        - button "Volume down" [ref=e277] [cursor=pointer]:
+          - img "Volume down" [ref=e278]
+        - button "Volume down" [ref=e283] [cursor=pointer]:
+          - img "Volume down" [ref=e284]
+        - button "Volume down" [ref=e289] [cursor=pointer]:
+          - img "Volume down" [ref=e290]
+        - button "Volume down" [ref=e295] [cursor=pointer]:
+          - img "Volume down" [ref=e296]
+        - button "Volume down" [ref=e301] [cursor=pointer]:
+          - img "Volume down" [ref=e302]
+        - button "Volume down" [ref=e307] [cursor=pointer]:
+          - img "Volume down" [ref=e308]
+        - button "Volume down" [ref=e313] [cursor=pointer]:
+          - img "Volume down" [ref=e314]
+        - button "Volume down" [ref=e319] [cursor=pointer]:
+          - img "Volume down" [ref=e320]
+        - button "Volume down" [ref=e325] [cursor=pointer]:
+          - img "Volume down" [ref=e326]
+        - button "Volume down" [ref=e331] [cursor=pointer]:
+          - img "Volume down" [ref=e332]
+        - button "Volume down" [ref=e337] [cursor=pointer]:
+          - img "Volume down" [ref=e338]
+        - button "Volume down" [ref=e343] [cursor=pointer]:
+          - img "Volume down" [ref=e344]
+        - button "Volume down" [ref=e349] [cursor=pointer]:
+          - img "Volume down" [ref=e350]
+        - button "Volume down" [ref=e355] [cursor=pointer]:
+          - img "Volume down" [ref=e356]
+        - button "Volume down" [ref=e361] [cursor=pointer]:
+          - img "Volume down" [ref=e362]
+        - button "Volume down" [ref=e367] [cursor=pointer]:
+          - img "Volume down" [ref=e368]
+        - button "Volume down" [ref=e373] [cursor=pointer]:
+          - img "Volume down" [ref=e374]
+        - button "Volume down" [ref=e379] [cursor=pointer]:
+          - img "Volume down" [ref=e380]
+      - generic [ref=e382]:
+        - button "Previous item" [ref=e383] [cursor=pointer]:
+          - img [ref=e384]
+        - button "Next item" [ref=e386] [cursor=pointer]:
+          - img [ref=e387]
+    - generic [ref=e391]:
+      - generic [ref=e392]:
+        - heading "We couldn't find a toy that wouldn't bore cats..." [level=2] [ref=e393]
+        - generic [ref=e394]: So We Built One!
+      - list [ref=e396]:
+        - listitem [ref=e397]:
+          - generic [ref=e399]:
+            - heading "Shape Shifting" [level=3] [ref=e400]
+            - generic [ref=e401]: Your cat will twist, flip, spin, scratch and pounce at it for hours
+        - listitem [ref=e402]:
+          - generic [ref=e404]:
+            - heading "Ball Track" [level=3] [ref=e405]
+            - generic [ref=e406]: A circular never ending ball track that never falls out.
+        - listitem [ref=e407]:
+          - generic [ref=e409]:
+            - heading "Designed to Last" [level=3] [ref=e410]
+            - generic [ref=e411]: Safe on paws and made with double corrugated cardboard.
+        - listitem [ref=e412]:
+          - generic [ref=e414]:
+            - heading "30 Day Money Back Guarantee!" [level=3] [ref=e415]
+            - generic [ref=e416]: No worries! Shop with confidence.
+    - generic [ref=e423]:
+      - generic [ref=e424]:
+        - heading "+7500 Units Sold" [level=2] [ref=e425]
+        - generic [ref=e426]: Pet-Parents love the all-in-one design. A scratcher, ball track, shape-shifter and even a cozy bed.
+      - list [ref=e428]:
+        - listitem [ref=e429]:
+          - generic [ref=e433]:
+            - heading "Long-Lasting" [level=3] [ref=e434]:
+              - img [ref=e436]
+              - text: Long-Lasting
+            - generic [ref=e438]: The reversible design doubles the scratching surface, providing more fun and lasting 6 times longer than knock offs.
+        - listitem [ref=e439]:
+          - generic [ref=e443]:
+            - heading "Stress-Relieving" [level=3] [ref=e444]:
+              - img [ref=e446]
+              - text: Stress-Relieving
+            - generic [ref=e450]: Shown to reduce stress and promote alpha brainwave activity with puzzle-based stimulation.
+        - listitem [ref=e451]:
+          - generic [ref=e455]:
+            - heading "Non-Toxic (Organic Materials)" [level=3] [ref=e456]:
+              - img [ref=e458]
+              - text: Non-Toxic (Organic Materials)
+            - generic [ref=e460]: Safe for cats with no added chemicals. 100% Eco-friendly.
+    - generic [ref=e465]:
+      - heading "Frequently Asked" [level=2] [ref=e467]
+      - generic [ref=e468]:
+        - figure "Play 0 Mute" [ref=e471]:
+          - generic [ref=e473]:
+            - button "Play" [ref=e474] [cursor=pointer]: ►
+            - progressbar [ref=e475]: Progress
+            - button "Mute" [ref=e476] [cursor=pointer]:
+              - text: 
+              - generic [ref=e478]: 
+        - generic [ref=e479]:
+          - group [ref=e481]:
+            - button "How many should I get?" [ref=e482] [cursor=pointer]:
+              - heading "How many should I get?" [level=3] [ref=e483]
+              - img [ref=e485]
+          - group [ref=e487]:
+            - button "What's included inside?" [ref=e488] [cursor=pointer]:
+              - heading "What's included inside?" [level=3] [ref=e489]
+              - img [ref=e491]
+          - group [ref=e493]:
+            - button "How long is shipping?" [ref=e494] [cursor=pointer]:
+              - heading "How long is shipping?" [level=3] [ref=e495]
+              - img [ref=e497]
+          - group [ref=e499]:
+            - button "Do you offer refunds?" [ref=e500] [cursor=pointer]:
+              - heading "Do you offer refunds?" [level=3] [ref=e501]
+              - img [ref=e503]
+          - group [ref=e505]:
+            - button "Do you offer free shipping?" [ref=e506] [cursor=pointer]:
+              - heading "Do you offer free shipping?" [level=3] [ref=e507]
+              - img [ref=e509]
+  - contentinfo [ref=e511]:
+    - generic [ref=e513]:
+      - generic [ref=e514]:
+        - heading "Info" [level=2] [ref=e515]
+        - list [ref=e516]:
+          - listitem [ref=e517]:
+            - link "Home" [ref=e518] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e519]:
+            - link "Marlene's Selection" [ref=e520] [cursor=pointer]:
+              - /url: /collections/marlenes-top-picks-2024
+          - listitem [ref=e521]:
+            - link "Ask Marlene" [ref=e522] [cursor=pointer]:
+              - /url: /pages/contact
+      - generic [ref=e523]:
+        - heading "Legal" [level=2] [ref=e524]
+        - list [ref=e525]:
+          - listitem [ref=e526]:
+            - link "Terms of Service" [ref=e527] [cursor=pointer]:
+              - /url: /policies/terms-of-service
+          - listitem [ref=e528]:
+            - link "Shipping Policy" [ref=e529] [cursor=pointer]:
+              - /url: /policies/shipping-policy
+          - listitem [ref=e530]:
+            - link "Privacy Policy" [ref=e531] [cursor=pointer]:
+              - /url: /policies/privacy-policy
+          - listitem [ref=e532]:
+            - link "Refund Policy" [ref=e533] [cursor=pointer]:
+              - /url: /policies/refund-policy
+      - generic [ref=e534]:
+        - heading "Social Media" [level=2] [ref=e535]
+        - list [ref=e536]:
+          - listitem [ref=e537]:
+            - link "Facebook" [ref=e538] [cursor=pointer]:
+              - /url: https://facebook.com/marlenespetshop
+          - listitem [ref=e539]:
+            - link "Instagram" [ref=e540] [cursor=pointer]:
+              - /url: https://instagram.com/marlenespetshop
+      - generic [ref=e542]:
+        - generic:
+          - paragraph
+        - heading "Join to us!" [level=2] [ref=e543]
+        - list [ref=e544]:
+          - listitem [ref=e545]:
+            - link "Facebook" [ref=e546] [cursor=pointer]:
+              - /url: https://facebook.com/marlenespetshop
+              - img [ref=e547]
+              - generic [ref=e550]: Facebook
+          - listitem [ref=e551]:
+            - link "Instagram" [ref=e552] [cursor=pointer]:
+              - /url: https://instagram.com/marlenespetshop
+              - img [ref=e553]
+              - generic [ref=e555]: Instagram
+    - generic [ref=e557]:
+      - img [ref=e559]
+      - generic [ref=e563]:
+        - text: © 2026
+        - link "Marlene's Pet Shop" [ref=e564] [cursor=pointer]:
+          - /url: /
+        - text: . All rights reserved.
+  - generic [ref=e566]:
+    - generic [ref=e568]:
+      - img "Kitty Kurlz™ [BUY 1 GET 1 FREE]" [ref=e570]
+      - generic [ref=e571]:
+        - heading "Kitty Kurlz™ [BUY 1 GET 1 FREE]" [level=3] [ref=e573]
+        - paragraph [ref=e575]: 741 000 UZS 371 000 UZS
+      - button "Bundles" [ref=e577] [cursor=pointer]:
+        - generic [ref=e578]: Bundles
+        - img [ref=e580]
+    - button "Add to cart" [ref=e584] [cursor=pointer]:
+      - generic [ref=e585]: Add to cart
+      - img [ref=e587]

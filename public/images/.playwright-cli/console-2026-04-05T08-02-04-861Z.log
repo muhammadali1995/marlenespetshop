@@ -1,0 +1,17 @@
+[    1661ms] TypeError: Cannot read properties of null (reading 'addEventListener')
+    at new <anonymous> (https://marlenespetshop.com/cdn/shop/t/58/assets/localization-form.js?v=144176611646395275351748924070:1:976)
+    at https://marlenespetshop.com/cdn/shop/t/58/assets/localization-form.js?v=144176611646395275351748924070:1:57
+[    1662ms] TypeError: Cannot read properties of null (reading 'addEventListener')
+    at new <anonymous> (https://marlenespetshop.com/cdn/shop/t/58/assets/localization-form.js?v=144176611646395275351748924070:1:976)
+    at https://marlenespetshop.com/cdn/shop/t/58/assets/localization-form.js?v=144176611646395275351748924070:1:57
+[    2228ms] [WARNING] Klaviyo tracking is disabled. To enable, set the cookie "__kla_off" to false. {is_robot: true, __kla_off: } @ https://static-tracking.klaviyo.com/onsite/js/build-preview/commit-f6f00cac0c842ff6b918911ae9159db809c1b007/fender_analytics.5acc2d4094469e00ec31.js?cb=2:0
+[    3063ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ chrome-error://chromewebdata/:0
+[    3073ms] [ERROR] Framing 'https://shop.app/' violates the following Content Security Policy directive: "frame-ancestors 'self' https://shop.app https://admin.shopify.com". The request has been blocked.
+ @ :0
+[    3063ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ chrome-error://chromewebdata/:0
+[    3615ms] [ERROR] Error producing monorail event MonorailRequestError: Error completing request. A network failure may have prevented the request from completing. Error: TypeError: Failed to fetch. Schemas: shopify_pay_page_load/2.7
+    at D.produce (https://cdn.shopify.com/shopifycloud/arrive-server/pay/vite-pay/assets/AnalyticsProvider-BjWWtAtf.js:1:6470) @ https://cdn.shopify.com/shopifycloud/arrive-server/pay/vite-pay/assets/jsxRuntime.module-HJv6aRiJ.js:0
+[   82915ms] [ERROR] Access to XMLHttpRequest at 'https://a.klaviyo.com/onsite/track-analytics?company_id=YxNcnw' from origin 'https://marlenespetshop.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://marlenespetshop.com/products/kitty-kurlz-the-interactive-mental-physical-exercise-for-cats:0
+[   82919ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://a.klaviyo.com/onsite/track-analytics?company_id=YxNcnw:0
+[   82926ms] [ERROR] Access to XMLHttpRequest at 'https://a.klaviyo.com/onsite/track-analytics?company_id=YxNcnw' from origin 'https://marlenespetshop.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://marlenespetshop.com/products/kitty-kurlz-the-interactive-mental-physical-exercise-for-cats:0
+[   82929ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://a.klaviyo.com/onsite/track-analytics?company_id=YxNcnw:0
