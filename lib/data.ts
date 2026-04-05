@@ -98,6 +98,8 @@ export const socialProofPhotos = [
   "/images/cat-59.jpg",
   "/images/cat-35.jpg",
   "/images/cat-42.jpg",
+  "/images/cat-80.jpg",
+  "/images/cat-33.jpg",
 ];
 
 export const benefitCards = [

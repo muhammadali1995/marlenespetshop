@@ -29,36 +29,26 @@ export default function ReviewsSection() {
 
         {/* Summary row */}
         <div className="flex flex-wrap items-center gap-4 mb-6">
+          <span className="font-bold text-brand-dark text-5xl">{product.rating}</span>
           <StarRating rating={product.rating} size="lg" />
-          <span className="font-bold text-brand-dark text-xl">{product.rating}</span>
           <span className="text-brand-dark/60">
-            ({product.reviewCount.toLocaleString()} reviews)
+            ({product.reviewCount} reviews)
           </span>
-          <button className="ml-auto rounded-full border-2 border-brand-yellow px-5 py-2 text-sm font-semibold text-brand-dark hover:bg-brand-yellow transition-colors">
+          <button className="ml-auto rounded-full bg-brand-yellow px-5 py-2 text-sm font-semibold text-brand-dark hover:brightness-95 transition-all">
             Write a review
           </button>
         </div>
 
         {/* Filter bar */}
-        <div className="flex flex-wrap items-center gap-3 mb-8">
-          <div className="flex items-center gap-2 border border-brand-dark/20 rounded-full px-4 py-2 flex-1 max-w-xs">
-            <span>🔍</span>
-            <input
-              type="text"
-              placeholder="Search reviews..."
-              value={searchQuery}
-              onChange={(e) => {
-                setSearchQuery(e.target.value);
-                setPage(1);
-              }}
-              className="text-sm outline-none text-brand-dark bg-transparent w-full"
-            />
-          </div>
-          <button className="rounded-full border border-brand-dark/20 px-4 py-2 text-sm text-brand-dark hover:border-brand-dark transition-colors">
-            ≡ Rating
+        <div className="flex items-center gap-3 mb-8">
+          <button className="w-9 h-9 rounded-full border border-brand-dark/20 flex items-center justify-center text-brand-dark hover:border-brand-dark transition-colors">
+            🔍
           </button>
-          <button className="rounded-full border border-brand-dark/20 px-4 py-2 text-sm text-brand-dark hover:border-brand-dark transition-colors">
-            ⊟ Photo first
+          <button className="rounded-full border border-brand-dark/20 px-4 py-2 text-sm text-brand-dark hover:border-brand-dark transition-colors flex items-center gap-1.5">
+            <span>≡</span> Rating
+          </button>
+          <button className="rounded-full border border-brand-dark/20 px-4 py-2 text-sm text-brand-dark hover:border-brand-dark transition-colors flex items-center gap-1.5">
+            <span>⊟</span> Photo first
           </button>
         </div>
 
@@ -71,7 +61,7 @@ export default function ReviewsSection() {
             >
               {/* Photo — left column */}
               {review.photo && (
-                <div className="relative w-[38%] flex-shrink-0">
+                <div className="relative w-[43%] flex-shrink-0">
                   <Image src={review.photo} alt="Review photo" fill className="object-cover" />
                 </div>
               )}
@@ -79,14 +69,17 @@ export default function ReviewsSection() {
               {/* Details — right column */}
               <div className="flex-1 p-5 flex flex-col gap-1.5 min-w-0">
                 <StarRating rating={review.rating} size="sm" />
-                <div className="flex items-center gap-1.5 flex-wrap">
-                  <span className="font-semibold text-brand-dark text-sm">{review.name}</span>
-                  <span className="text-sm">{review.flag}</span>
-                  {review.verified && (
-                    <span className="text-xs text-green-600">✓ Verified</span>
-                  )}
+                {/* Name + flag + verified LEFT, date RIGHT — same row */}
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-1 min-w-0">
+                    <span className="font-semibold text-brand-dark text-sm truncate">{review.name}</span>
+                    <span className="text-sm shrink-0">{review.flag}</span>
+                    {review.verified && (
+                      <span className="text-xs text-green-600 shrink-0">✓ Verified</span>
+                    )}
+                  </div>
+                  <span className="text-xs text-brand-dark/40 shrink-0">{review.date}</span>
                 </div>
-                <p className="text-xs text-brand-dark/40">{review.date}</p>
                 <p className="text-brand-dark/70 text-sm leading-relaxed">{review.text}</p>
               </div>
             </div>
