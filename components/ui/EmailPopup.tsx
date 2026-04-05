@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const STORAGE_KEY = "marlenes-popup-dismissed";
@@ -45,11 +46,18 @@ export default function EmailPopup() {
         </button>
 
         <div className="text-center">
-          <p className="font-bold text-2xl text-brand-dark mb-1">Marlene&apos;s</p>
-          <h2 className="text-3xl font-bold text-brand-dark mt-4">
-            You&apos;ve Got 5% OFF!
+          <Image
+            src="/images/marleneslogo.svg"
+            alt="Marlene's"
+            width={110}
+            height={26}
+            className="mx-auto mb-4"
+          />
+          <h2 className="text-[52px] font-black text-brand-dark leading-tight">
+            You&apos;ve Got<br />
+            5% OFF!
           </h2>
-          <p className="text-brand-dark/60 mt-2 mb-6">
+          <p className="text-brand-dark/60 mt-3 mb-6">
             Claim this limited time offer
           </p>
 
@@ -58,9 +66,9 @@ export default function EmailPopup() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
+              placeholder="Enter your email address"
               required
-              className="w-full rounded-full border border-brand-dark/20 px-5 py-3 text-brand-dark outline-none focus:border-brand-yellow"
+              className="w-full rounded-full border border-brand-dark/30 px-5 py-3 text-brand-dark outline-none focus:border-brand-dark"
             />
             <button
               type="submit"

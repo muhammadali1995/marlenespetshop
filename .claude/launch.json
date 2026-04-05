@@ -4,7 +4,10 @@
     {
       "name": "Next.js Dev",
       "runtimeExecutable": "/opt/homebrew/bin/node",
-      "runtimeArgs": ["/opt/homebrew/bin/npm", "run", "dev"],
+      "runtimeArgs": ["/Users/mukhammadalitoshpulatov/projects/lance/marlenespetshop/node_modules/.bin/next", "dev", "--webpack"],
+      "env": {
+        "PATH": "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"
+      },
       "port": 3003,
       "autoPort": true
     }

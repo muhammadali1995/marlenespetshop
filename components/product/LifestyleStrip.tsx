@@ -1,59 +1,96 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 interface LifestyleStripProps {
   photos: string[];
 }
 
 export default function LifestyleStrip({ photos }: LifestyleStripProps) {
-  const ref = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(2); // start centered on 3rd photo
 
   function scroll(dir: "left" | "right") {
-    if (!ref.current) return;
-    ref.current.scrollBy({ left: dir === "right" ? 320 : -320, behavior: "smooth" });
+    if (!containerRef.current) return;
+    containerRef.current.scrollBy({ left: dir === "right" ? 260 : -260, behavior: "smooth" });
   }
 
-  return (
-    <div className="relative w-full my-10">
-      {/* Left arrow */}
-      <button
-        onClick={() => scroll("left")}
-        className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-brand-dark hover:bg-brand-grey-card transition-colors"
-        aria-label="Scroll left"
-      >
-        ‹
-      </button>
+  const updateActive = useCallback(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const center = el.scrollLeft + el.clientWidth / 2;
+    const items = el.querySelectorAll<HTMLElement>("[data-photo]");
+    let closest = 0;
+    let minDist = Infinity;
+    items.forEach((item, i) => {
+      const itemCenter = item.offsetLeft + item.offsetWidth / 2;
+      const dist = Math.abs(center - itemCenter);
+      if (dist < minDist) { minDist = dist; closest = i; }
+    });
+    setActiveIndex(closest);
+  }, []);
 
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    // Scroll to show 3rd photo centered on mount
+    const items = el.querySelectorAll<HTMLElement>("[data-photo]");
+    if (items[2]) {
+      el.scrollLeft = items[2].offsetLeft - el.clientWidth / 2 + items[2].offsetWidth / 2;
+    }
+    el.addEventListener("scroll", updateActive, { passive: true });
+    return () => el.removeEventListener("scroll", updateActive);
+  }, [updateActive]);
+
+  return (
+    <div className="w-full my-10">
       {/* Photos */}
       <div
-        ref={ref}
-        className="flex gap-3 overflow-x-auto no-scrollbar px-14"
+        ref={containerRef}
+        className="flex gap-3 overflow-x-auto no-scrollbar px-6 items-center"
       >
-        {photos.map((src, i) => (
-          <div
-            key={i}
-            className="flex-shrink-0 relative h-64 w-48 sm:h-80 sm:w-60 rounded-xl overflow-hidden bg-brand-grey-card"
-          >
-            <Image
-              src={src}
-              alt={`Lifestyle photo ${i + 1}`}
-              fill
-              className="object-cover"
-            />
-          </div>
-        ))}
+        {photos.map((src, i) => {
+          const isActive = i === activeIndex;
+          return (
+            <div
+              key={i}
+              data-photo
+              className="flex-shrink-0 relative rounded-xl overflow-hidden bg-brand-grey-card transition-all duration-300"
+              style={{
+                width: isActive ? "15rem" : "12rem",
+                height: isActive ? "20rem" : "16rem",
+                transform: isActive ? "scale(1)" : "scale(0.9)",
+              }}
+            >
+              <Image
+                src={src}
+                alt={`Lifestyle photo ${i + 1}`}
+                fill
+                className="object-cover"
+              />
+            </div>
+          );
+        })}
       </div>
 
-      {/* Right arrow */}
-      <button
-        onClick={() => scroll("right")}
-        className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-brand-dark hover:bg-brand-grey-card transition-colors"
-        aria-label="Scroll right"
-      >
-        ›
-      </button>
+      {/* Navigation arrows — below, centered */}
+      <div className="flex items-center justify-center gap-4 mt-4">
+        <button
+          onClick={() => scroll("left")}
+          className="w-8 h-8 rounded-full border border-brand-dark/20 flex items-center justify-center text-brand-dark hover:bg-brand-grey-card transition-colors text-lg"
+          aria-label="Scroll left"
+        >
+          ←
+        </button>
+        <button
+          onClick={() => scroll("right")}
+          className="w-8 h-8 rounded-full border border-brand-dark/20 flex items-center justify-center text-brand-dark hover:bg-brand-grey-card transition-colors text-lg"
+          aria-label="Scroll right"
+        >
+          →
+        </button>
+      </div>
     </div>
   );
 }

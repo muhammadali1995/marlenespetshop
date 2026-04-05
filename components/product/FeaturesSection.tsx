@@ -6,7 +6,7 @@ export default function FeaturesSection() {
       <div className="mx-auto max-w-[1440px]">
         {/* Heading row */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-10">
-          <p className="text-brand-dark text-xl font-medium max-w-xs">
+          <p className="text-brand-dark text-xl font-medium">
             We couldn&apos;t find a toy that wouldn&apos;t bore cats...
           </p>
           <h2 className="text-3xl sm:text-4xl font-black text-brand-dark sm:text-right">
@@ -23,8 +23,8 @@ export default function FeaturesSection() {
                 i === 3 ? "lg:col-span-1" : ""
               }`}
             >
-              <h3 className="font-bold text-brand-dark text-lg mb-1">{f.title}</h3>
-              <p className="text-brand-dark/70 text-sm leading-relaxed">
+              <h3 className="font-bold text-brand-dark text-lg mb-1 text-center">{f.title}</h3>
+              <p className="text-brand-dark/70 text-sm leading-relaxed text-center">
                 {f.description}
               </p>
             </div>

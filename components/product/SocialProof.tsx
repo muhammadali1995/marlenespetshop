@@ -10,7 +10,7 @@ export default function SocialProof() {
           {socialProofPhotos.map((src, i) => (
             <div
               key={i}
-              className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-md -ml-3 first:ml-0 bg-brand-grey-card"
+              className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-md -ml-5 first:ml-0 bg-brand-grey-card"
               style={{ zIndex: socialProofPhotos.length - i }}
             >
               <Image src={src} alt={`Happy cat ${i + 1}`} fill className="object-cover" />
