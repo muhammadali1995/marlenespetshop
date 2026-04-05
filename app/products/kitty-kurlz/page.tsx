@@ -25,8 +25,8 @@ export default function KittyKurlzPage() {
 
       <main className="pb-24">
         {/* Hero — 2-column grid */}
-        <section className="mx-auto max-w-[1440px] px-6 py-10">
-          <div className="grid grid-cols-1 lg:grid-cols-[55%_1fr] gap-8 lg:gap-12">
+        <section className="mx-auto max-w-[1440px] px-6 pb-10">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-8 lg:gap-12">
             {/* Left: Image Gallery */}
             <ImageGallery images={product.images} />
 

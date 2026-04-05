@@ -1,92 +1,103 @@
 "use client";
 
-import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+function useIsMobile() {
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+  return mobile;
+}
 
 interface LifestyleStripProps {
   photos: string[];
 }
 
+function MuteIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+      <line x1="23" y1="9" x2="17" y2="15" />
+      <line x1="17" y1="9" x2="23" y2="15" />
+    </svg>
+  );
+}
+
 export default function LifestyleStrip({ photos }: LifestyleStripProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(2); // start centered on 3rd photo
-
-  function scroll(dir: "left" | "right") {
-    if (!containerRef.current) return;
-    containerRef.current.scrollBy({ left: dir === "right" ? 260 : -260, behavior: "smooth" });
-  }
-
-  const updateActive = useCallback(() => {
-    const el = containerRef.current;
-    if (!el) return;
-    const center = el.scrollLeft + el.clientWidth / 2;
-    const items = el.querySelectorAll<HTMLElement>("[data-photo]");
-    let closest = 0;
-    let minDist = Infinity;
-    items.forEach((item, i) => {
-      const itemCenter = item.offsetLeft + item.offsetWidth / 2;
-      const dist = Math.abs(center - itemCenter);
-      if (dist < minDist) { minDist = dist; closest = i; }
-    });
-    setActiveIndex(closest);
-  }, []);
+  const [activeIndex, setActiveIndex] = useState(2);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-    // Scroll to show 3rd photo centered on mount
-    const items = el.querySelectorAll<HTMLElement>("[data-photo]");
-    if (items[2]) {
-      el.scrollLeft = items[2].offsetLeft - el.clientWidth / 2 + items[2].offsetWidth / 2;
-    }
-    el.addEventListener("scroll", updateActive, { passive: true });
-    return () => el.removeEventListener("scroll", updateActive);
-  }, [updateActive]);
+    videoRefs.current.forEach((video, i) => {
+      if (!video) return;
+      if (i === 2) { // offset 0 = center = active
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+        video.currentTime = 0;
+      }
+    });
+  }, [activeIndex]);
+
+  function prev() {
+    setActiveIndex((i) => (i - 1 + photos.length) % photos.length);
+  }
+  function next() {
+    setActiveIndex((i) => (i + 1) % photos.length);
+  }
+
+  const isMobile = useIsMobile();
+  const offsets = isMobile ? [-1, 0, 1] : [-2, -1, 0, 1, 2];
+  const W = isMobile ? 160 : 260;
+  const H_active = isMobile ? 270 : 434;
+  const H_inactive = isMobile ? 200 : 317;
 
   return (
     <div className="w-full my-10">
-      {/* Photos */}
-      <div
-        ref={containerRef}
-        className="flex gap-3 overflow-x-auto no-scrollbar px-6 items-center"
-      >
-        {photos.map((src, i) => {
-          const isActive = i === activeIndex;
+      {/* 5-card strip — center is always active */}
+      <div className="flex items-center justify-center gap-3 overflow-hidden">
+        {offsets.map((offset, i) => {
+          const isActive = offset === 0;
           return (
             <div
-              key={i}
-              data-photo
-              className="flex-shrink-0 relative rounded-xl overflow-hidden bg-brand-grey-card transition-all duration-300"
-              style={{
-                width: isActive ? "15rem" : "12rem",
-                height: isActive ? "20rem" : "16rem",
-                transform: isActive ? "scale(1)" : "scale(0.9)",
-              }}
+              key={offset}
+              className="shrink-0 relative rounded-2xl overflow-hidden bg-brand-grey-card transition-all duration-300"
+              style={{ width: W, height: isActive ? H_active : H_inactive }}
             >
-              <Image
-                src={src}
-                alt={`Lifestyle photo ${i + 1}`}
-                fill
-                className="object-cover"
+              <video
+                ref={(el) => { videoRefs.current[i] = el; }}
+                src="/video.mp4"
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
               />
+              {/* Sound icon — bottom right */}
+              <div className="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-black/40 flex items-center justify-center text-white">
+                <MuteIcon />
+              </div>
             </div>
           );
         })}
       </div>
 
-      {/* Navigation arrows — below, centered */}
+      {/* Navigation arrows */}
       <div className="flex items-center justify-center gap-4 mt-4">
         <button
-          onClick={() => scroll("left")}
-          className="w-8 h-8 rounded-full border border-brand-dark/20 flex items-center justify-center text-brand-dark hover:bg-brand-grey-card transition-colors text-lg"
-          aria-label="Scroll left"
+          onClick={prev}
+          className="w-12 h-12 rounded-full flex items-center justify-center text-brand-dark hover:bg-brand-grey-card transition-colors text-2xl"
+          aria-label="Previous"
         >
           ←
         </button>
         <button
-          onClick={() => scroll("right")}
-          className="w-8 h-8 rounded-full border border-brand-dark/20 flex items-center justify-center text-brand-dark hover:bg-brand-grey-card transition-colors text-lg"
-          aria-label="Scroll right"
+          onClick={next}
+          className="w-12 h-12 rounded-full flex items-center justify-center text-brand-dark hover:bg-brand-grey-card transition-colors text-2xl"
+          aria-label="Next"
         >
           →
         </button>
