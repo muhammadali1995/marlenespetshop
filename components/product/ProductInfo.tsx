@@ -33,7 +33,7 @@ export default function ProductInfo() {
   return (
     <div className="flex flex-col gap-5">
       {/* Title + Price on same row */}
-      <div className="flex items-start justify-between gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
         <h1 className="text-[38px] font-bold text-brand-dark leading-tight">
           {product.name}
         </h1>
@@ -48,7 +48,7 @@ export default function ProductInfo() {
       </div>
 
       {/* Rating */}
-      <div className="flex flex-wrap items-center gap-2">
+      <div className="flex flex-wrap items-center gap-3">
         <StarRating rating={product.rating} />
         <span className="font-semibold text-brand-dark">{product.rating}</span>
         <a href="#reviews" className="text-brand-dark/60 hover:underline text-sm">

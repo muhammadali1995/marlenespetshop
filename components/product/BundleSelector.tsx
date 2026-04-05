@@ -10,36 +10,33 @@ interface BundleSelectorProps {
 
 export default function BundleSelector({ selected, onChange }: BundleSelectorProps) {
   return (
-    <div className="grid grid-cols-2 gap-3">
+    <div className="flex gap-3 justify-center">
       {bundles.map((bundle) => {
         const isSelected = selected === bundle.id;
         return (
           <button
             key={bundle.id}
             onClick={() => onChange(bundle.id)}
-            className={`flex flex-col rounded-2xl border-2 transition-all ${
+            className={`relative w-[110px] h-[160px] sm:w-[140px] sm:h-[200px] rounded-2xl border-2 overflow-hidden transition-all ${
               isSelected
                 ? "border-brand-yellow shadow-md"
                 : "border-brand-grey-card opacity-70 hover:opacity-90"
             }`}
           >
-            {/* Bundle image — text already baked in */}
-            <div className="relative w-full rounded-t-2xl overflow-hidden" style={{ aspectRatio: "1/1" }}>
-              <Image
-                src={bundle.image}
-                alt={bundle.label}
-                fill
-                className="object-cover object-top"
-              />
-            </div>
+            {/* Bundle image — fills entire card */}
+            <Image
+              src={bundle.image}
+              alt={bundle.label}
+              fill
+              className="object-cover object-top"
+            />
 
-            {/* What's included */}
-            <div
-              className={`w-full py-2 rounded-b-2xl text-xs underline text-center ${
-                isSelected ? "bg-brand-yellow/30 text-brand-dark/70" : "bg-brand-grey-card text-brand-dark/50"
-              }`}
-            >
-              What&apos;s Included?
+            {/* What's included — overlaid at bottom */}
+            <div className="absolute bottom-3 inset-x-0 flex justify-center">
+              <span className="flex items-center gap-1.5 bg-white rounded-full px-3 py-1.5 text-[11px] font-semibold text-brand-dark shadow-sm">
+                <span className="flex items-center justify-center w-4 h-4 rounded-full border border-brand-dark text-[9px] font-bold shrink-0">?</span>
+                What&apos;s Included?
+              </span>
             </div>
           </button>
         );

@@ -29,22 +29,33 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
             key={i}
             className="relative aspect-square rounded-xl overflow-hidden bg-brand-grey-card"
           >
-            <Image
-              src={src}
-              alt={`Product image ${activeIndex + i + 1}`}
-              fill
-              className="object-cover"
-              priority={i === 0}
-            />
+            {i === 1 ? (
+              <video
+                src="/video.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            ) : (
+              <Image
+                src={src}
+                alt={`Product image ${activeIndex + i + 1}`}
+                fill
+                className="object-cover"
+                priority
+              />
+            )}
           </div>
         ))}
       </div>
 
       {/* Thumbnail strip */}
-      <div className="relative flex items-center gap-2">
+      <div className="relative flex items-center gap-2" style={{ width: '-webkit-fill-available' }}>
         <button
           onClick={prev}
-          className="flex-shrink-0 w-8 h-8 rounded-full border border-brand-dark/20 flex items-center justify-center text-brand-dark hover:bg-brand-grey-card transition-colors"
+          className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-brand-dark hover:bg-brand-grey-card transition-colors"
           aria-label="Previous"
         >
           ‹
@@ -55,19 +66,28 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
             <button
               key={i}
               onClick={() => setActiveIndex(i)}
-              className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-colors ${
+              className={`flex-none w-[calc((100%-32px)/5)] aspect-square rounded-lg overflow-hidden border-2 transition-colors ${
                 i === activeIndex
                   ? "border-brand-yellow"
                   : "border-transparent"
               }`}
             >
               <div className="relative w-full h-full bg-brand-grey-card">
-                <Image
-                  src={src}
-                  alt={`Thumbnail ${i + 1}`}
-                  fill
-                  className="object-cover"
-                />
+                {i === 1 ? (
+                  <video
+                    src="/video.mp4"
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <Image
+                    src={src}
+                    alt={`Thumbnail ${i + 1}`}
+                    fill
+                    className="object-cover"
+                  />
+                )}
               </div>
             </button>
           ))}
@@ -75,7 +95,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
 
         <button
           onClick={next}
-          className="flex-shrink-0 w-8 h-8 rounded-full border border-brand-dark/20 flex items-center justify-center text-brand-dark hover:bg-brand-grey-card transition-colors"
+          className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-brand-dark hover:bg-brand-grey-card transition-colors"
           aria-label="Next"
         >
           ›

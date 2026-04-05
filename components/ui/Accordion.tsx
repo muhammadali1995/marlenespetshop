@@ -16,7 +16,7 @@ export default function Accordion({ items }: AccordionProps) {
   const [openId, setOpenId] = useState<string | null>(null);
 
   return (
-    <div className="divide-y divide-brand-dark/10">
+    <div className="flex flex-col">
       {items.map((item) => {
         const isOpen = openId === item.id;
         return (

@@ -22,18 +22,6 @@ function CartIcon() {
   );
 }
 
-function SearchIcon() {
-  return (
-    <svg width="18" height="19" viewBox="0 0 18 19" fill="none">
-      <path
-        fillRule="evenodd" clipRule="evenodd"
-        d="M11.03 11.68A5.784 5.784 0 112.85 3.5a5.784 5.784 0 018.18 8.18zm.26 1.12a6.78 6.78 0 11.72-.7l5.4 5.4a.5.5 0 11-.71.7l-5.41-5.4z"
-        fill="currentColor"
-      />
-    </svg>
-  );
-}
-
 function HamburgerIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -324,37 +312,27 @@ export default function Header() {
 
           {/* Right actions — grid-area "icons", justify-self end */}
           <div
-            className="flex items-center gap-3 shrink-0 ml-auto min-[990px]:ml-0 min-[990px]:justify-self-end"
+            className="flex items-center gap-[40px] shrink-0 ml-auto min-[990px]:ml-0 min-[990px]:justify-self-end"
             style={{ gridArea: 'icons' }}
           >
-
-            {/* Currency selector — desktop only (990px+) */}
-            <button className="hidden min-[990px]:flex items-center gap-[6.25px] tracking-[0.5px] hover:opacity-70 transition-opacity">
-              <GlobeIcon />
-              <span>USD $</span>
-              <ChevronDown />
-            </button>
-
-            {/* Language selector — desktop only (990px+) */}
-            <button className="hidden min-[990px]:flex items-center gap-[6.25px] tracking-[0.5px] hover:opacity-70 transition-opacity">
-              <img
-                src="/images/flag-us.svg"
-                alt="English"
-                width={20}
-                height={20}
-                className="rounded-full object-cover w-5 h-5"
-              />
-              <span>English</span>
-              <ChevronDown />
-            </button>
-
-            {/* Search — desktop only */}
-            <button
-              className="hidden min-[990px]:flex hover:opacity-70 transition-opacity"
-              aria-label="Search"
-            >
-              <SearchIcon />
-            </button>
+            <div className="hidden min-[990px]:flex items-center gap-[40px]">
+              <button className="flex items-center gap-[6.25px] tracking-[0.5px] hover:opacity-70 transition-opacity">
+                <GlobeIcon />
+                <span>USD $</span>
+                <ChevronDown />
+              </button>
+              <button className="flex items-center gap-[6.25px] tracking-[0.5px] hover:opacity-70 transition-opacity">
+                <img
+                  src="/images/flag-us.svg"
+                  alt="English"
+                  width={20}
+                  height={20}
+                  className="rounded-full object-cover w-5 h-5"
+                />
+                <span>English</span>
+                <ChevronDown />
+              </button>
+            </div>
 
             {/* Cart */}
             <button

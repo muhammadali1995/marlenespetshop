@@ -19,7 +19,7 @@ function CartItemRow({ item }: { item: CartItem }) {
   return (
     <div className="rounded-2xl border border-brand-dark/10 p-4 flex gap-3">
       {/* Bundle image */}
-      <div className="relative w-28 h-28 rounded-xl overflow-hidden flex-shrink-0 bg-brand-grey-card">
+      <div className="relative w-20 h-20 sm:w-28 sm:h-28 rounded-xl overflow-hidden flex-shrink-0 bg-brand-grey-card">
         <Image src={item.image} alt={item.name} fill className="object-cover" />
       </div>
 
@@ -91,7 +91,7 @@ export default function CartDrawer({ open, onClose }: CartDrawerProps) {
 
       {/* Drawer panel */}
       <div
-        className={`fixed top-0 right-0 bottom-0 z-[70] w-full max-w-[480px] bg-white flex flex-col shadow-2xl transition-transform duration-300 ${
+        className={`fixed top-0 right-0 bottom-0 z-[70] w-[calc(100vw-32px)] max-w-[480px] bg-white flex flex-col shadow-2xl transition-transform duration-300 ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
