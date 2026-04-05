@@ -1,0 +1,440 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Marlene's" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "Marlene's" [ref=e5]
+      - navigation [ref=e6]:
+        - link "Home" [ref=e7] [cursor=pointer]:
+          - /url: /
+        - link "Marlene's Selection" [ref=e8] [cursor=pointer]:
+          - /url: "#"
+        - link "Ask Marlene" [ref=e9] [cursor=pointer]:
+          - /url: "#"
+        - link "Track Your Package" [ref=e10] [cursor=pointer]:
+          - /url: "#"
+      - generic [ref=e11]:
+        - generic [ref=e12]:
+          - button "🇺🇿 UZS so'm ▾" [ref=e13]
+          - button "🇺🇸 English ▾" [ref=e14]
+        - button "Open cart" [ref=e15]:
+          - img [ref=e16]
+  - main [ref=e19]:
+    - generic [ref=e21]:
+      - generic [ref=e22]:
+        - generic [ref=e23]:
+          - img "Product image 1" [ref=e25]
+          - img "Product image 2" [ref=e27]
+        - generic [ref=e28]:
+          - button "Previous" [ref=e29]: ‹
+          - generic [ref=e30]:
+            - button "Thumbnail 1" [ref=e31]:
+              - img "Thumbnail 1" [ref=e33]
+            - button "Thumbnail 2" [ref=e34]:
+              - img "Thumbnail 2" [ref=e36]
+            - button "Thumbnail 3" [ref=e37]:
+              - img "Thumbnail 3" [ref=e39]
+            - button "Thumbnail 4" [ref=e40]:
+              - img "Thumbnail 4" [ref=e42]
+            - button "Thumbnail 5" [ref=e43]:
+              - img "Thumbnail 5" [ref=e45]
+            - button "Thumbnail 6" [ref=e46]:
+              - img "Thumbnail 6" [ref=e48]
+          - button "Next" [ref=e49]: ›
+      - generic [ref=e50]:
+        - generic [ref=e51]:
+          - heading "Kitty Kurlz™" [level=1] [ref=e52]
+          - generic [ref=e53]:
+            - generic [ref=e54]: 371 000 UZS
+            - generic [ref=e55]: 742 000 UZS
+          - generic [ref=e56]:
+            - generic "4.5 out of 5 stars" [ref=e57]:
+              - generic [ref=e58]:
+                - text: ★
+                - generic [ref=e59]: ★
+              - generic [ref=e60]:
+                - text: ★
+                - generic [ref=e61]: ★
+              - generic [ref=e62]:
+                - text: ★
+                - generic [ref=e63]: ★
+              - generic [ref=e64]:
+                - text: ★
+                - generic [ref=e65]: ★
+              - generic [ref=e66]:
+                - text: ★
+                - generic [ref=e67]: ★
+            - generic [ref=e68]: "4.5"
+            - link "(4,348 reviews)" [ref=e69] [cursor=pointer]:
+              - /url: "#reviews"
+          - paragraph [ref=e70]:
+            - text: "Voted #1 Toy By Over 1300+ Cat Families"
+            - superscript [ref=e71]: "[1]"
+          - generic [ref=e72]:
+            - generic [ref=e73]:
+              - img [ref=e75]
+              - generic [ref=e80]: INTERNATIONAL SHIPPING AVAILABLE
+            - generic [ref=e81]:
+              - img [ref=e83]
+              - generic [ref=e86]: 30 DAY MONEY BACK GUARANTEE
+            - generic [ref=e87]:
+              - img [ref=e89]
+              - generic [ref=e91]: BUYER PROTECTION
+            - generic [ref=e92]:
+              - img [ref=e94]
+              - generic [ref=e96]: PREMIUM QUALITY MATERIALS
+        - generic [ref=e97]:
+          - button "BUY 1 What's Included?" [ref=e98]:
+            - img "BUY 1" [ref=e100]
+            - generic [ref=e101]: What's Included?
+          - button "BUY 2 What's Included?" [ref=e102]:
+            - img "BUY 2" [ref=e104]
+            - generic [ref=e105]: What's Included?
+        - generic [ref=e106]:
+          - button "Add to cart" [ref=e107]
+          - button "Buy with shop" [ref=e108]:
+            - text: Buy with
+            - generic [ref=e109]: shop
+          - button "More payment options" [ref=e110]
+    - generic [ref=e111]:
+      - button "Scroll left" [ref=e112]: ‹
+      - generic [ref=e113]:
+        - img "Lifestyle photo 1" [ref=e115]
+        - img "Lifestyle photo 2" [ref=e117]
+        - img "Lifestyle photo 3" [ref=e119]
+        - img "Lifestyle photo 4" [ref=e121]
+        - img "Lifestyle photo 5" [ref=e123]
+        - img "Lifestyle photo 6" [ref=e125]
+        - img "Lifestyle photo 7" [ref=e127]
+        - img "Lifestyle photo 8" [ref=e129]
+        - img "Lifestyle photo 9" [ref=e131]
+        - img "Lifestyle photo 10" [ref=e133]
+      - button "Scroll right" [ref=e134]: ›
+    - generic [ref=e136]:
+      - generic [ref=e137]:
+        - paragraph [ref=e138]: We couldn't find a toy that wouldn't bore cats...
+        - heading "So We Built One!" [level=2] [ref=e139]
+      - generic [ref=e140]:
+        - generic [ref=e141]:
+          - heading "Shape Shifting" [level=3] [ref=e142]
+          - paragraph [ref=e143]: Your cat will twist, flip, spin, scratch and pounce at it for hours
+        - generic [ref=e144]:
+          - heading "Ball Track" [level=3] [ref=e145]
+          - paragraph [ref=e146]: A circular never ending ball track that never falls out.
+        - generic [ref=e147]:
+          - heading "Designed to Last" [level=3] [ref=e148]
+          - paragraph [ref=e149]: Safe on paws and made with double corrugated cardboard.
+        - generic [ref=e150]:
+          - heading "30 Day Money Back Guarantee!" [level=3] [ref=e151]
+          - paragraph [ref=e152]: No worries! Shop with confidence.
+    - generic [ref=e154]:
+      - generic [ref=e155]:
+        - img "Happy cat 1" [ref=e157]
+        - img "Happy cat 2" [ref=e159]
+        - img "Happy cat 3" [ref=e161]
+        - img "Happy cat 4" [ref=e163]
+        - img "Happy cat 5" [ref=e165]
+        - img "Happy cat 6" [ref=e167]
+        - img "Happy cat 7" [ref=e169]
+      - generic [ref=e170]:
+        - heading "+7500 Units Sold" [level=2] [ref=e171]
+        - paragraph [ref=e172]: Pet-Parents love the all-in-one design. A scratcher, ball track, shape-shifter and even a cozy bed.
+      - generic [ref=e173]:
+        - generic [ref=e174]:
+          - img "Long-Lasting" [ref=e176]
+          - generic [ref=e177]:
+            - generic [ref=e178]:
+              - generic [ref=e179]: ⚡
+              - generic [ref=e180]: Long-Lasting
+            - paragraph [ref=e181]: The reversible design doubles the scratching surface, providing more fun and lasting 6 times longer than knock offs.
+        - generic [ref=e182]:
+          - img "Stress-Relieving" [ref=e184]
+          - generic [ref=e185]:
+            - generic [ref=e186]:
+              - generic [ref=e187]: ~
+              - generic [ref=e188]: Stress-Relieving
+            - paragraph [ref=e189]: Shown to reduce stress and promote alpha brainwave activity with puzzle-based stimulation.
+        - generic [ref=e190]:
+          - img "Non-Toxic (Organic Materials)" [ref=e192]
+          - generic [ref=e193]:
+            - generic [ref=e194]:
+              - generic [ref=e195]: ◎
+              - generic [ref=e196]: Non-Toxic (Organic Materials)
+            - paragraph [ref=e197]: Safe for cats with no added chemicals. 100% Eco-friendly.
+    - generic [ref=e200]:
+      - generic [ref=e201] [cursor=pointer]:
+        - img "Product demo video" [ref=e202]
+        - img [ref=e205]
+      - generic [ref=e207]:
+        - heading "Frequently Asked" [level=2] [ref=e208]
+        - generic [ref=e209]:
+          - button "How many should I get?" [ref=e211]:
+            - generic [ref=e212]: How many should I get?
+            - generic [ref=e213]: +
+          - button "What's included inside?" [ref=e215]:
+            - generic [ref=e216]: What's included inside?
+            - generic [ref=e217]: +
+          - button "How long is shipping?" [ref=e219]:
+            - generic [ref=e220]: How long is shipping?
+            - generic [ref=e221]: +
+          - button "Do you offer refunds?" [ref=e223]:
+            - generic [ref=e224]: Do you offer refunds?
+            - generic [ref=e225]: +
+          - button "Do you offer free shipping?" [ref=e227]:
+            - generic [ref=e228]: Do you offer free shipping?
+            - generic [ref=e229]: +
+    - generic [ref=e231]:
+      - heading "Read The Reviews" [level=2] [ref=e232]
+      - generic [ref=e233]:
+        - generic "4.5 out of 5 stars" [ref=e234]:
+          - generic [ref=e235]:
+            - text: ★
+            - generic [ref=e236]: ★
+          - generic [ref=e237]:
+            - text: ★
+            - generic [ref=e238]: ★
+          - generic [ref=e239]:
+            - text: ★
+            - generic [ref=e240]: ★
+          - generic [ref=e241]:
+            - text: ★
+            - generic [ref=e242]: ★
+          - generic [ref=e243]:
+            - text: ★
+            - generic [ref=e244]: ★
+        - generic [ref=e245]: "4.5"
+        - generic [ref=e246]: (4,348 reviews)
+        - button "Write a review" [ref=e247]
+      - generic [ref=e248]:
+        - generic [ref=e249]:
+          - generic [ref=e250]: 🔍
+          - textbox "Search reviews..." [ref=e251]
+        - button "≡ Rating" [ref=e252]
+        - button "⊟ Photo first" [ref=e253]
+      - generic [ref=e254]:
+        - generic [ref=e255]:
+          - generic [ref=e256]:
+            - generic [ref=e257]: S
+            - generic [ref=e258]:
+              - generic [ref=e259]:
+                - generic [ref=e260]: Sarah M.
+                - generic [ref=e261]: 🇺🇸
+                - generic [ref=e262]: Verified
+              - paragraph [ref=e263]: March 12, 2026
+          - generic "5 out of 5 stars" [ref=e264]:
+            - generic [ref=e265]:
+              - text: ★
+              - generic [ref=e266]: ★
+            - generic [ref=e267]:
+              - text: ★
+              - generic [ref=e268]: ★
+            - generic [ref=e269]:
+              - text: ★
+              - generic [ref=e270]: ★
+            - generic [ref=e271]:
+              - text: ★
+              - generic [ref=e272]: ★
+            - generic [ref=e273]:
+              - text: ★
+              - generic [ref=e274]: ★
+          - heading "My cats are OBSESSED" [level=4] [ref=e275]
+          - paragraph [ref=e276]: I bought 2 of these for my 3 cats and they absolutely love it. One of my cats who never plays with toys is now playing for 30+ minutes at a time. Worth every penny.
+          - img "Review photo" [ref=e278]
+        - generic [ref=e279]:
+          - generic [ref=e280]:
+            - generic [ref=e281]: E
+            - generic [ref=e282]:
+              - generic [ref=e283]:
+                - generic [ref=e284]: Emily R.
+                - generic [ref=e285]: 🇨🇦
+                - generic [ref=e286]: Verified
+              - paragraph [ref=e287]: March 8, 2026
+          - generic "5 out of 5 stars" [ref=e288]:
+            - generic [ref=e289]:
+              - text: ★
+              - generic [ref=e290]: ★
+            - generic [ref=e291]:
+              - text: ★
+              - generic [ref=e292]: ★
+            - generic [ref=e293]:
+              - text: ★
+              - generic [ref=e294]: ★
+            - generic [ref=e295]:
+              - text: ★
+              - generic [ref=e296]: ★
+            - generic [ref=e297]:
+              - text: ★
+              - generic [ref=e298]: ★
+          - heading "Beats boredom perfectly" [level=4] [ref=e299]
+          - paragraph [ref=e300]: My indoor cat was getting destructive. Within a week of having Kitty Kurlz she's calm, happy and actually tired after play sessions. Incredible product.
+          - img "Review photo" [ref=e302]
+        - generic [ref=e303]:
+          - generic [ref=e304]:
+            - generic [ref=e305]: J
+            - generic [ref=e306]:
+              - generic [ref=e307]:
+                - generic [ref=e308]: James T.
+                - generic [ref=e309]: 🇬🇧
+                - generic [ref=e310]: Verified
+              - paragraph [ref=e311]: February 28, 2026
+          - generic "5 out of 5 stars" [ref=e312]:
+            - generic [ref=e313]:
+              - text: ★
+              - generic [ref=e314]: ★
+            - generic [ref=e315]:
+              - text: ★
+              - generic [ref=e316]: ★
+            - generic [ref=e317]:
+              - text: ★
+              - generic [ref=e318]: ★
+            - generic [ref=e319]:
+              - text: ★
+              - generic [ref=e320]: ★
+            - generic [ref=e321]:
+              - text: ★
+              - generic [ref=e322]: ★
+          - heading "Durable and engaging" [level=4] [ref=e323]
+          - paragraph [ref=e324]: We've had toy after toy break within days. This one is still going strong 2 months in. The ball track is genius — my cat goes absolutely wild for it.
+          - img "Review photo" [ref=e326]
+        - generic [ref=e327]:
+          - generic [ref=e328]:
+            - generic [ref=e329]: M
+            - generic [ref=e330]:
+              - generic [ref=e331]:
+                - generic [ref=e332]: Maria L.
+                - generic [ref=e333]: 🇦🇺
+                - generic [ref=e334]: Verified
+              - paragraph [ref=e335]: February 20, 2026
+          - generic "4 out of 5 stars" [ref=e336]:
+            - generic [ref=e337]:
+              - text: ★
+              - generic [ref=e338]: ★
+            - generic [ref=e339]:
+              - text: ★
+              - generic [ref=e340]: ★
+            - generic [ref=e341]:
+              - text: ★
+              - generic [ref=e342]: ★
+            - generic [ref=e343]:
+              - text: ★
+              - generic [ref=e344]: ★
+            - generic [ref=e345]:
+              - text: ★
+              - generic: ★
+          - heading "Great quality, fast shipping" [level=4] [ref=e346]
+          - paragraph [ref=e347]: Really nice quality toy. My older cat took a few days to warm up to it but now she plays with it every morning. Good value with the bundle deal.
+          - img "Review photo" [ref=e349]
+        - generic [ref=e350]:
+          - generic [ref=e351]:
+            - generic [ref=e352]: D
+            - generic [ref=e353]:
+              - generic [ref=e354]:
+                - generic [ref=e355]: David K.
+                - generic [ref=e356]: 🇺🇸
+                - generic [ref=e357]: Verified
+              - paragraph [ref=e358]: February 15, 2026
+          - generic "5 out of 5 stars" [ref=e359]:
+            - generic [ref=e360]:
+              - text: ★
+              - generic [ref=e361]: ★
+            - generic [ref=e362]:
+              - text: ★
+              - generic [ref=e363]: ★
+            - generic [ref=e364]:
+              - text: ★
+              - generic [ref=e365]: ★
+            - generic [ref=e366]:
+              - text: ★
+              - generic [ref=e367]: ★
+            - generic [ref=e368]:
+              - text: ★
+              - generic [ref=e369]: ★
+          - heading "Finally something my cat loves" [level=4] [ref=e370]
+          - paragraph [ref=e371]: Tried at least 10 different toys. This is the only one my cat will play with for more than 5 minutes. The ball track keeps him engaged for hours.
+          - img "Review photo" [ref=e373]
+        - generic [ref=e374]:
+          - generic [ref=e375]:
+            - generic [ref=e376]: S
+            - generic [ref=e377]:
+              - generic [ref=e378]:
+                - generic [ref=e379]: Sophie B.
+                - generic [ref=e380]: 🇫🇷
+                - generic [ref=e381]: Verified
+              - paragraph [ref=e382]: February 10, 2026
+          - generic "5 out of 5 stars" [ref=e383]:
+            - generic [ref=e384]:
+              - text: ★
+              - generic [ref=e385]: ★
+            - generic [ref=e386]:
+              - text: ★
+              - generic [ref=e387]: ★
+            - generic [ref=e388]:
+              - text: ★
+              - generic [ref=e389]: ★
+            - generic [ref=e390]:
+              - text: ★
+              - generic [ref=e391]: ★
+            - generic [ref=e392]:
+              - text: ★
+              - generic [ref=e393]: ★
+          - heading "Shipped fast, cat loves it" [level=4] [ref=e394]
+          - paragraph [ref=e395]: Excellent product and very fast international shipping. My two cats fight over who gets to play with it first — thinking about ordering another one.
+          - img "Review photo" [ref=e397]
+  - contentinfo [ref=e398]:
+    - generic [ref=e399]:
+      - generic [ref=e400]:
+        - generic [ref=e401]:
+          - heading "Info" [level=3] [ref=e402]
+          - list [ref=e403]:
+            - listitem [ref=e404]:
+              - link "Home" [ref=e405] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e406]:
+              - link "Marlene's Selection" [ref=e407] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e408]:
+              - link "Ask Marlene" [ref=e409] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=e410]:
+          - heading "Legal" [level=3] [ref=e411]
+          - list [ref=e412]:
+            - listitem [ref=e413]:
+              - link "Terms of Service" [ref=e414] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e415]:
+              - link "Shipping Policy" [ref=e416] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e417]:
+              - link "Privacy Policy" [ref=e418] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e419]:
+              - link "Refund Policy" [ref=e420] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=e421]:
+          - heading "Social Media" [level=3] [ref=e422]
+          - list [ref=e423]:
+            - listitem [ref=e424]:
+              - link "Facebook" [ref=e425] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e426]:
+              - link "Instagram" [ref=e427] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=e428]:
+          - heading "Join to sell!" [level=3] [ref=e429]
+          - generic [ref=e430]:
+            - link "Facebook" [ref=e431] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e432]
+            - link "Instagram" [ref=e434] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e435]
+      - paragraph [ref=e439]: © 2026Marlene's Pet Shop. All rights reserved.
+  - generic [ref=e440]:
+    - generic [ref=e441]:
+      - heading "Your cart" [level=2] [ref=e442]
+      - button "Close cart" [ref=e443]: ×
+    - generic [ref=e445]:
+      - paragraph [ref=e446]: Your cart is empty
+      - button "Continue shopping" [ref=e447]
+  - button "Open Next.js Dev Tools" [ref=e453] [cursor=pointer]:
+    - img [ref=e454]
