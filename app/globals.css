@@ -50,6 +50,10 @@
 :root {
   --background: #ffffff;
   --foreground: #0d0a0b;
+  --color-foreground: 13, 10, 11;
+  --font-body-scale: 1;
+  --inputs-radius: 0.5rem;
+  --buttons-radius-outset: 0.5rem;
 }
 
 body {
