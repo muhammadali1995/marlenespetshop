@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 
 interface Bundle {
@@ -24,7 +25,7 @@ export default function WhatsIncludedModal({ bundle, onClose }: WhatsIncludedMod
     return () => { document.body.style.overflow = ""; };
   }, []);
 
-  return (
+  return createPortal(
     <div
       className="fixed inset-0 z-[2000] flex items-center justify-center p-4"
       style={{ background: "rgba(0,0,0,0.55)" }}
@@ -86,6 +87,7 @@ export default function WhatsIncludedModal({ bundle, onClose }: WhatsIncludedMod
           Awesome!
         </button>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
