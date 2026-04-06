@@ -14,8 +14,19 @@ interface StickyBarProps {
 
 function CartIcon() {
   return (
-    <svg width="22" height="20" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M8.5 7H19.0604C20.3225 7 21.2691 8.15465 21.0216 9.39223L19.8216 15.3922C19.6346 16.3271 18.8138 17 17.8604 17H8.11683C7.17376 17 6.35883 16.3412 6.16123 15.4191L3.66939 3.79047C3.57059 3.3294 3.16312 3 2.69158 3H2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <svg
+      width="22"
+      height="20"
+      viewBox="0 0 25 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8.5 7H19.0604C20.3225 7 21.2691 8.15465 21.0216 9.39223L19.8216 15.3922C19.6346 16.3271 18.8138 17 17.8604 17H8.11683C7.17376 17 6.35883 16.3412 6.16123 15.4191L3.66939 3.79047C3.57059 3.3294 3.16312 3 2.69158 3H2"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
       <circle cx="7.5" cy="20" r="1" fill="currentColor" />
       <circle cx="18.5" cy="20" r="1" fill="currentColor" />
     </svg>
@@ -73,7 +84,8 @@ export default function StickyBar({ bundle, onBundleChange }: StickyBarProps) {
           {/* Name + prices */}
           <div className="flex-1 min-w-0">
             <p className="text-[15px] font-semibold leading-snug">
-              {product.name} [{bundle === "buy1get1" ? "BUY 1 GET 1 FREE" : "BUY 2 GET 2 FREE"}]
+              {product.name} [
+              {bundle === "buy1get1" ? "BUY 1 GET 1 FREE" : "BUY 2 GET 2 FREE"}]
             </p>
             <div className="flex items-center gap-2 mt-0.5 text-[14px]">
               <span className="line-through text-white/50">
@@ -90,7 +102,13 @@ export default function StickyBar({ bundle, onBundleChange }: StickyBarProps) {
             <div className="flex items-center gap-1.5 bg-[#e8e8e8] text-brand-dark font-bold text-[13px] rounded-xl px-3 py-2 whitespace-nowrap pointer-events-none select-none">
               BUNDLES
               <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
-                <path d="M1 1L5 5L9 1" stroke="#333" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                <path
+                  d="M1 1L5 5L9 1"
+                  stroke="#333"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </div>
             <select
@@ -131,7 +149,8 @@ export default function StickyBar({ bundle, onBundleChange }: StickyBarProps) {
         {/* Name + prices */}
         <div className="flex-1 min-w-0">
           <p className="text-lg truncate">
-            {product.name} [{bundle === "buy1get1" ? "BUY 1 GET 1 FREE" : "BUY 2 GET 2 FREE"}]
+            {product.name} [
+            {bundle === "buy1get1" ? "BUY 1 GET 1 FREE" : "BUY 2 GET 2 FREE"}]
           </p>
           <div className="flex items-center gap-2 text-sm">
             <span className="line-through text-white/50">
@@ -146,7 +165,13 @@ export default function StickyBar({ bundle, onBundleChange }: StickyBarProps) {
           <div className="flex items-center gap-2 bg-[#e8e8e8] text-brand-dark font-bold text-sm rounded-xl px-4 py-2 whitespace-nowrap pointer-events-none select-none">
             BUNDLES
             <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
-              <path d="M1 1L5 5L9 1" stroke="#333" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path
+                d="M1 1L5 5L9 1"
+                stroke="#333"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </div>
           <select

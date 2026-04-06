@@ -11,8 +11,19 @@ import { useCart } from "@/components/cart/CartProvider";
 
 function CartIcon() {
   return (
-    <svg width="24" height="22" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M8.5 7H19.0604C20.3225 7 21.2691 8.15465 21.0216 9.39223L19.8216 15.3922C19.6346 16.3271 18.8138 17 17.8604 17H8.11683C7.17376 17 6.35883 16.3412 6.16123 15.4191L3.66939 3.79047C3.57059 3.3294 3.16312 3 2.69158 3H2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <svg
+      width="24"
+      height="22"
+      viewBox="0 0 25 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8.5 7H19.0604C20.3225 7 21.2691 8.15465 21.0216 9.39223L19.8216 15.3922C19.6346 16.3271 18.8138 17 17.8604 17H8.11683C7.17376 17 6.35883 16.3412 6.16123 15.4191L3.66939 3.79047C3.57059 3.3294 3.16312 3 2.69158 3H2"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
       <circle cx="7.5" cy="20" r="1" fill="currentColor" />
       <circle cx="18.5" cy="20" r="1" fill="currentColor" />
     </svg>
@@ -21,10 +32,31 @@ function CartIcon() {
 
 function HamburgerIcon() {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M2 5H22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      <path d="M2 12H22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      <path d="M2 19L17 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2 5H22"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M2 12H22"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M2 19L17 19"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }
@@ -32,7 +64,13 @@ function HamburgerIcon() {
 function CloseIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-      <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M18 6L6 18M6 6l12 12"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
@@ -47,9 +85,27 @@ function ChevronDown() {
 
 function DrawerCartIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none">
-      <path d="M6 6h15l-1.5 9h-11L6 6z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M6 6L5 3H2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="26"
+      height="26"
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+      <path
+        d="M6 6h15l-1.5 9h-11L6 6z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M6 6L5 3H2"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
       <circle cx="9" cy="19" r="2" stroke="currentColor" strokeWidth="2" />
       <circle cx="18" cy="19" r="2" stroke="currentColor" strokeWidth="2" />
     </svg>
@@ -58,7 +114,17 @@ function DrawerCartIcon() {
 
 function GlobeIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="26"
+      height="26"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <circle cx="12" cy="12" r="10" />
       <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
     </svg>
@@ -68,7 +134,10 @@ function GlobeIcon() {
 /* ─── Nav links ─────────────────────────────────────────────── */
 const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "Marlene's Selection", href: "/collections/marlenes-top-picks-2024" },
+  {
+    label: "Marlene's Selection",
+    href: "/collections/marlenes-top-picks-2024",
+  },
   { label: "Ask Marlene", href: "/pages/contact" },
   { label: "Track Your Package", href: "/pages/track-package" },
 ];
@@ -89,7 +158,9 @@ export default function Header() {
 
   useEffect(() => {
     document.body.style.overflow = drawerOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [drawerOpen]);
 
   return (
@@ -104,15 +175,14 @@ export default function Header() {
         }`}
       />
 
-      {/* Drawer panel — font: Baloo 2 per original CSS */}
+      {/* Drawer panel */}
       <div
-        style={{ fontFamily: '"Baloo 2", "Comic Sans MS", cursive, sans-serif' }}
-        className={`fixed inset-y-0 left-0 w-full bg-white z-[1001] flex flex-col transition-transform duration-200 overflow-y-auto ${
+        className={`fixed inset-y-0 left-0 w-full bg-white z-[1001] flex flex-col transition-transform duration-200 overflow-y-auto font-[Gilroy] ${
           drawerOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         {/* Drawer header */}
-        <div className="flex items-center gap-3 px-5 py-4 border-b border-[#f0f0f0] shrink-0 w-full">
+        <div className="flex items-center gap-3 px-4 py-4 border-b border-[#f0f0f0] shrink-0 w-full">
           {/* Close button — 1.5px border per original CSS */}
           <button
             onClick={() => setDrawerOpen(false)}
@@ -123,15 +193,27 @@ export default function Header() {
           </button>
 
           {/* Logo */}
-          <Link href="/" onClick={() => setDrawerOpen(false)} className="flex items-center shrink-0 ml-1">
-            <Image src="/images/marleneslogo.svg" alt="Marlene's" width={120} height={28} />
+          <Link
+            href="/"
+            onClick={() => setDrawerOpen(false)}
+            className="flex items-center shrink-0 ml-1"
+          >
+            <Image
+              src="/images/marleneslogo.svg"
+              alt="Marlene's"
+              width={132}
+              height={28}
+            />
           </Link>
 
           <div className="flex-1 min-w-[50px]" />
 
           {/* Cart icon in drawer */}
           <button
-            onClick={() => { setDrawerOpen(false); openCart(); }}
+            onClick={() => {
+              setDrawerOpen(false);
+              openCart();
+            }}
             aria-label="Cart"
             className="relative flex items-center justify-center text-[#333] shrink-0 p-2 ml-auto"
           >
@@ -147,7 +229,7 @@ export default function Header() {
         {/* Drawer content */}
         <div className="flex flex-col flex-1 min-h-0">
           {/* Nav */}
-          <nav className="px-5 py-4 shrink-0">
+          <nav className="px-4 py-4 shrink-0">
             <ul className="flex flex-col gap-1 list-none m-0 p-0">
               {NAV_LINKS.map((link) => {
                 const isActive = pathname === link.href;
@@ -156,7 +238,7 @@ export default function Header() {
                     <Link
                       href={link.href}
                       onClick={() => setDrawerOpen(false)}
-                      className={`flex items-center gap-4 px-5 py-4 text-[1.35rem] font-bold rounded-[14px] transition-all duration-200 ${
+                      className={`flex items-center gap-4 px-[15.625px] py-[12.5px] text-[16.875px] font-bold rounded-[14px] transition-all duration-200 ${
                         isActive
                           ? "bg-[#FFF8E7] text-brand-yellow"
                           : "text-[#333] hover:bg-[#FFF8E7] hover:text-brand-yellow"
@@ -171,12 +253,10 @@ export default function Header() {
           </nav>
 
           {/* Footer */}
-          <div className="px-5 flex-1 flex flex-col overflow-hidden relative">
+          <div className="px-4 flex-1 flex flex-col overflow-hidden relative">
             {/* Language & currency pill selectors — 1.5px border, with arrows */}
             <div className="flex items-center justify-between gap-4 w-full">
-              <button
-                className="flex items-center gap-2 bg-white px-4 py-2.5 rounded-full text-[0.95rem] font-medium text-[#333] border border-[#e5e5e5] hover:border-[#ccc] hover:bg-[#fafafa] transition-all duration-200"
-              >
+              <button className="flex items-center gap-2 bg-white px-[12.5px] py-[7.8125px] rounded-full text-[11.875px] font-medium text-[#333] border border-[#e5e5e5] hover:border-[#ccc] hover:bg-[#fafafa] transition-all duration-200">
                 <Image
                   src="https://cdn.shopify.com/static/images/flags/us.svg"
                   alt="English"
@@ -185,20 +265,22 @@ export default function Header() {
                   className="rounded-full object-cover border border-[#eee] shrink-0"
                 />
                 <span>English</span>
-                <span className="text-[#999] ml-1"><ChevronDown /></span>
+                <span className="text-[#999] ml-1">
+                  <ChevronDown />
+                </span>
               </button>
-              <button
-                className="flex items-center gap-2 bg-white px-4 py-2.5 rounded-full text-[0.95rem] font-medium text-[#333] border border-[#e5e5e5] hover:border-[#ccc] hover:bg-[#fafafa] transition-all duration-200"
-              >
+              <button className="flex items-center gap-2 bg-white px-[12.5px] py-[7.8125px] rounded-full text-[11.875px] font-medium text-[#333] border border-[#e5e5e5] hover:border-[#ccc] hover:bg-[#fafafa] transition-all duration-200">
                 <Image
-                  src="/images/flag-us.svg"
-                  alt="United States"
+                  src="/images/flag-uz.svg"
+                  alt="Uzbekistan"
                   width={26}
                   height={26}
                   className="rounded-full object-cover border border-[#eee] shrink-0"
                 />
-                <span>USD $</span>
-                <span className="text-[#999] ml-1"><ChevronDown /></span>
+                <span>UZS so&apos;m</span>
+                <span className="text-[#999] ml-1">
+                  <ChevronDown />
+                </span>
               </button>
             </div>
 
@@ -214,7 +296,12 @@ export default function Header() {
                 aria-label="Facebook"
                 className="w-12 h-12 rounded-[14px] border border-[#e5e5e5] flex items-center justify-center text-brand-yellow hover:scale-105 transition-all duration-200"
               >
-                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  width="24"
+                  height="24"
+                >
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3V2z" />
                 </svg>
               </a>
@@ -225,7 +312,16 @@ export default function Header() {
                 aria-label="Instagram"
                 className="w-12 h-12 rounded-[14px] border border-[#e5e5e5] flex items-center justify-center text-brand-yellow hover:scale-105 transition-all duration-200"
               >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="24" height="24">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  width="24"
+                  height="24"
+                >
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
@@ -235,19 +331,42 @@ export default function Header() {
 
             {/* Contact email */}
             <div className="flex items-center justify-center gap-2 text-[0.95rem] text-[#333] mb-2">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="20" height="20" className="text-brand-yellow shrink-0">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                width="20"
+                height="20"
+                className="text-brand-yellow shrink-0"
+              >
                 <path d="M3 18V12a9 9 0 1 1 18 0v6" />
                 <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5z" />
                 <path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" />
               </svg>
-              <a href="mailto:help@marlenespetshop.com" className="text-[#333] no-underline">
+              <a
+                href="mailto:help@marlenespetshop.com"
+                className="text-[#333333] text-[11.875px] no-underline"
+              >
                 help@marlenespetshop.com
               </a>
             </div>
 
             {/* Copyright */}
-            <div className="text-center text-[0.85rem] text-brand-yellow font-medium mb-4">
+            <div className="text-center text-[0.85rem] text-brand-yellow font-medium mb-2">
               © 2026 Marlene&apos;s Pet Shop
+            </div>
+
+            {/* Cat decoration */}
+            <div className="w-full flex justify-center overflow-hidden">
+              <Image
+                src="/images/drawer-cat.png"
+                alt=""
+                width={320}
+                height={160}
+                className="w-full max-w-[320px] object-contain object-bottom"
+                aria-hidden
+              />
             </div>
           </div>
         </div>
@@ -262,9 +381,11 @@ export default function Header() {
         {/* Mobile: flex | Desktop: CSS grid matching live site (auto 1fr auto, gap 25px) */}
         <div
           className="relative mx-auto max-w-[1500px] px-[25px] py-[17px] flex items-center gap-4 min-[990px]:grid min-[990px]:items-center min-[990px]:gap-x-[25px] font-[Gilroy] text-[18px] text-[#0D0A0BBF]"
-          style={{ gridTemplateAreas: '"heading navigation icons"', gridTemplateColumns: 'auto 1fr auto' }}
+          style={{
+            gridTemplateAreas: '"heading navigation icons"',
+            gridTemplateColumns: "auto 1fr auto",
+          }}
         >
-
           {/* Hamburger — hidden at 990px+ */}
           <button
             onClick={() => setDrawerOpen(true)}
@@ -278,15 +399,21 @@ export default function Header() {
           <Link
             href="/"
             className="absolute left-1/2 -translate-x-1/2 min-[990px]:static min-[990px]:translate-x-0 shrink-0 flex items-center"
-            style={{ gridArea: 'heading' }}
+            style={{ gridArea: "heading" }}
           >
-            <Image src="/images/marleneslogo.svg" alt="Marlene's Pet Shop" width={130} height={27} priority />
+            <Image
+              src="/images/marleneslogo.svg"
+              alt="Marlene's Pet Shop"
+              width={130}
+              height={27}
+              priority
+            />
           </Link>
 
           {/* Nav — desktop only: display:block text-align:center, ul inline-flex (matches live site) */}
           <nav
             className="hidden min-[990px]:block text-center"
-            style={{ gridArea: 'navigation' }}
+            style={{ gridArea: "navigation" }}
           >
             <ul className="inline-flex list-none m-0 p-0">
               {NAV_LINKS.map((link) => (
@@ -294,7 +421,9 @@ export default function Header() {
                   <Link
                     href={link.href}
                     className={`flex items-center text-lg px-[15px] py-[15px] tracking-[0.75px] font-normal whitespace-nowrap transition-all duration-200 ${
-                      pathname === link.href ? "text-brand-yellow" : "hover:text-brand-yellow"
+                      pathname === link.href
+                        ? "text-brand-yellow"
+                        : "hover:text-brand-yellow"
                     }`}
                   >
                     {link.label}
@@ -307,7 +436,7 @@ export default function Header() {
           {/* Right actions — grid-area "icons", justify-self end */}
           <div
             className="flex items-center gap-[40px] shrink-0 ml-auto min-[990px]:ml-0 min-[990px]:justify-self-end"
-            style={{ gridArea: 'icons' }}
+            style={{ gridArea: "icons" }}
           >
             <div className="hidden min-[990px]:flex items-center gap-11">
               <button className="flex font-semibold px-3 py-2.5 gap-3 items-center tracking-[0.5px] hover:opacity-70 transition-opacity">
@@ -321,7 +450,7 @@ export default function Header() {
                   alt="English"
                   width={26}
                   height={26}
-                  className="rounded-full object-cover w-5 h-5"
+                  className="rounded-full object-cover"
                 />
                 <span>English</span>
                 <ChevronDown />
@@ -331,10 +460,10 @@ export default function Header() {
             {/* Cart */}
             <button
               onClick={openCart}
-              className="relative flex items-center hover:opacity-70 transition-opacity"
+              className="relative flex items-center hover:opacity-70 transition-opacity [&_svg]:w-[30px] [&_svg]:h-[30px]"
               aria-label="Open cart"
             >
-              <CartIcon  />
+              <CartIcon />
               {totalItems > 0 && (
                 <span className="absolute -top-1.5 -right-1.5 bg-brand-yellow text-brand-dark text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center leading-none">
                   {totalItems}
