@@ -26,7 +26,7 @@ export default function SocialProof() {
   }
 
   return (
-    <section className="py-16 px-6">
+    <section className="py-1 px-6">
       <div className="mx-auto max-w-[1440px]">
 
         {/* Swiper — drag to scroll, video if available */}
@@ -41,7 +41,7 @@ export default function SocialProof() {
           {socialProofPhotos.map((_, i) => (
             <div
               key={i}
-              className="relative shrink-0 w-[110px] h-[110px] sm:w-[170px] sm:h-[170px] rounded-full overflow-hidden bg-brand-grey-card"
+              className="relative shrink-0 w-[110px] h-[110px] sm:w-[200px] sm:h-[200px] rounded-full overflow-hidden bg-brand-grey-card"
             >
               <video
                 src="/video.mp4"
@@ -57,10 +57,10 @@ export default function SocialProof() {
 
         {/* Stats row */}
         <div className="flex flex-col sm:flex-row sm:items-start gap-4 mb-12">
-          <h2 className="text-3xl sm:text-[54px] font-black text-brand-dark shrink-0">
+          <h2 className="text-3xl sm:text-[40px] font-bold text-brand-dark shrink-0">
             +7500 Units Sold
           </h2>
-          <p className="text-base sm:text-2xl text-brand-dark/60 sm:max-w-xs leading-relaxed sm:text-right ml-auto">
+          <p className="text-base sm:text-xl text-brand-dark/60 sm:max-w-xl leading-relaxed sm:text-right ml-auto">
             Pet-Parents love the all-in-one design. A scratcher, ball track,
             shape-shifter and even a cozy bed.
           </p>
@@ -71,7 +71,7 @@ export default function SocialProof() {
           {benefitCards.map((card) => (
             <div key={card.label} className="flex flex-col gap-3">
               {/* Image */}
-              <div className="relative aspect-4/3 rounded-2xl overflow-hidden bg-brand-grey-card">
+              <div className="relative aspect-5/3 rounded-[40px] overflow-hidden bg-brand-grey-card">
                 <Image
                   src={card.image}
                   alt={card.label}
@@ -79,15 +79,17 @@ export default function SocialProof() {
                   className="object-cover"
                 />
               </div>
-              {/* Label row */}
+             <div className="p-4">
+               {/* Label row */}
               <div className="flex items-center gap-1.5">
                 <span className="text-lg sm:text-2xl">{card.icon}</span>
-                <span className="font-bold text-brand-dark text-sm sm:text-[21px]">{card.label}</span>
+                <span className="font-bold text-brand-dark text-sm sm:text-lg">{card.label}</span>
               </div>
               {/* Description */}
               <p className="text-brand-dark/70 text-sm sm:text-[21px] leading-relaxed">
                 {card.description}
               </p>
+             </div>
             </div>
           ))}
         </div>

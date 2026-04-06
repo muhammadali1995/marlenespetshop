@@ -2,34 +2,52 @@ import { features } from "@/lib/data";
 
 export default function FeaturesSection() {
   return (
-    <section className="bg-brand-yellow py-16 px-6">
+    <section className="bg-white sm:bg-brand-yellow py-9 px-6">
       <div className="mx-auto max-w-[1440px]">
 
-        {/* Heading row */}
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
-          <p className="text-brand-dark text-base font-normal max-w-xs">
+        {/* Heading row — desktop */}
+        <div className="hidden sm:flex sm:items-end sm:justify-between gap-4 mb-10">
+          <p className="text-brand-dark text-xl font-normal">
             We couldn&apos;t find a toy that wouldn&apos;t bore cats...
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark sm:text-right leading-tight">
+          <h2 className="text-3xl text-brand-dark sm:text-right leading-tight">
             So We Built One!
           </h2>
         </div>
 
-        {/* Row 1: 3 cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
-          {features.slice(0, 3).map((f, i) => (
-            <div key={i} className="bg-white rounded-[2.5rem] px-8 py-7">
-              <h3 className="font-bold text-brand-dark text-base mb-2 text-center">{f.title}</h3>
-              <p className="text-brand-dark/70 text-sm leading-relaxed text-center">{f.description}</p>
+        {/* Heading pill — mobile */}
+        <div className="sm:hidden flex justify-center mb-8">
+          <h2 className="bg-brand-yellow rounded-full px-8 py-4 text-2xl font-bold text-brand-dark text-center">
+            So We Built One!
+          </h2>
+        </div>
+
+        {/* Mobile: stacked alternating cards */}
+        <div className="sm:hidden flex flex-col gap-4">
+          {features.map((f, i) => (
+            <div
+              key={i}
+              className={`bg-brand-yellow rounded-3xl p-6 ${i % 2 === 0 ? "mr-10" : "ml-10"}`}
+            >
+              <h3 className="font-bold text-brand-dark text-lg mb-2">{f.title}</h3>
+              <p className="text-brand-dark text-base leading-relaxed">{f.description}</p>
             </div>
           ))}
         </div>
 
-        {/* Row 2: 1 card (left-anchored) */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className="bg-white rounded-[2.5rem] px-8 py-7">
-            <h3 className="font-bold text-brand-dark text-base mb-2 text-center">{features[3].title}</h3>
-            <p className="text-brand-dark/70 text-sm leading-relaxed text-center">{features[3].description}</p>
+        {/* Desktop: grid layout */}
+        <div className="hidden sm:grid sm:grid-cols-3 gap-2 mb-2">
+          {features.slice(0, 3).map((f, i) => (
+            <div key={i} className="bg-white rounded-full p-8">
+              <h3 className="font-bold text-brand-dark text-lg mb-3 text-center">{f.title}</h3>
+              <p className="text-brand-dark/70 text-xl leading-relaxed text-center">{f.description}</p>
+            </div>
+          ))}
+        </div>
+        <div className="hidden sm:grid sm:grid-cols-3 gap-2">
+          <div className="bg-white rounded-full p-8">
+            <h3 className="font-bold text-brand-dark text-lg mb-3 text-center">{features[3].title}</h3>
+            <p className="text-brand-dark/70 text-xl leading-relaxed text-center">{features[3].description}</p>
           </div>
         </div>
 

@@ -3,13 +3,13 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="bg-brand-yellow mt-16">
-      <div className="mx-auto max-w-[1440px] px-6 py-12">
+      <div className="mx-auto max-w-[1440px] px-6 py-12 pb-28">
         {/* Desktop 4-col / Mobile stacked */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 text-[18px] sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Info */}
           <div>
             <h3 className="font-bold text-brand-dark mb-4">Info</h3>
-            <ul className="space-y-2 text-sm text-brand-dark">
+            <ul className="space-y-2 text-brand-dark">
               <li><Link href="/" className="hover:underline">Home</Link></li>
               <li><Link href="#" className="hover:underline">Marlene&apos;s Selection</Link></li>
               <li><Link href="#" className="hover:underline">Ask Marlene</Link></li>
@@ -19,7 +19,7 @@ export default function Footer() {
           {/* Legal */}
           <div>
             <h3 className="font-bold text-brand-dark mb-4">Legal</h3>
-            <ul className="space-y-2 text-sm text-brand-dark">
+            <ul className="space-y-2 text-brand-dark">
               <li><Link href="#" className="hover:underline">Terms of Service</Link></li>
               <li><Link href="#" className="hover:underline">Shipping Policy</Link></li>
               <li><Link href="#" className="hover:underline">Privacy Policy</Link></li>
@@ -30,7 +30,7 @@ export default function Footer() {
           {/* Social Media */}
           <div>
             <h3 className="font-bold text-brand-dark mb-4">Social Media</h3>
-            <ul className="space-y-2 text-sm text-brand-dark">
+            <ul className="space-y-2 text-brand-dark">
               <li><Link href="#" className="hover:underline">Facebook</Link></li>
               <li><Link href="#" className="hover:underline">Instagram</Link></li>
             </ul>
@@ -64,9 +64,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <p className="mt-12 text-xs text-brand-dark/60 text-center">
-          © {new Date().getFullYear()} Marlene&apos;s Pet Shop. All rights reserved.
-        </p>
+       <hr  className="border-t border-brand-dark/20 mt-20"/>
       </div>
     </footer>
   );

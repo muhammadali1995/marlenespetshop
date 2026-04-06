@@ -23,11 +23,11 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
   return (
     <div className="flex flex-col gap-4">
       {/* 2 main images side-by-side */}
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 gap-4 max-w-[796px]">
         {mainImages.map((src, i) => (
           <div
             key={i}
-            className="relative aspect-square rounded-xl overflow-hidden bg-brand-grey-card"
+            className="relative max-w-[390px] aspect-square rounded-[20px] overflow-hidden bg-brand-grey-card"
           >
             {i === 1 ? (
               <video
@@ -66,7 +66,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
             <button
               key={i}
               onClick={() => setActiveIndex(i)}
-              className={`flex-none w-[calc((100%-32px)/5)] aspect-square rounded-lg overflow-hidden border-2 transition-colors ${
+              className={`flex-none w-[calc((100%-32px)/5)] aspect-square rounded-[20px] max-w-[133px] overflow-hidden border-2 transition-colors ${
                 i === activeIndex
                   ? "border-brand-yellow"
                   : "border-transparent"
