@@ -10,7 +10,7 @@ function useIsMobile() {
       return () => window.removeEventListener("resize", cb);
     },
     () => window.innerWidth < 640,
-    () => false, // server snapshot — matches initial client render
+    () => false,
   );
 }
 
@@ -34,20 +34,29 @@ function UnmuteIcon() {
   );
 }
 
+const EASE = "cubic-bezier(0.25, 0.46, 0.45, 0.94)";
+const TRANSITION = `transform 0.4s ${EASE}, width 0.4s ${EASE}, height 0.4s ${EASE}, opacity 0.25s ease`;
+
 export default function LifestyleStrip({ photos }: LifestyleStripProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const stripRef = useRef<HTMLDivElement | null>(null);
 
-  // Lightbox
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIdx, setLightboxIdx] = useState(0);
   const [lightboxMuted, setLightboxMuted] = useState(true);
   const lightboxVideoRef = useRef<HTMLVideoElement | null>(null);
 
   const isMobile = useIsMobile();
-  const offsets = isMobile ? [-1, 0, 1] : [-2, -1, 0, 1, 2];
+
+  const W_active   = isMobile ? 280 : 260;
+  const W_inactive = isMobile ? 160 : 260;
+  const H_active   = isMobile ? 490 : 434;
+  const H_inactive = isMobile ? 340 : 317;
+  const GAP        = 12;
+  // Center-to-center slot distance — guarantees GAP between active and its neighbours
+  const SLOT       = (W_active + W_inactive) / 2 + GAP;
+  const maxVisible = isMobile ? 1 : 2;
 
   // Autoplay center video whenever activeIndex changes
   useEffect(() => {
@@ -75,7 +84,7 @@ export default function LifestyleStrip({ photos }: LifestyleStripProps) {
     if (lightboxVideoRef.current) lightboxVideoRef.current.muted = lightboxMuted;
   }, [lightboxMuted]);
 
-  // Close on Escape
+  // Close lightbox on Escape
   useEffect(() => {
     if (!lightboxOpen) return;
     const handler = (e: KeyboardEvent) => { if (e.key === "Escape") setLightboxOpen(false); };
@@ -83,62 +92,60 @@ export default function LifestyleStrip({ photos }: LifestyleStripProps) {
     return () => window.removeEventListener("keydown", handler);
   }, [lightboxOpen]);
 
-  // Web Animations API — runs on compositor thread, no forced reflow
-  function animateSlide(dir: "left" | "right") {
-    const el = stripRef.current;
-    if (!el) return;
-    const tx = dir === "left" ? "-40px" : "40px";
-    el.animate(
-      [{ transform: `translateX(${tx})` }, { transform: "translateX(0)" }],
-      { duration: 350, easing: "cubic-bezier(0.25, 0.46, 0.45, 0.94)" }
-    );
-  }
-
-  function prev() {
-    animateSlide("right");
-    setActiveIndex((i) => (i - 1 + photos.length) % photos.length);
-  }
-  function next() {
-    animateSlide("left");
-    setActiveIndex((i) => (i + 1) % photos.length);
-  }
-
-  function lightboxPrev() {
-    setLightboxIdx((i) => (i - 1 + photos.length) % photos.length);
-  }
-  function lightboxNext() {
-    setLightboxIdx((i) => (i + 1) % photos.length);
-  }
-
-  const W_active = isMobile ? 280 : 260;
-  const W_inactive = isMobile ? 160 : 260;
-  const H_active = isMobile ? 490 : 434;
-  const H_inactive = isMobile ? 340 : 317;
+  function prev() { setActiveIndex((i) => (i - 1 + photos.length) % photos.length); }
+  function next() { setActiveIndex((i) => (i + 1) % photos.length); }
+  function lightboxPrev() { setLightboxIdx((i) => (i - 1 + photos.length) % photos.length); }
+  function lightboxNext() { setLightboxIdx((i) => (i + 1) % photos.length); }
 
   return (
     <>
       <div className="w-full my-10">
-        <div ref={stripRef} className="flex items-center justify-center gap-3 overflow-hidden" style={{ willChange: "transform" }}>
-          {offsets.map((offset) => {
-            const isActive = offset === 0;
-            const photoIdx = (activeIndex + offset + photos.length) % photos.length;
+        {/*
+          Each card is keyed by its photo index — the same DOM node physically
+          translates across the screen instead of swapping content in-place.
+          Position = offset * SLOT from the container centre (left: 50%).
+        */}
+        <div className="relative overflow-hidden" style={{ height: H_active }}>
+          {photos.map((photo, idx) => {
+            // Shortest-path offset in [-N/2, N/2]
+            let offset = ((idx - activeIndex) % photos.length + photos.length) % photos.length;
+            if (offset > photos.length / 2) offset -= photos.length;
+
+            const isActive  = offset === 0;
+            const W         = isActive ? W_active : W_inactive;
+            const H         = isActive ? H_active : H_inactive;
+            // translateX from left:50% so the card is centred at offset * SLOT
+            const tx        = offset * SLOT - W / 2;
+            // translateY so cards are vertically centred within the H_active container
+            const ty        = (H_active - H) / 2;
+            const visible   = Math.abs(offset) <= maxVisible;
+
             return (
               <div
-                key={offset}
-                onClick={() => { setLightboxIdx(photoIdx); setLightboxOpen(true); }}
-                className="shrink-0 relative rounded-2xl overflow-hidden bg-brand-grey-card cursor-pointer"
+                key={idx}
+                onClick={() => { if (visible) { setLightboxIdx(idx); setLightboxOpen(true); } }}
                 style={{
-                  width: isActive ? W_active : W_inactive,
-                  height: isActive ? H_active : H_inactive,
-                  transition: "width 0.35s cubic-bezier(0.25,0.46,0.45,0.94), height 0.35s cubic-bezier(0.25,0.46,0.45,0.94)",
+                  position: "absolute",
+                  left: "50%",
+                  top: 0,
+                  width: W,
+                  height: H,
+                  transform: `translateX(${tx}px) translateY(${ty}px)`,
+                  transition: TRANSITION,
+                  opacity: visible ? 1 : 0,
+                  borderRadius: 16,
+                  overflow: "hidden",
+                  cursor: visible ? "pointer" : "default",
+                  zIndex: isActive ? 10 : maxVisible - Math.abs(offset),
+                  pointerEvents: visible ? "auto" : "none",
                 }}
               >
                 <Image
-                  src={photos[photoIdx]}
+                  src={photo}
                   alt=""
                   fill
                   className="object-cover"
-                  sizes={`${isActive ? W_active : W_inactive}px`}
+                  sizes={`${W_active}px`}
                 />
                 {isActive && (
                   <video

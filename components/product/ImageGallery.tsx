@@ -10,19 +10,25 @@ interface ImageGalleryProps {
 export default function ImageGallery({ images }: ImageGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
+  const thumbsRef = useRef<HTMLDivElement>(null);
 
   function goTo(index: number) {
     const newIndex = (index + images.length) % images.length;
     setActiveIndex(newIndex);
-    // Slide width = calc(100% - 60px), gap = 16px, so step = containerWidth - 44
     if (sliderRef.current) {
       const step = sliderRef.current.offsetWidth - 44;
       sliderRef.current.scrollTo({ left: newIndex * step, behavior: "smooth" });
     }
   }
 
-  function prev() { goTo(activeIndex - 1); }
-  function next() { goTo(activeIndex + 1); }
+  function prev() {
+    goTo(activeIndex - 1);
+    thumbsRef.current?.scrollBy({ left: -(84 + 8), behavior: "smooth" });
+  }
+  function next() {
+    goTo(activeIndex + 1);
+    thumbsRef.current?.scrollBy({ left: 84 + 8, behavior: "smooth" });
+  }
 
   const mainImages = [images[activeIndex], images[(activeIndex + 1) % images.length]];
 
@@ -104,13 +110,13 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
           ‹
         </button>
 
-        <div className="flex gap-2 overflow-x-auto no-scrollbar flex-1">
+        <div ref={thumbsRef} className="flex gap-2 overflow-x-auto no-scrollbar flex-1">
           {images.map((src, i) => (
             <button
               key={i}
               onClick={() => goTo(i)}
               className={`flex-none w-[84px] h-[84px] lg:w-[calc((100%-32px)/5)] lg:h-auto lg:aspect-square lg:max-w-[133px] rounded-[20px] overflow-hidden border-2 transition-colors ${
-                i === activeIndex ? "border-brand-yellow" : "border-transparent"
+                i === activeIndex ? "border-[#0d0a0b]" : "border-transparent"
               }`}
             >
               <div className="relative w-full h-full bg-brand-grey-card">
