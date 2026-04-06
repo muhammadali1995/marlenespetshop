@@ -1,15 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { useCartStore, selectSubtotal, selectTotalItems } from "@/store/cartStore";
 
 // ─── Icons ────────────────────────────────────────────────────────────────────
 
 function CartIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" width={22} height={22} fill="currentColor">
-      <path d="m2.007 10.156.387-4.983a1 1 0 0 1 .997-.923h7.218a1 1 0 0 1 .997.923l.387 4.983c.11 1.403-1.16 2.594-2.764 2.594H4.771c-1.605 0-2.873-1.19-2.764-2.594" />
-      <path d="M5 3.5c0-1.243.895-2.25 2-2.25S9 2.257 9 3.5V5c0 1.243-.895 2.25-2 2.25S5 6.243 5 5z" />
+    <svg width="24" height="22" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8.5 7H19.0604C20.3225 7 21.2691 8.15465 21.0216 9.39223L19.8216 15.3922C19.6346 16.3271 18.8138 17 17.8604 17H8.11683C7.17376 17 6.35883 16.3412 6.16123 15.4191L3.66939 3.79047C3.57059 3.3294 3.16312 3 2.69158 3H2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="7.5" cy="20" r="1" fill="currentColor" />
+      <circle cx="18.5" cy="20" r="1" fill="currentColor" />
     </svg>
   );
 }
@@ -186,8 +188,7 @@ export default function CheckoutPage() {
           <div className="w-full max-w-[1200px] flex items-center px-6">
             <div className="flex-1" />
             <a href="/" className="flex items-center">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="https://cdn.shopify.com/s/files/1/0592/0194/5677/files/Untitled_design_-_2024-10-18T102851.555_x320.png?v=1729258141"
                 alt="Marlene's Pet Shop"
                 width={150}
@@ -443,8 +444,7 @@ export default function CheckoutPage() {
                   <div className="flex items-start gap-[14px]">
                     {/* Thumbnail + badge */}
                     <div className="relative flex-shrink-0">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
+                      <Image
                         src="https://cdn.shopify.com/s/files/1/0592/0194/5677/files/new-bundle-kitty-kurlz-feature-image_64x64.png?v=1743473407"
                         alt="Kitty Kurlz™ [BUY 1 GET 1 FREE]"
                         width={60}
@@ -471,8 +471,7 @@ export default function CheckoutPage() {
                   {/* Expanded child item */}
                   {showItems && (
                     <div className="flex items-center gap-3 mt-3 pl-[74px]">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
+                      <Image
                         src="https://cdn.shopify.com/s/files/1/0592/0194/5677/files/KittyWheelzMarlenesPetShop2_64x64.jpg?v=1750919198"
                         alt="Kitty Kurlz™"
                         width={38}

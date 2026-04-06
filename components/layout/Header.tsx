@@ -11,13 +11,10 @@ import { useCart } from "@/components/cart/CartProvider";
 
 function CartIcon() {
   return (
-    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M8 7H18.5604C19.8225 7 20.7691 8.15465 20.5216 9.39223L19.3216 15.3922C19.1346 16.3271 18.3138 17 17.3604 17H7.61683C6.67376 17 5.85883 16.3412 5.66123 15.4191L3.16939 3.79047C3.07059 3.3294 2.66312 3 2.19158 3H1.5"
-        stroke="currentColor" strokeWidth="2" strokeLinecap="round"
-      />
-      <circle cx="7" cy="20" r="1" fill="currentColor" />
-      <circle cx="18" cy="20" r="1" fill="currentColor" />
+    <svg width="24" height="22" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8.5 7H19.0604C20.3225 7 21.2691 8.15465 21.0216 9.39223L19.8216 15.3922C19.6346 16.3271 18.8138 17 17.8604 17H8.11683C7.17376 17 6.35883 16.3412 6.16123 15.4191L3.66939 3.79047C3.57059 3.3294 3.16312 3 2.69158 3H2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="7.5" cy="20" r="1" fill="currentColor" />
+      <circle cx="18.5" cy="20" r="1" fill="currentColor" />
     </svg>
   );
 }
@@ -120,8 +117,7 @@ export default function Header() {
           <button
             onClick={() => setDrawerOpen(false)}
             aria-label="Close menu"
-            className="flex items-center justify-center w-[42px] h-[42px] rounded-full text-[#333] hover:border-[#ccc] hover:bg-[#fafafa] transition-all duration-200 shrink-0"
-            style={{ border: "1.5px solid #e5e5e5" }}
+            className="flex items-center justify-center w-[42px] h-[42px] rounded-full text-[#333] border border-[#e5e5e5] hover:border-[#ccc] hover:bg-[#fafafa] transition-all duration-200 shrink-0"
           >
             <CloseIcon />
           </button>
@@ -179,10 +175,9 @@ export default function Header() {
             {/* Language & currency pill selectors — 1.5px border, with arrows */}
             <div className="flex items-center justify-between gap-4 w-full">
               <button
-                className="flex items-center gap-2 bg-white px-4 py-2.5 rounded-full text-[0.95rem] font-medium text-[#333] hover:border-[#ccc] hover:bg-[#fafafa] transition-all duration-200"
-                style={{ border: "1.5px solid #e5e5e5" }}
+                className="flex items-center gap-2 bg-white px-4 py-2.5 rounded-full text-[0.95rem] font-medium text-[#333] border border-[#e5e5e5] hover:border-[#ccc] hover:bg-[#fafafa] transition-all duration-200"
               >
-                <img
+                <Image
                   src="https://cdn.shopify.com/static/images/flags/us.svg"
                   alt="English"
                   width={26}
@@ -193,10 +188,9 @@ export default function Header() {
                 <span className="text-[#999] ml-1"><ChevronDown /></span>
               </button>
               <button
-                className="flex items-center gap-2 bg-white px-4 py-2.5 rounded-full text-[0.95rem] font-medium text-[#333] hover:border-[#ccc] hover:bg-[#fafafa] transition-all duration-200"
-                style={{ border: "1.5px solid #e5e5e5" }}
+                className="flex items-center gap-2 bg-white px-4 py-2.5 rounded-full text-[0.95rem] font-medium text-[#333] border border-[#e5e5e5] hover:border-[#ccc] hover:bg-[#fafafa] transition-all duration-200"
               >
-                <img
+                <Image
                   src="/images/flag-us.svg"
                   alt="United States"
                   width={26}
@@ -322,7 +316,7 @@ export default function Header() {
                 <ChevronDown />
               </button>
               <button className="flex px-3 font-semibold py-2.5 gap-3 items-center tracking-[0.5px] hover:opacity-70 transition-opacity">
-                <img
+                <Image
                   src="/images/flag-us.svg"
                   alt="English"
                   width={26}
