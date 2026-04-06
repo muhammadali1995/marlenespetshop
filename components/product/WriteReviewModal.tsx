@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface WriteReviewModalProps {
   onClose: () => void;
@@ -12,6 +12,8 @@ const STAR_PATH = "M13.5 0.5L17.7791 8.61036L26.8148 10.1738L20.4237 16.7496L21.
 export default function WriteReviewModal({ onClose }: WriteReviewModalProps) {
   const [rating, setRating] = useState(0);
   const [hovered, setHovered] = useState(0);
+  const mediaInputRef = useRef<HTMLInputElement>(null);
+  const avatarInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -105,8 +107,10 @@ export default function WriteReviewModal({ onClose }: WriteReviewModalProps) {
             </div>
 
             {/* Upload photos/videos */}
+            <input ref={mediaInputRef} type="file" accept="image/*,video/*" multiple className="hidden" />
             <button
               type="button"
+              onClick={() => mediaInputRef.current?.click()}
               className="w-full flex items-center justify-center gap-3 rounded-xl py-5 text-sm transition-colors"
               style={{ background: BG, border: "1.5px dashed rgba(100,140,180,0.5)", color: "#6b8aaa" }}
             >
@@ -121,8 +125,10 @@ export default function WriteReviewModal({ onClose }: WriteReviewModalProps) {
             {/* Profile picture */}
             <div>
               <p className="text-sm mb-2" style={{ color: "#6b8aaa" }}>Profile picture</p>
+              <input ref={avatarInputRef} type="file" accept="image/*" className="hidden" />
               <button
                 type="button"
+                onClick={() => avatarInputRef.current?.click()}
                 className="w-[72px] h-[72px] flex items-center justify-center rounded-xl transition-colors"
                 style={{ background: BG, border: "1.5px dashed rgba(100,140,180,0.5)" }}
               >

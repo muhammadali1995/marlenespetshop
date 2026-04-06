@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useCartStore, selectTotalItems } from "@/store/cartStore";
 import { useCart } from "@/components/cart/CartProvider";
@@ -146,12 +146,23 @@ const NAV_LINKS = [
 export default function Header() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const lastScrollY = useRef(0);
   const pathname = usePathname();
   const totalItems = useCartStore(selectTotalItems);
   const { openCart } = useCart();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 10);
+      if (y > lastScrollY.current && y > 80) {
+        setHidden(true);
+      } else {
+        setHidden(false);
+      }
+      lastScrollY.current = y;
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -374,9 +385,9 @@ export default function Header() {
 
       {/* ── Sticky Header Bar ─────────────────────────────────── */}
       <header
-        className={`sticky top-0 z-50 bg-white border-b border-[#e5e5e5] transition-shadow ${
+        className={`sticky top-0 z-50 bg-white border-b border-[#e5e5e5] transition-[transform,box-shadow] duration-300 ${
           scrolled ? "shadow-sm" : ""
-        }`}
+        } ${hidden ? "-translate-y-full" : "translate-y-0"}`}
       >
         {/* Mobile: flex | Desktop: CSS grid matching live site (auto 1fr auto, gap 25px) */}
         <div

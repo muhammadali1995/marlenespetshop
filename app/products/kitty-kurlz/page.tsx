@@ -14,6 +14,7 @@ import SocialProof from "@/components/product/SocialProof";
 import FaqSection from "@/components/product/FaqSection";
 import ReviewsSection from "@/components/product/ReviewsSection";
 import EmailPopup from "@/components/ui/EmailPopup";
+import AosInit from "@/components/ui/FadeIn";
 import { product } from "@/lib/data";
 
 export default function KittyKurlzPage() {
@@ -21,17 +22,15 @@ export default function KittyKurlzPage() {
 
   return (
     <>
+      <AosInit />
       <Header />
 
       <main>
         {/* Hero — 2-column grid */}
-        <section className="mx-auto max-w-[1440px] px-6 lg:px-0 pb-10">
+        <section className="mx-auto max-w-[1440px] lg:px-0 pb-10">
           <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-8 lg:gap-12">
-            {/* Left: Image Gallery */}
             <ImageGallery images={product.images} />
-
-            {/* Right: Product Info + Bundle + CTA */}
-            <div className="flex flex-col gap-6 lg:pr-[90px]">
+            <div data-aos="fade-up" className="flex flex-col gap-6 px-6 lg:pl-0 lg:pr-[90px]">
               <ProductInfo />
               <BundleSelector selected={bundle} onChange={setBundle} />
               <AddToCartButton bundle={bundle} />
@@ -39,20 +38,23 @@ export default function KittyKurlzPage() {
           </div>
         </section>
 
-        {/* Lifestyle strip */}
         <LifestyleStrip photos={product.lifestylePhotos} />
 
-        {/* Features */}
-        <FeaturesSection />
+        <div data-aos="fade-up">
+          <FeaturesSection />
+        </div>
 
-        {/* Social proof */}
-        <SocialProof />
+        <div data-aos="fade-up">
+          <SocialProof />
+        </div>
 
-        {/* FAQ */}
-        <FaqSection />
+        <div data-aos="fade-up">
+          <FaqSection />
+        </div>
 
-        {/* Reviews */}
-        <ReviewsSection />
+        <div data-aos="fade-up">
+          <ReviewsSection />
+        </div>
       </main>
 
       <Footer />
