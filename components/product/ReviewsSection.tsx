@@ -19,24 +19,34 @@ export default function ReviewsSection() {
 
         {/* ── Left panel: heading + summary ─────────────────── */}
         <div className="w-full lg:w-80 lg:shrink-0">
-          <h2 className="text-[25px] font-bold text-brand-dark mb-6">
+          <h2 className="text-[25px] font-bold text-brand-dark mb-6 text-center lg:text-left">
             Read The Reviews
           </h2>
-          <div className="flex items-center gap-3 mb-5">
-            <span className="text-[40px] font-bold text-brand-dark/40 leading-none">{product.rating}</span>
-              <StarRating rating={product.rating} size="lg" />
-              <span className="text-brand-dark/50 text-sm">({product.reviewCount.toLocaleString()} reviews)</span>
+
+          {/* Mobile: stacked centered */}
+          <div className="flex flex-col items-center mb-5 lg:hidden">
+            <span className="text-[64px] font-bold text-brand-dark/25 leading-none">{product.rating}</span>
+            <StarRating rating={product.rating} size="lg" />
+            <span className="text-brand-dark/50 text-sm mt-2">({product.reviewCount.toLocaleString()} reviews)</span>
           </div>
-          <button className="rounded-full bg-brand-yellow px-6 py-2.5 text-sm font-semibold hover:brightness-95 text-black/70 transition-all">
+
+          {/* Desktop: inline */}
+          <div className="hidden lg:flex items-center gap-3 mb-5">
+            <span className="text-[40px] font-bold text-brand-dark/40 leading-none">{product.rating}</span>
+            <StarRating rating={product.rating} size="lg" />
+            <span className="text-brand-dark/50 text-sm">({product.reviewCount.toLocaleString()} reviews)</span>
+          </div>
+
+          <button className="w-full lg:w-auto rounded-full bg-brand-yellow px-6 py-3 text-sm font-semibold hover:brightness-95 text-black/70 transition-all">
             Write a review
           </button>
         </div>
 
         {/* ── Right panel: filters + grid ───────────────────── */}
-        <div className="flex-1 min-w-0 border-t border-brand-dark/20 pt-6 mt-20">
+        <div className="flex-1 min-w-0 border-t border-brand-dark/20 pt-6 mt-6 lg:mt-20">
 
           {/* Filter bar */}
-          <div className="flex items-center gap-3 mb-8">
+          <div className="flex flex-wrap items-center gap-3 mb-8">
             <button className="w-9 h-9 rounded-full border border-brand-dark/20 flex items-center justify-center text-brand-dark hover:border-brand-dark transition-colors">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
@@ -61,25 +71,34 @@ export default function ReviewsSection() {
             {visible.map((review) => (
               <div
                 key={review.id}
-                className="relative bg-white border border-brand-dark/10 rounded-2xl flex"
+                className="relative bg-white border border-brand-dark/10 rounded-2xl flex flex-col md:flex-row"
               >
-                {/* Star pill — floats above top edge, centered in right column */}
-                <div className="absolute top-0 left-[10%] right-0 flex justify-center -translate-y-1/2 pointer-events-none z-10">
+                {/* Star pill — desktop: floats above top edge */}
+                <div className="hidden md:flex absolute top-0 left-[10%] right-0 justify-center -translate-y-1/2 pointer-events-none z-10">
                   <div className="bg-white border border-brand-dark/10 rounded-full px-4 py-1.5 shadow">
                     <StarRating rating={review.rating} size="lg" />
                   </div>
                 </div>
 
-                {/* Left photo */}
+                {/* Photo wrapper — allows star pill to overflow downward on mobile */}
                 {review.photo && (
-                  <div className="relative w-[40%] shrink-0 self-stretch rounded-l-2xl overflow-hidden" style={{ margin: "-1px 0 -1px -1px", minHeight: 180 }}>
-                    <Image src={review.photo} alt="Review photo" fill className="object-cover" />
+                  <div className="relative md:w-[40%] md:self-stretch md:-m-px md:min-h-[180px]">
+                    {/* Photo with clipping */}
+                    <div className="relative w-full aspect-[3/2] overflow-hidden rounded-tl-2xl rounded-tr-2xl
+                                   md:absolute md:inset-0 md:rounded-tl-2xl md:rounded-tr-none md:rounded-bl-2xl md:rounded-br-none md:aspect-auto">
+                      <Image src={review.photo} alt="Review photo" fill className="object-cover" />
+                    </div>
+                    {/* Star pill — mobile: straddles photo/content boundary */}
+                    <div className="md:hidden absolute bottom-0 left-4 translate-y-1/2 z-10">
+                      <div className="bg-white rounded-xl px-3 py-2 shadow-md">
+                        <StarRating rating={review.rating} size="lg" />
+                      </div>
+                    </div>
                   </div>
                 )}
 
-                {/* Right content */}
-                <div className="flex-1 px-4 pt-7 pb-4 flex flex-col gap-2 min-w-0">
-                  {/* Name + flag | date */}
+                {/* Content */}
+                <div className="flex-1 px-4 pt-8 md:pt-7 pb-4 flex flex-col gap-2 min-w-0">
                   <div className="flex items-center justify-between gap-2">
                     <div className="flex items-center gap-1 min-w-0">
                       <span className="font-semibold text-brand-dark text-sm truncate">{review.name}</span>
@@ -94,10 +113,9 @@ export default function ReviewsSection() {
                     <span className="text-xs text-brand-dark/40 shrink-0">{review.date}</span>
                   </div>
 
-                  {/* Text */}
                   <p className="text-brand-dark/70 text-sm leading-relaxed flex-1">{review.text}</p>
 
-                  {/* Thumbnail */}
+                  {/* Thumbnail — visible on both mobile and desktop */}
                   {review.photo && (
                     <div className="relative w-12 h-12 rounded-lg overflow-hidden shrink-0 mt-1">
                       <Image src={review.photo} alt="Thumbnail" fill className="object-cover" />

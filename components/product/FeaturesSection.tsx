@@ -15,8 +15,11 @@ export default function FeaturesSection() {
           </h2>
         </div>
 
-        {/* Heading pill — mobile */}
-        <div className="sm:hidden flex justify-center mb-8">
+        {/* Heading — mobile */}
+        <div className="sm:hidden flex flex-col items-center gap-4 mb-8">
+          <p className="text-brand-dark text-lg text-center">
+            We couldn&apos;t find a toy that wouldn&apos;t bore cats...
+          </p>
           <h2 className="bg-brand-yellow rounded-full px-8 py-4 text-2xl font-bold text-brand-dark text-center">
             So We Built One!
           </h2>
@@ -27,7 +30,7 @@ export default function FeaturesSection() {
           {features.map((f, i) => (
             <div
               key={i}
-              className={`bg-brand-yellow rounded-3xl p-6 ${i % 2 === 0 ? "mr-10" : "ml-10"}`}
+              className={`bg-brand-yellow px-8 py-6 ${i % 2 === 0 ? "rounded-r-full -ml-6 mr-10" : "rounded-l-full ml-10 -mr-6"}`}
             >
               <h3 className="font-bold text-brand-dark text-lg mb-2">{f.title}</h3>
               <p className="text-brand-dark text-base leading-relaxed">{f.description}</p>

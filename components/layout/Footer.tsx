@@ -96,10 +96,8 @@ export default function Footer() {
 
         {/* ── Copyright bar ── */}
         <div className="pt-6 flex items-center justify-between">
-          {/* Mobile: "All rights reserved." / Desktop: hidden (copyright is right-aligned) */}
           <p className="text-[#0d0a0bbf] text-[20px] lg:hidden">All rights reserved.</p>
 
-          {/* Mobile: Marlene's logo / Desktop: full copyright string right-aligned */}
           <div className="flex items-center gap-3 lg:hidden">
             <svg width="44" height="44" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect y="0.447266" width="32" height="32" rx="16" fill="#0D0A0B"/>
@@ -110,7 +108,6 @@ export default function Footer() {
             <span className="font-bold text-brand-dark text-[20px]">Marlene&apos;s</span>
           </div>
 
-          {/* Desktop only: full copyright right-aligned */}
           <p className="hidden lg:block text-[#0d0a0bbf] text-[20px] ml-auto">
             © 2026 Marlene&apos;s Pet Shop. All rights reserved.
           </p>

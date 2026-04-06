@@ -54,81 +54,88 @@ export default function FaqSection() {
       {/* Stacked on mobile, side-by-side on desktop */}
       <div className="flex flex-col lg:flex-row lg:items-center">
 
-        {/* Video — full width on mobile, half on desktop with D-shape right */}
-        <div
-          className="relative shrink-0 w-full lg:w-1/2 overflow-hidden bg-brand-grey-card cursor-pointer
-                     rounded-2xl mx-6 lg:mx-0 lg:rounded-l-none lg:rounded-r-[9999px]"
-          style={{ aspectRatio: "2/1" }}
-          onClick={togglePlay}
-        >
-          <video
-            ref={videoRef}
-            src="/video.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            onTimeUpdate={handleTimeUpdate}
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-
-          {/* Gradient for controls */}
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-linear-to-t from-black/70 to-transparent" />
-
-          {/* Controls bar */}
+        {/* Video wrapper — relative context for Watch Video badge */}
+        <div className="relative shrink-0 w-[80vw] lg:w-1/2 mb-10 lg:mb-0">
           <div
-            className="absolute inset-x-0 bottom-0 flex items-center gap-3 px-4 pb-3"
-            onClick={(e) => e.stopPropagation()}
+            className="relative overflow-hidden bg-brand-grey-card cursor-pointer
+                       rounded-r-[9999px] w-screen lg:w-full"
+            style={{ aspectRatio: "16/9" }}
+            onClick={togglePlay}
           >
-            {/* Play / Pause */}
-            <button
-              onClick={togglePlay}
-              className="shrink-0 w-9 h-9 rounded-full bg-brand-yellow flex items-center justify-center shadow"
-              aria-label={isPlaying ? "Pause" : "Play"}
-            >
-              {isPlaying ? (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-brand-dark">
-                  <rect x="5" y="3" width="4" height="18" />
-                  <rect x="15" y="3" width="4" height="18" />
-                </svg>
-              ) : (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-brand-dark ml-0.5">
-                  <polygon points="5 3 19 12 5 21 5 3" />
-                </svg>
-              )}
-            </button>
+            <video
+              ref={videoRef}
+              src="/video.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              onTimeUpdate={handleTimeUpdate}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
 
-            {/* Progress bar */}
+            {/* Gradient for controls */}
+            <div className="absolute inset-x-0 bottom-0 h-16 bg-linear-to-t from-black/70 to-transparent" />
+
+            {/* Controls bar */}
             <div
-              className="flex-1 max-w-[70%] h-0.75 rounded-full bg-white/30 cursor-pointer"
-              onClick={handleProgressClick}
+              className="absolute inset-x-0 bottom-0 flex items-center gap-3 px-4 pb-3"
+              onClick={(e) => e.stopPropagation()}
             >
-              <div
-                className="h-full rounded-full bg-white transition-none"
-                style={{ width: `${progress * 100}%` }}
-              />
-            </div>
+              {/* Play / Pause */}
+              <button
+                onClick={togglePlay}
+                className="shrink-0 w-9 h-9 rounded-full bg-brand-yellow flex items-center justify-center shadow"
+                aria-label={isPlaying ? "Pause" : "Play"}
+              >
+                {isPlaying ? (
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-brand-dark">
+                    <rect x="5" y="3" width="4" height="18" />
+                    <rect x="15" y="3" width="4" height="18" />
+                  </svg>
+                ) : (
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-brand-dark ml-0.5">
+                    <polygon points="5 3 19 12 5 21 5 3" />
+                  </svg>
+                )}
+              </button>
 
-            {/* Mute / Unmute */}
-            <button
-              onClick={() => setIsMuted((m) => !m)}
-              className="shrink-0 text-white"
-              aria-label={isMuted ? "Unmute" : "Mute"}
-            >
-              {isMuted ? (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-                  <line x1="23" y1="9" x2="17" y2="15" />
-                  <line x1="17" y1="9" x2="23" y2="15" />
-                </svg>
-              ) : (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
-                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
-                </svg>
-              )}
-            </button>
+              {/* Progress bar */}
+              <div
+                className="flex-1 max-w-[50%] h-0.75 rounded-full bg-white/30 cursor-pointer"
+                onClick={handleProgressClick}
+              >
+                <div
+                  className="h-full rounded-full bg-white transition-none"
+                  style={{ width: `${progress * 100}%` }}
+                />
+              </div>
+
+              {/* Mute / Unmute */}
+              <button
+                onClick={() => setIsMuted((m) => !m)}
+                className="shrink-0 text-white"
+                aria-label={isMuted ? "Unmute" : "Mute"}
+              >
+                {isMuted ? (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                    <line x1="23" y1="9" x2="17" y2="15" />
+                    <line x1="17" y1="9" x2="23" y2="15" />
+                  </svg>
+                ) : (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                  </svg>
+                )}
+              </button>
+            </div>
+          </div>
+
+          {/* Watch Video badge — mobile only, overlaps bottom-right corner */}
+          <div className="lg:hidden absolute -right-14 top-full -translate-y-1/2 z-20 w-20 h-20 rounded-full bg-brand-navy flex flex-col items-center justify-center cursor-pointer select-none">
+            <span className="text-white text-xs font-bold text-center leading-tight">Watch<br />Video</span>
           </div>
         </div>
 

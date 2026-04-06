@@ -20,7 +20,7 @@ export default function Accordion({ items }: AccordionProps) {
       {items.map((item) => {
         const isOpen = openId === item.id;
         return (
-          <div key={item.id} className="py-4">
+          <div key={item.id} className="py-4 border-b border-brand-dark/10">
             <button
               onClick={() => setOpenId(isOpen ? null : item.id)}
               className="flex w-full items-center justify-between gap-4 text-left"
@@ -29,7 +29,7 @@ export default function Accordion({ items }: AccordionProps) {
                 {item.question}
               </span>
               <span
-                className="flex-shrink-0 w-8 h-6 rounded-full bg-brand-yellow flex items-center justify-center text-brand-dark text-xl leading-none"
+                className="shrink-0 w-9 h-9 rounded-full bg-brand-yellow flex items-center justify-center text-brand-dark text-xl leading-none"
                 aria-hidden
               >
                 {isOpen ? "−" : "+"}

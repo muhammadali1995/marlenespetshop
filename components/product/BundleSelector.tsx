@@ -10,14 +10,14 @@ interface BundleSelectorProps {
 
 export default function BundleSelector({ selected, onChange }: BundleSelectorProps) {
   return (
-    <div className="flex gap-3 justify-center">
-      {bundles.map((bundle) => {
+    <div className="flex gap-3 pl-4">
+      {bundles.map((bundle, index) => {
         const isSelected = selected === bundle.id;
         return (
           <button
             key={bundle.id}
             onClick={() => onChange(bundle.id)}
-            className={"relative w-[110px] h-[160px] sm:w-[140px] sm:h-[200px] rounded-2xl overflow-hidden transition-all"}
+            className={`relative w-[130px] h-[200px] rounded-2xl overflow-hidden transition-all ${!isSelected ? "opacity-70" : ""}`}
           >
             {/* Bundle image — fills entire card */}
             <Image
