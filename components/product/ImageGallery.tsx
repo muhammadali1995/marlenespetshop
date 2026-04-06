@@ -95,7 +95,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
       </div>
 
       {/* Thumbnail strip */}
-      <div className="relative flex items-center gap-2" style={{ width: "-webkit-fill-available" }}>
+      <div className="relative flex items-center gap-2 w-full">
         <button
           onClick={prev}
           className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-brand-dark hover:bg-brand-grey-card transition-colors"
