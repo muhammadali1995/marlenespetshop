@@ -37,8 +37,8 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
           {images.map((src, i) => (
             <div
               key={i}
-              className={`shrink-0 relative aspect-square rounded-[20px] overflow-hidden bg-brand-grey-card snap-start${i === 0 ? " pl-4" : ""}`}
-              style={{ width: "calc(100% - 60px)" }}
+              className={`shrink-0 relative rounded-[20px] overflow-hidden bg-brand-grey-card snap-start${i === 0 ? " pl-4" : " aspect-square"}`}
+              style={i === 0 ? { width: "300px", height: "300px" } : { width: "calc(100% - 60px)" }}
             >
               {i === 1 ? (
                 <video
@@ -109,7 +109,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
             <button
               key={i}
               onClick={() => goTo(i)}
-              className={`flex-none aspect-square rounded-[20px] overflow-hidden border-2 transition-colors w-[calc((100%-24px)/3)] lg:w-[calc((100%-32px)/5)] max-w-[133px] ${
+              className={`flex-none w-[84px] h-[84px] lg:w-[calc((100%-32px)/5)] lg:h-auto lg:aspect-square lg:max-w-[133px] rounded-[20px] overflow-hidden border-2 transition-colors ${
                 i === activeIndex ? "border-brand-yellow" : "border-transparent"
               }`}
             >

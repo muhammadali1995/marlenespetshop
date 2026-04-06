@@ -31,7 +31,7 @@ export default function KittyKurlzPage() {
             <ImageGallery images={product.images} />
 
             {/* Right: Product Info + Bundle + CTA */}
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-6 lg:pr-[90px]">
               <ProductInfo />
               <BundleSelector selected={bundle} onChange={setBundle} />
               <AddToCartButton bundle={bundle} />

@@ -19,12 +19,14 @@ const badgeIcons: Record<string, React.ReactNode> = {
   ),
   buyer: (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z" />
+      <path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" />
     </svg>
   ),
   quality: (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+      <path d="M9 12l2 2 4-4" />
     </svg>
   ),
 };
@@ -34,14 +36,14 @@ export default function ProductInfo() {
     <div className="flex flex-col">
       {/* Title + Price on same row */}
       <div className="flex items-start justify-between gap-4">
-        <h1 className="text-[26px] sm:text-[38px] font-bold text-brand-dark">
+        <h1 className="text-[28px] sm:text-[40px] font-bold text-brand-dark">
           {product.name}
         </h1>
         <div className="text-right shrink-0">
-          <div className="text-2xl font-bold text-brand-dark">
+          <div className="text-[20px] sm:text-[30px] font-bold text-brand-dark leading-tight">
             {formatPrice(product.salePrice)}
           </div>
-          <div className="text-base text-brand-dark/50 line-through">
+          <div className="text-[13px] sm:text-[20px] text-brand-dark/50 line-through leading-tight">
             {formatPrice(product.originalPrice)}
           </div>
         </div>
