@@ -380,7 +380,7 @@ export default function Header() {
       >
         {/* Mobile: flex | Desktop: CSS grid matching live site (auto 1fr auto, gap 25px) */}
         <div
-          className="relative mx-auto max-w-[1500px] px-[25px] py-[17px] flex items-center gap-4 min-[990px]:grid min-[990px]:items-center min-[990px]:gap-x-[25px] font-[Gilroy] text-[18px] text-[#0D0A0BBF]"
+          className="relative mx-auto max-w-[1500px] py-3.5 pl-2 pr-4 min-[990px]:px-[25px] min-[990px]:py-[17px] flex items-center gap-4 min-[990px]:grid min-[990px]:items-center min-[990px]:gap-x-[25px] font-[Gilroy] text-[18px] text-[#0D0A0BBF]"
           style={{
             gridTemplateAreas: '"heading navigation icons"',
             gridTemplateColumns: "auto 1fr auto",

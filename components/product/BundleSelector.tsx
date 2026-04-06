@@ -15,13 +15,13 @@ export default function BundleSelector({ selected, onChange }: BundleSelectorPro
         const isSelected = selected === bundle.id;
         return (
           <button
-            key={bundle.id}
+            key={bundle.id} 
             onClick={() => onChange(bundle.id)}
             className="relative w-[130px] lg:w-[140px] h-[200px] rounded-2xl overflow-hidden transition-all"
           >
             {/* Bundle image — fills entire card */}
             <Image
-              src={bundle.image}
+              src={'/images/bundle-1.jpg'}
               alt={bundle.label}
               fill
               className={`object-cover object-top transition-all ${!isSelected ? "brightness-75 saturate-0" : ""}`}

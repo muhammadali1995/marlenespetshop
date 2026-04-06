@@ -45,7 +45,7 @@ export const bundles = [
     sublabel: "And",
     bonus: "GET 2 FREE",
     badge: "4x",
-    image: "/images/bundle-2.png",
+    image: "/images/bundle-1.png",
   },
 ];
 
