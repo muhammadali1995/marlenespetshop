@@ -66,9 +66,10 @@ export default function LifestyleStrip({ photos }: LifestyleStripProps) {
     setActiveIndex((i) => (i + 1) % photos.length);
   }
 
-  const W = isMobile ? 160 : 260;
-  const H_active = isMobile ? 270 : 434;
-  const H_inactive = isMobile ? 200 : 317;
+  const W_active = isMobile ? 280 : 260;
+  const W_inactive = isMobile ? 160 : 260;
+  const H_active = isMobile ? 490 : 434;
+  const H_inactive = isMobile ? 340 : 317;
 
   return (
     <div className="w-full my-10">
@@ -80,7 +81,7 @@ export default function LifestyleStrip({ photos }: LifestyleStripProps) {
             <div
               key={offset}
               className="shrink-0 relative rounded-2xl overflow-hidden bg-brand-grey-card transition-all duration-300"
-              style={{ width: W, height: isActive ? H_active : H_inactive }}
+              style={{ width: isActive ? W_active : W_inactive, height: isActive ? H_active : H_inactive }}
             >
               {/* Image background — different per card based on navigation */}
               <Image
@@ -88,7 +89,7 @@ export default function LifestyleStrip({ photos }: LifestyleStripProps) {
                 alt=""
                 fill
                 className="object-cover"
-                sizes={`${W}px`}
+                sizes={`${isActive ? W_active : W_inactive}px`}
               />
               {/* Video overlay on active card only */}
               {isActive && (
