@@ -56,13 +56,11 @@ export default function CartPage() {
             </div>
 
             {/* Cart items */}
-            <form action="/cart" method="post" id="cart">
-              <div className="divide-y divide-brand-dark/8 border-b border-brand-dark/10 mb-8">
-                {items.map((item) => (
-                  <CartItemRow key={item.id} item={item} />
-                ))}
-              </div>
-            </form>
+            <div className="divide-y divide-brand-dark/8 border-b border-brand-dark/10 mb-8">
+              {items.map((item) => (
+                <CartItemRow key={item.id} item={item} />
+              ))}
+            </div>
 
             {/* Footer — right-aligned block */}
             <div className="ml-auto max-w-[38rem] pb-16">
@@ -89,13 +87,12 @@ export default function CartPage() {
               </p>
 
               {/* Checkout button */}
-              <button
-                type="submit"
-                form="cart"
-                className="w-full rounded-full bg-brand-yellow py-4 font-bold text-brand-dark text-base mt-3 hover:brightness-95 transition-all cursor-pointer"
+              <Link
+                href="/checkout"
+                className="block w-full rounded-full bg-brand-yellow py-4 font-bold text-brand-dark text-base mt-3 hover:brightness-95 transition-all text-center"
               >
                 Checkout
-              </button>
+              </Link>
 
               {/* Dynamic checkout buttons */}
               <div className="flex gap-3 mt-3">
