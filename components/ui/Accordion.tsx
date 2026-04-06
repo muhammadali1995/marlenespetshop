@@ -25,11 +25,11 @@ export default function Accordion({ items }: AccordionProps) {
               onClick={() => setOpenId(isOpen ? null : item.id)}
               className="flex w-full items-center justify-between gap-4 text-left"
             >
-              <span className="font-semibold text-brand-dark text-base sm:text-lg">
+              <span className="text-brand-dark text-base sm:text-lg">
                 {item.question}
               </span>
               <span
-                className="flex-shrink-0 w-9 h-9 rounded-full bg-brand-yellow flex items-center justify-center text-brand-dark font-bold text-xl leading-none"
+                className="flex-shrink-0 w-8 h-6 rounded-full bg-brand-yellow flex items-center justify-center text-brand-dark text-xl leading-none"
                 aria-hidden
               >
                 {isOpen ? "−" : "+"}

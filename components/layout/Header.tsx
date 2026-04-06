@@ -11,7 +11,7 @@ import { useCart } from "@/components/cart/CartProvider";
 
 function CartIcon() {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M8 7H18.5604C19.8225 7 20.7691 8.15465 20.5216 9.39223L19.3216 15.3922C19.1346 16.3271 18.3138 17 17.3604 17H7.61683C6.67376 17 5.85883 16.3412 5.66123 15.4191L3.16939 3.79047C3.07059 3.3294 2.66312 3 2.19158 3H1.5"
         stroke="currentColor" strokeWidth="2" strokeLinecap="round"
@@ -61,7 +61,7 @@ function DrawerCartIcon() {
 
 function GlobeIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="12" r="10" />
       <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
     </svg>
@@ -267,7 +267,7 @@ export default function Header() {
       >
         {/* Mobile: flex | Desktop: CSS grid matching live site (auto 1fr auto, gap 25px) */}
         <div
-          className="relative mx-auto max-w-[1500px] px-[25px] py-[20px] h-[92px] flex items-center gap-4 min-[990px]:grid min-[990px]:items-center min-[990px]:gap-x-[25px] font-[Gilroy] text-[18px] text-[#0D0A0BBF]"
+          className="relative mx-auto max-w-[1500px] px-[25px] py-[17px] flex items-center gap-4 min-[990px]:grid min-[990px]:items-center min-[990px]:gap-x-[25px] font-[Gilroy] text-[18px] text-[#0D0A0BBF]"
           style={{ gridTemplateAreas: '"heading navigation icons"', gridTemplateColumns: 'auto 1fr auto' }}
         >
 
@@ -299,7 +299,7 @@ export default function Header() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className={`flex items-center px-[15px] py-[15px] tracking-[0.75px] font-normal whitespace-nowrap transition-all duration-200 ${
+                    className={`flex items-center text-lg px-[15px] py-[15px] tracking-[0.75px] font-normal whitespace-nowrap transition-all duration-200 ${
                       pathname === link.href ? "text-brand-yellow" : "hover:text-brand-yellow"
                     }`}
                   >
@@ -315,18 +315,18 @@ export default function Header() {
             className="flex items-center gap-[40px] shrink-0 ml-auto min-[990px]:ml-0 min-[990px]:justify-self-end"
             style={{ gridArea: 'icons' }}
           >
-            <div className="hidden min-[990px]:flex items-center gap-[40px]">
-              <button className="flex items-center gap-[6.25px] tracking-[0.5px] hover:opacity-70 transition-opacity">
+            <div className="hidden min-[990px]:flex items-center gap-11">
+              <button className="flex font-semibold px-3 py-2.5 gap-3 items-center tracking-[0.5px] hover:opacity-70 transition-opacity">
                 <GlobeIcon />
-                <span>USD $</span>
+                <span>UZS so'm</span>
                 <ChevronDown />
               </button>
-              <button className="flex items-center gap-[6.25px] tracking-[0.5px] hover:opacity-70 transition-opacity">
+              <button className="flex px-3 font-semibold py-2.5 gap-3 items-center tracking-[0.5px] hover:opacity-70 transition-opacity">
                 <img
                   src="/images/flag-us.svg"
                   alt="English"
-                  width={20}
-                  height={20}
+                  width={26}
+                  height={26}
                   className="rounded-full object-cover w-5 h-5"
                 />
                 <span>English</span>
@@ -340,7 +340,7 @@ export default function Header() {
               className="relative flex items-center hover:opacity-70 transition-opacity"
               aria-label="Open cart"
             >
-              <CartIcon />
+              <CartIcon  />
               {totalItems > 0 && (
                 <span className="absolute -top-1.5 -right-1.5 bg-brand-yellow text-brand-dark text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center leading-none">
                   {totalItems}

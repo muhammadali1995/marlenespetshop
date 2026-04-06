@@ -31,10 +31,10 @@ const badgeIcons: Record<string, React.ReactNode> = {
 
 export default function ProductInfo() {
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col">
       {/* Title + Price on same row */}
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-        <h1 className="text-[38px] font-bold text-brand-dark leading-tight">
+        <h1 className="text-[38px] font-bold text-brand-dark">
           {product.name}
         </h1>
         <div className="text-right shrink-0">
@@ -49,7 +49,7 @@ export default function ProductInfo() {
 
       {/* Rating */}
       <div className="flex flex-wrap items-center gap-3">
-        <StarRating rating={product.rating} />
+        <StarRating rating={product.rating} size="lg" />
         <span className="font-semibold text-brand-dark">{product.rating}</span>
         <a href="#reviews" className="text-brand-dark/60 hover:underline text-sm">
           ({product.reviewCount.toLocaleString()} reviews)
@@ -57,7 +57,7 @@ export default function ProductInfo() {
       </div>
 
       {/* Voted badge */}
-      <p className="text-sm text-brand-dark/50">{product.votedBadge}<sup>[1]</sup></p>
+      <p className="text-xl my-3">{product.votedBadge}<sup>[1]</sup></p>
 
       {/* Trust badges */}
       <div className="grid grid-cols-2 gap-3">

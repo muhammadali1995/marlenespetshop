@@ -19,23 +19,21 @@ export default function ReviewsSection() {
 
         {/* ── Left panel: heading + summary ─────────────────── */}
         <div className="w-full lg:w-80 lg:shrink-0">
-          <h2 className="text-4xl font-bold text-brand-dark mb-6">
+          <h2 className="text-[25px] font-bold text-brand-dark mb-6">
             Read The Reviews
           </h2>
           <div className="flex items-center gap-3 mb-5">
-            <span className="text-6xl font-bold text-brand-dark/40 leading-none">{product.rating}</span>
-            <div className="flex flex-col gap-1">
+            <span className="text-[40px] font-bold text-brand-dark/40 leading-none">{product.rating}</span>
               <StarRating rating={product.rating} size="lg" />
               <span className="text-brand-dark/50 text-sm">({product.reviewCount.toLocaleString()} reviews)</span>
-            </div>
           </div>
-          <button className="rounded-full bg-brand-yellow px-6 py-2.5 text-sm font-semibold text-brand-dark hover:brightness-95 transition-all">
+          <button className="rounded-full bg-brand-yellow px-6 py-2.5 text-sm font-semibold hover:brightness-95 text-black/70 transition-all">
             Write a review
           </button>
         </div>
 
         {/* ── Right panel: filters + grid ───────────────────── */}
-        <div className="flex-1 min-w-0">
+        <div className="flex-1 min-w-0 border-t border-brand-dark/20 pt-6 mt-20">
 
           {/* Filter bar */}
           <div className="flex items-center gap-3 mb-8">
@@ -66,9 +64,9 @@ export default function ReviewsSection() {
                 className="relative bg-white border border-brand-dark/10 rounded-2xl flex"
               >
                 {/* Star pill — floats above top edge, centered in right column */}
-                <div className="absolute top-0 left-[40%] right-0 flex justify-center -translate-y-1/2 pointer-events-none z-10">
+                <div className="absolute top-0 left-[10%] right-0 flex justify-center -translate-y-1/2 pointer-events-none z-10">
                   <div className="bg-white border border-brand-dark/10 rounded-full px-4 py-1.5 shadow">
-                    <StarRating rating={review.rating} size="sm" />
+                    <StarRating rating={review.rating} size="lg" />
                   </div>
                 </div>
 
