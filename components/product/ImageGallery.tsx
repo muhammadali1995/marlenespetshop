@@ -29,16 +29,16 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
   return (
     <div className="flex flex-col gap-4">
       {/* Mobile: scroll-snap slider with right peek */}
-      <div className="lg:hidden lg:-mx-6 overflow-hidden">
+      <div className="lg:hidden pt-1 lg:pt-0 lg:-mx-6 overflow-hidden">
         <div
           ref={sliderRef}
-          className="flex pl-6 gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory"
+          className="flex gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory"
         >
           {images.map((src, i) => (
             <div
               key={i}
               className={`shrink-0 relative rounded-[20px] overflow-hidden bg-brand-grey-card snap-start${i === 0 ? " pl-4" : " aspect-square"}`}
-              style={i === 0 ? { width: "300px", height: "300px" } : { width: "calc(100% - 60px)" }}
+              style={i === 0 ? { width: "335px", height: "335px" } : { width: "calc(100% - 60px)" }}
             >
               {i === 1 ? (
                 <video
@@ -95,7 +95,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
       </div>
 
       {/* Thumbnail strip */}
-      <div className="relative flex items-center gap-2 w-full">
+      <div className="relative flex items-center gap-2 w-full max-w-[796px]">
         <button
           onClick={prev}
           className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-brand-dark hover:bg-brand-grey-card transition-colors"
