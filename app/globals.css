@@ -196,6 +196,7 @@ html {
   scrollbar-width: none;
 }
 
+
 .sticky-bar {
   background-color: var(--sticky-bundle-picker-bgcolor);
   border-top-left-radius: 25px;

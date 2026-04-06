@@ -38,13 +38,13 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
       <div className="lg:hidden pt-1 lg:pt-0 lg:-mx-6 overflow-hidden">
         <div
           ref={sliderRef}
-          className="flex gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory"
+          className="flex gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory pl-4 [scroll-padding-left:16px]"
         >
           {images.map((src, i) => (
             <div
               key={i}
-              className={`shrink-0 relative rounded-[20px] overflow-hidden bg-brand-grey-card snap-start${i === 0 ? " pl-4" : " aspect-square"}`}
-              style={i === 0 ? { width: "335px", height: "335px" } : { width: "calc(100% - 60px)" }}
+              className="shrink-0 relative rounded-[20px] overflow-hidden bg-brand-grey-card snap-start aspect-square"
+              style={{ width: "calc(100% - 60px)" }}
             >
               {i === 1 ? (
                 <video
