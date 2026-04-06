@@ -256,7 +256,7 @@ export default function Header() {
           <div className="px-4 flex-1 flex flex-col overflow-hidden relative">
             {/* Language & currency pill selectors — 1.5px border, with arrows */}
             <div className="flex items-center justify-between gap-4 w-full">
-              <button className="flex items-center gap-2 bg-white px-[12.5px] py-[7.8125px] rounded-full text-[11.875px] font-medium text-[#333] border border-[#e5e5e5] hover:border-[#ccc] hover:bg-[#fafafa] transition-all duration-200">
+              <button className="flex items-center gap-2 bg-white px-[12.5px] py-[7.8125px] rounded-full text-[11.875px] font-thin text-[#333] border border-[#e5e5e5] hover:border-[#ccc] hover:bg-[#fafafa] transition-all duration-200">
                 <Image
                   src="https://cdn.shopify.com/static/images/flags/us.svg"
                   alt="English"

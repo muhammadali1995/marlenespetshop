@@ -54,7 +54,7 @@ export default function ProductInfo() {
           <div className="text-[20px] sm:text-[30px] font-bold text-brand-dark leading-tight">
             {formatPrice(product.salePrice)}
           </div>
-          <div className="text-[13px] sm:text-[20px] text-brand-dark/50 line-through leading-tight">
+          <div className="text-[13px] sm:text-[22px] text-brand-dark/50 font-medium line-through leading-tight">
             {formatPrice(product.originalPrice)}
           </div>
         </div>
@@ -82,7 +82,7 @@ export default function ProductInfo() {
             <span className="text-brand-dark/60 shrink-0">
               {badgeIcons[badge.icon]}
             </span>
-            <span className="text-[11px] font-semibold text-brand-dark/70 uppercase leading-tight">
+            <span className="text-[11px] font-normal text-brand-dark/70 uppercase leading-tight">
               {badge.text}
             </span>
           </div>
