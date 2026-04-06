@@ -29,28 +29,29 @@ export default function SocialProof() {
     <section className="py-1 px-6">
       <div className="mx-auto max-w-[1440px]">
 
-        {/* Swiper — drag to scroll, video if available */}
+        {/* Mobile: 3 circles centered with symmetric peek */}
+        <div className="sm:hidden -mx-6 overflow-hidden mb-8">
+          <div className="flex justify-center items-center gap-4">
+            {socialProofPhotos.slice(0, 3).map((_, i) => (
+              <div key={i} className="relative shrink-0 w-[200px] h-[200px] rounded-full overflow-hidden bg-brand-grey-card">
+                <video src="/video.mp4" autoPlay muted loop playsInline className="w-full h-full object-cover pointer-events-none" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop: drag-to-scroll all circles */}
         <div
           ref={sliderRef}
-          className="flex items-center gap-4 overflow-x-auto no-scrollbar cursor-grab select-none mb-8"
+          className="hidden sm:flex items-center gap-4 overflow-x-auto no-scrollbar cursor-grab select-none mb-8"
           onMouseDown={onMouseDown}
           onMouseMove={onMouseMove}
           onMouseUp={stopDrag}
           onMouseLeave={stopDrag}
         >
           {socialProofPhotos.map((_, i) => (
-            <div
-              key={i}
-              className="relative shrink-0 w-[110px] h-[110px] sm:w-[200px] sm:h-[200px] rounded-full overflow-hidden bg-brand-grey-card"
-            >
-              <video
-                src="/video.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="w-full h-full object-cover pointer-events-none"
-              />
+            <div key={i} className="relative shrink-0 w-[200px] h-[200px] rounded-full overflow-hidden bg-brand-grey-card">
+              <video src="/video.mp4" autoPlay muted loop playsInline className="w-full h-full object-cover pointer-events-none" />
             </div>
           ))}
         </div>
@@ -83,10 +84,10 @@ export default function SocialProof() {
                {/* Label row */}
               <div className="flex items-center gap-1.5">
                 <span className="text-lg sm:text-2xl">{card.icon}</span>
-                <span className="font-bold text-brand-dark text-sm sm:text-lg">{card.label}</span>
+                <span className="font-bold text-brand-dark text-base sm:text-lg">{card.label}</span>
               </div>
               {/* Description */}
-              <p className="text-brand-dark/70 text-sm sm:text-[21px] leading-relaxed">
+              <p className="text-brand-dark/70 text-base sm:text-[21px] leading-relaxed">
                 {card.description}
               </p>
              </div>

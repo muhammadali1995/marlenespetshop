@@ -33,8 +33,8 @@ export default function ProductInfo() {
   return (
     <div className="flex flex-col">
       {/* Title + Price on same row */}
-      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-        <h1 className="text-[38px] font-bold text-brand-dark">
+      <div className="flex items-start justify-between gap-4">
+        <h1 className="text-[26px] sm:text-[38px] font-bold text-brand-dark">
           {product.name}
         </h1>
         <div className="text-right shrink-0">
