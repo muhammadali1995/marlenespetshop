@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useCartStore, selectSubtotal, selectTotalItems } from "@/store/cartStore";
 
 // ─── Icons ────────────────────────────────────────────────────────────────────
@@ -162,13 +163,142 @@ const inputCls = "w-full px-[11px] py-[13.5px] text-[14px] border-none rounded-l
 
 const SF = `-apple-system, "system-ui", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"`;
 
+// ─── Sub-components ───────────────────────────────────────────────────────────
+
+function MobileProductRow({
+  thumbSize = 60,
+  showToggle = true,
+  displayItems,
+  displaySub,
+  mobileShowItems,
+  setMobileShowItems,
+  fmt,
+}: {
+  thumbSize?: number;
+  showToggle?: boolean;
+  displayItems: number;
+  displaySub: number;
+  mobileShowItems: boolean;
+  setMobileShowItems: (v: boolean) => void;
+  fmt: (n: number) => string;
+}) {
+  return (
+    <>
+      <div className="flex items-start gap-[14px]">
+        <div className="relative flex-shrink-0">
+          <Image
+            src="/images/bundle-1.jpg"
+            alt="Kitty Kurlz™"
+            width={thumbSize}
+            height={thumbSize}
+            className="rounded-lg border border-[#e0e0e0] block object-cover bg-white"
+          />
+          <span
+            className="absolute -top-2 -right-2 w-[22px] h-[22px] rounded-full bg-[#333] text-white text-[11px] font-bold flex items-center justify-center"
+          >
+            {displayItems}
+          </span>
+        </div>
+        <div className="flex-1 pt-[2px]">
+          <div className="text-[14px] leading-snug">Kitty Kurlz™ [BUY 1 GET 1 FREE]</div>
+          {showToggle && (
+            <button
+              onClick={() => setMobileShowItems(!mobileShowItems)}
+              className="text-[13px] text-[#005bd1] bg-transparent border-none p-0 pt-[2px] cursor-pointer flex items-center gap-1"
+            >
+              {mobileShowItems ? "Hide 12 items" : "Show 12 items"}
+              {mobileShowItems ? <ChevronUp /> : <ChevronDown color="#005bd1" />}
+            </button>
+          )}
+        </div>
+        <div className="text-[14px] whitespace-nowrap pt-[2px]">{fmt(displaySub)}</div>
+      </div>
+      {showToggle && mobileShowItems && (
+        <div className="flex items-center gap-3 mt-3 pl-[74px]">
+          <Image
+            src="/images/bundle-1.jpg"
+            alt="Kitty Kurlz™"
+            width={38}
+            height={38}
+            className="rounded-md border border-[#e0e0e0] object-cover bg-white"
+          />
+          <span className="text-[14px]">12 × Kitty Kurlz™</span>
+        </div>
+      )}
+    </>
+  );
+}
+
+function MobileOrderDetails({
+  discountValue,
+  setDiscountValue,
+  displaySub,
+  displayTotal,
+  shipping,
+  fmt,
+}: {
+  discountValue: string;
+  setDiscountValue: (v: string) => void;
+  displaySub: number;
+  displayTotal: number;
+  shipping: number;
+  fmt: (n: number) => string;
+}) {
+  return (
+    <>
+      {/* Discount code */}
+      <div className="flex gap-[10px] mb-4">
+        <div className={`flex-1 ${fieldCls}`}>
+          <input
+            value={discountValue}
+            onChange={e => setDiscountValue(e.target.value)}
+            placeholder="Discount code"
+            className="w-full px-[11px] py-[13.5px] text-[14px] border-none rounded-lg outline-none bg-transparent placeholder:text-[#767676]"
+          />
+        </div>
+        <button className="px-4 bg-[#ededed] hover:bg-[#e0e0e0] rounded-lg border border-[#dedede] text-[14px] font-medium cursor-pointer whitespace-nowrap text-[#333] transition-colors duration-150">
+          Apply
+        </button>
+      </div>
+
+      {/* Subtotal */}
+      <div className="flex justify-between mb-2 text-[14px]">
+        <span>Subtotal</span>
+        <span>{fmt(displaySub)}</span>
+      </div>
+
+      {/* Shipping */}
+      <div className="flex justify-between items-center mb-4 text-[14px]">
+        <span className="flex items-center gap-[5px]">
+          Shipping
+          <span title="Calculated at checkout" className="inline-flex cursor-help">
+            <InfoIcon />
+          </span>
+        </span>
+        <span>{fmt(shipping)}</span>
+      </div>
+
+      {/* Divider */}
+      <div className="h-px bg-[#e0e0e0] mb-4" />
+
+      {/* Total */}
+      <div className="flex justify-between items-baseline">
+        <span className="text-[16px] font-bold">Total</span>
+        <span className="text-[20px] font-bold">{fmt(displayTotal)}</span>
+      </div>
+    </>
+  );
+}
+
+const SHIPPING = 49_000;
+const footerLinks = ["Refund policy", "Shipping", "Privacy policy", "Terms of service", "Cancellations", "Contact"];
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function CheckoutPage() {
   const subtotal   = useCartStore(selectSubtotal);
   const totalItems = useCartStore(selectTotalItems);
 
-  const [showItems,          setShowItems]          = useState(true);
   const [emailOffers,        setEmailOffers]        = useState(true);
   const [textOffers,         setTextOffers]         = useState(false);
   const [billingAddressSame, setBillingAddressSame] = useState(true);
@@ -177,112 +307,13 @@ export default function CheckoutPage() {
   const [mobileSummaryOpen,  setMobileSummaryOpen]  = useState(false);
   const [mobileBottomOpen,   setMobileBottomOpen]   = useState(false);
   const [mobileShowItems,    setMobileShowItems]    = useState(true);
+  const [showItems,          setShowItems]          = useState(true);
 
-  const SHIPPING     = 49_000;
   const displaySub   = subtotal   > 0 ? subtotal   : 2_226_000;
   const displayItems = totalItems > 0 ? totalItems : 6;
   const displayTotal = displaySub + SHIPPING;
 
   const fmt = (n: number) => `UZS ${n.toLocaleString("en-US")}.00`;
-
-  // ─── Reusable sub-components for mobile panels ───────────────────────────
-
-  function MobileProductRow({ thumbSize = 60, showToggle = true }: { thumbSize?: number; showToggle?: boolean }) {
-    return (
-      <>
-        <div className="flex items-start gap-[14px]">
-          <div className="relative flex-shrink-0">
-            <Image
-              src="/images/bundle-1.jpg"
-              alt="Kitty Kurlz™"
-              width={thumbSize}
-              height={thumbSize}
-              className="rounded-lg border border-[#e0e0e0] block object-cover bg-white"
-            />
-            <span
-              className="absolute -top-2 -right-2 w-[22px] h-[22px] rounded-full bg-[#333] text-white text-[11px] font-bold flex items-center justify-center"
-            >
-              {displayItems}
-            </span>
-          </div>
-          <div className="flex-1 pt-[2px]">
-            <div className="text-[14px] leading-snug">Kitty Kurlz™ [BUY 1 GET 1 FREE]</div>
-            {showToggle && (
-              <button
-                onClick={() => setMobileShowItems(!mobileShowItems)}
-                className="text-[13px] text-[#005bd1] bg-transparent border-none p-0 pt-[2px] cursor-pointer flex items-center gap-1"
-              >
-                {mobileShowItems ? "Hide 12 items" : "Show 12 items"}
-                {mobileShowItems ? <ChevronUp /> : <ChevronDown color="#005bd1" />}
-              </button>
-            )}
-          </div>
-          <div className="text-[14px] whitespace-nowrap pt-[2px]">{fmt(displaySub)}</div>
-        </div>
-        {showToggle && mobileShowItems && (
-          <div className="flex items-center gap-3 mt-3 pl-[74px]">
-            <Image
-              src="/images/bundle-1.jpg"
-              alt="Kitty Kurlz™"
-              width={38}
-              height={38}
-              className="rounded-md border border-[#e0e0e0] object-cover bg-white"
-            />
-            <span className="text-[14px]">12 × Kitty Kurlz™</span>
-          </div>
-        )}
-      </>
-    );
-  }
-
-  function MobileOrderDetails({ discountValue, setDiscountValue }: { discountValue: string; setDiscountValue: (v: string) => void }) {
-    return (
-      <>
-        {/* Discount code */}
-        <div className="flex gap-[10px] mb-4">
-          <div className={`flex-1 ${fieldCls}`}>
-            <input
-              value={discountValue}
-              onChange={e => setDiscountValue(e.target.value)}
-              placeholder="Discount code"
-              className="w-full px-[11px] py-[13.5px] text-[14px] border-none rounded-lg outline-none bg-transparent placeholder:text-[#767676]"
-            />
-          </div>
-          <button className="px-4 bg-[#ededed] hover:bg-[#e0e0e0] rounded-lg border border-[#dedede] text-[14px] font-medium cursor-pointer whitespace-nowrap text-[#333] transition-colors duration-150">
-            Apply
-          </button>
-        </div>
-
-        {/* Subtotal */}
-        <div className="flex justify-between mb-2 text-[14px]">
-          <span>Subtotal</span>
-          <span>{fmt(displaySub)}</span>
-        </div>
-
-        {/* Shipping */}
-        <div className="flex justify-between items-center mb-4 text-[14px]">
-          <span className="flex items-center gap-[5px]">
-            Shipping
-            <span title="Calculated at checkout" className="inline-flex cursor-help">
-              <InfoIcon />
-            </span>
-          </span>
-          <span>{fmt(SHIPPING)}</span>
-        </div>
-
-        {/* Divider */}
-        <div className="h-px bg-[#e0e0e0] mb-4" />
-
-        {/* Total */}
-        <div className="flex justify-between items-baseline">
-          <span className="text-[16px] font-bold">Total</span>
-          <span className="text-[20px] font-bold">{fmt(displayTotal)}</span>
-        </div>
-      </>
-    );
-  }
-
-  const footerLinks = ["Refund policy", "Shipping", "Privacy policy", "Terms of service", "Cancellations", "Contact"];
 
   return (
     <>
@@ -298,7 +329,7 @@ export default function CheckoutPage() {
         <header className="h-[75px] bg-white border-b border-[#dedede] flex items-center justify-center sticky top-0 z-50 flex-shrink-0">
           <div className="w-full max-w-[1200px] flex items-center px-6">
             <div className="flex-1" />
-            <a href="/" className="flex items-center">
+            <Link href="/" className="flex items-center">
               <Image
                 src="https://cdn.shopify.com/s/files/1/0592/0194/5677/files/Untitled_design_-_2024-10-18T102851.555_x320.png?v=1729258141"
                 alt="Marlene's Pet Shop"
@@ -306,7 +337,7 @@ export default function CheckoutPage() {
                 height={32}
                 className="block"
               />
-            </a>
+            </Link>
             <div className="flex-1 flex justify-end">
               <a href="/cart" aria-label="Cart" className="text-[#333] flex items-center p-2">
                 <CartIcon />
@@ -334,14 +365,14 @@ export default function CheckoutPage() {
             <div className="px-5 pb-5 bg-[#f5f5f5]">
               {/* Product row */}
               <div className="mb-4">
-                <MobileProductRow thumbSize={60} showToggle={true} />
+                <MobileProductRow thumbSize={60} showToggle={true} displayItems={displayItems} displaySub={displaySub} mobileShowItems={mobileShowItems} setMobileShowItems={setMobileShowItems} fmt={fmt} />
               </div>
 
               {/* Divider */}
               <div className="h-px bg-[#e0e0e0] mb-4" />
 
               {/* Order details */}
-              <MobileOrderDetails discountValue={discountCode} setDiscountValue={setDiscountCode} />
+              <MobileOrderDetails discountValue={discountCode} setDiscountValue={setDiscountCode} displaySub={displaySub} displayTotal={displayTotal} shipping={SHIPPING} fmt={fmt} />
             </div>
           )}
         </div>
@@ -458,8 +489,8 @@ export default function CheckoutPage() {
 
               <div className="border border-[#dedede] rounded-lg overflow-hidden">
                 <div className="border-b border-[#dedede]">
-                  <div onClick={() => setPaymentMethod("credit")}
-                    className="px-4 py-4 flex justify-between items-center cursor-pointer hover:bg-[#fafafa]">
+                  <button type="button" onClick={() => setPaymentMethod("credit")}
+                    className="w-full text-left px-4 py-4 flex justify-between items-center cursor-pointer hover:bg-[#fafafa]">
                     <div className="flex items-center gap-[10px]">
                       <RadioDot selected={paymentMethod === "credit"} />
                       <span className="text-[14px] font-medium">Credit card</span>
@@ -468,7 +499,7 @@ export default function CheckoutPage() {
                       <VisaIcon /><MastercardIcon /><AmexIcon />
                       <div className="text-[11px] bg-[#f4f4f4] border border-[#e0e0e0] px-[6px] py-[2px] rounded text-[#555] font-medium">+5</div>
                     </div>
-                  </div>
+                  </button>
                   {paymentMethod === "credit" && (
                     <div className="px-4 pb-4">
                       <div className={`${fieldCls} relative mb-[10px]`}>
@@ -494,32 +525,32 @@ export default function CheckoutPage() {
                   )}
                 </div>
 
-                <div onClick={() => setPaymentMethod("shopPay")}
-                  className="px-4 py-[14px] border-b border-[#dedede] flex justify-between items-center cursor-pointer hover:bg-[#fafafa] bg-white">
+                <button type="button" onClick={() => setPaymentMethod("shopPay")}
+                  className="w-full text-left px-4 py-[14px] border-b border-[#dedede] flex justify-between items-center cursor-pointer hover:bg-[#fafafa] bg-white">
                   <div className="flex items-center gap-[10px]">
                     <RadioDot selected={paymentMethod === "shopPay"} />
                     <span className="text-[14px]">Shop Pay <span className="text-[#686b6e]">· Pay in full or in installments</span></span>
                   </div>
                   <ShopPayTextLogo />
-                </div>
+                </button>
 
-                <div onClick={() => setPaymentMethod("klarna")}
-                  className="px-4 py-[14px] border-b border-[#dedede] flex justify-between items-center cursor-pointer hover:bg-[#fafafa] bg-white">
+                <button type="button" onClick={() => setPaymentMethod("klarna")}
+                  className="w-full text-left px-4 py-[14px] border-b border-[#dedede] flex justify-between items-center cursor-pointer hover:bg-[#fafafa] bg-white">
                   <div className="flex items-center gap-[10px]">
                     <RadioDot selected={paymentMethod === "klarna"} />
                     <span className="text-[14px]">Klarna: flexible payment options</span>
                   </div>
                   <KlarnaLogo />
-                </div>
+                </button>
 
-                <div onClick={() => setPaymentMethod("affirm")}
-                  className="px-4 py-[14px] flex justify-between items-center cursor-pointer hover:bg-[#fafafa] bg-white">
+                <button type="button" onClick={() => setPaymentMethod("affirm")}
+                  className="w-full text-left px-4 py-[14px] flex justify-between items-center cursor-pointer hover:bg-[#fafafa] bg-white">
                   <div className="flex items-center gap-[10px]">
                     <RadioDot selected={paymentMethod === "affirm"} />
                     <span className="text-[14px]">Affirm: Buy now, pay later</span>
                   </div>
                   <AffirmLogo />
-                </div>
+                </button>
               </div>
             </section>
 
@@ -602,14 +633,14 @@ export default function CheckoutPage() {
 
                 {/* Product row */}
                 <div className="mb-4">
-                  <MobileProductRow thumbSize={60} showToggle={true} />
+                  <MobileProductRow thumbSize={60} showToggle={true} displayItems={displayItems} displaySub={displaySub} mobileShowItems={mobileShowItems} setMobileShowItems={setMobileShowItems} fmt={fmt} />
                 </div>
 
                 {/* Divider */}
                 <div className="h-px bg-[#e0e0e0] mb-4" />
 
                 {/* Order details */}
-                <MobileOrderDetails discountValue={discountCode} setDiscountValue={setDiscountCode} />
+                <MobileOrderDetails discountValue={discountCode} setDiscountValue={setDiscountCode} displaySub={displaySub} displayTotal={displayTotal} shipping={SHIPPING} fmt={fmt} />
               </div>
             )}
 
@@ -758,8 +789,8 @@ export default function CheckoutPage() {
                   <div className="border border-[#dedede] rounded-lg overflow-hidden">
                     {/* Credit card */}
                     <div className="border-b border-[#dedede]">
-                      <div onClick={() => setPaymentMethod("credit")}
-                        className="px-4 py-4 flex justify-between items-center cursor-pointer hover:bg-[#fafafa]">
+                      <button type="button" onClick={() => setPaymentMethod("credit")}
+                        className="w-full text-left px-4 py-4 flex justify-between items-center cursor-pointer hover:bg-[#fafafa]">
                         <div className="flex items-center gap-[10px]">
                           <RadioDot selected={paymentMethod === "credit"} />
                           <span className="text-[14px] font-medium">Credit card</span>
@@ -768,7 +799,7 @@ export default function CheckoutPage() {
                           <VisaIcon /><MastercardIcon /><AmexIcon />
                           <div className="text-[11px] bg-[#f4f4f4] border border-[#e0e0e0] px-[6px] py-[2px] rounded text-[#555] font-medium">+5</div>
                         </div>
-                      </div>
+                      </button>
                       {paymentMethod === "credit" && (
                         <div className="px-4 pb-4">
                           <div className={`${fieldCls} relative mb-[10px]`}>
@@ -795,34 +826,34 @@ export default function CheckoutPage() {
                     </div>
 
                     {/* Shop Pay */}
-                    <div onClick={() => setPaymentMethod("shopPay")}
-                      className="px-4 py-[14px] border-b border-[#dedede] flex justify-between items-center cursor-pointer hover:bg-[#fafafa] bg-white">
+                    <button type="button" onClick={() => setPaymentMethod("shopPay")}
+                      className="w-full text-left px-4 py-[14px] border-b border-[#dedede] flex justify-between items-center cursor-pointer hover:bg-[#fafafa] bg-white">
                       <div className="flex items-center gap-[10px]">
                         <RadioDot selected={paymentMethod === "shopPay"} />
                         <span className="text-[14px]">Shop Pay <span className="text-[#686b6e]">· Pay in full or in installments</span></span>
                       </div>
                       <ShopPayTextLogo />
-                    </div>
+                    </button>
 
                     {/* Klarna */}
-                    <div onClick={() => setPaymentMethod("klarna")}
-                      className="px-4 py-[14px] border-b border-[#dedede] flex justify-between items-center cursor-pointer hover:bg-[#fafafa] bg-white">
+                    <button type="button" onClick={() => setPaymentMethod("klarna")}
+                      className="w-full text-left px-4 py-[14px] border-b border-[#dedede] flex justify-between items-center cursor-pointer hover:bg-[#fafafa] bg-white">
                       <div className="flex items-center gap-[10px]">
                         <RadioDot selected={paymentMethod === "klarna"} />
                         <span className="text-[14px]">Klarna: flexible payment options</span>
                       </div>
                       <KlarnaLogo />
-                    </div>
+                    </button>
 
                     {/* Affirm */}
-                    <div onClick={() => setPaymentMethod("affirm")}
-                      className="px-4 py-[14px] flex justify-between items-center cursor-pointer hover:bg-[#fafafa] bg-white">
+                    <button type="button" onClick={() => setPaymentMethod("affirm")}
+                      className="w-full text-left px-4 py-[14px] flex justify-between items-center cursor-pointer hover:bg-[#fafafa] bg-white">
                       <div className="flex items-center gap-[10px]">
                         <RadioDot selected={paymentMethod === "affirm"} />
                         <span className="text-[14px]">Affirm: Buy now, pay later</span>
                       </div>
                       <AffirmLogo />
-                    </div>
+                    </button>
                   </div>
                 </section>
 

@@ -5,7 +5,7 @@ import { useCart } from "@/components/cart/CartProvider";
 import { product } from "@/lib/data";
 
 interface AddToCartButtonProps {
-  bundle: string;
+  bundle: "buy1get1" | "buy2get2";
 }
 
 export default function AddToCartButton({ bundle }: AddToCartButtonProps) {
@@ -19,7 +19,7 @@ export default function AddToCartButton({ bundle }: AddToCartButtonProps) {
       image: "/images/bundle-1.png",
       price: product.salePrice,
       originalPrice: product.originalPrice,
-      bundle: bundle as "buy1get1" | "buy2get2",
+      bundle,
     });
     openCart();
   }

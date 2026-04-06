@@ -114,6 +114,8 @@ export default function Header() {
   const [languageOpen, setLanguageOpen] = useState(false);
   const currencyBtnRef = useRef<HTMLButtonElement>(null);
   const languageBtnRef = useRef<HTMLButtonElement>(null);
+  const [currencyPanelStyle, setCurrencyPanelStyle] = useState<React.CSSProperties>({});
+  const [languagePanelStyle, setLanguagePanelStyle] = useState<React.CSSProperties>({});
 
   const [drawerCurrencyOpen, setDrawerCurrencyOpen] = useState(false);
   const [drawerLanguageOpen, setDrawerLanguageOpen] = useState(false);
@@ -134,7 +136,7 @@ export default function Header() {
     return () => { document.body.style.overflow = ""; };
   }, [drawerOpen]);
 
-  function getPanelPos(ref: React.RefObject<HTMLButtonElement | null>, alignRight = false) {
+  function computePanelPos(ref: React.RefObject<HTMLButtonElement | null>, alignRight = false): React.CSSProperties {
     const rect = ref.current?.getBoundingClientRect();
     if (!rect) return {};
     const style: React.CSSProperties = { top: rect.bottom + 8, width: PANEL_WIDTH };
@@ -288,12 +290,12 @@ export default function Header() {
 
           <div className="flex items-center gap-[40px] shrink-0 ml-auto min-[990px]:ml-0 min-[990px]:justify-self-end" style={{ gridArea: "icons" }}>
             <div className="hidden min-[990px]:flex items-center gap-8">
-              <button ref={currencyBtnRef} onClick={() => { setCurrencyOpen(v => !v); setLanguageOpen(false); }} className="flex font-semibold px-3 py-2.5 gap-2 items-center tracking-[0.5px] hover:opacity-70 transition-opacity">
+              <button ref={currencyBtnRef} onClick={() => { setCurrencyPanelStyle(computePanelPos(currencyBtnRef, false)); setCurrencyOpen(v => !v); setLanguageOpen(false); }} className="flex font-semibold px-3 py-2.5 gap-2 items-center tracking-[0.5px] hover:opacity-70 transition-opacity">
                 <GlobeIcon />
                 <span>{currency.symbol}</span>
                 <ChevronDown />
               </button>
-              <button ref={languageBtnRef} onClick={() => { setLanguageOpen(v => !v); setCurrencyOpen(false); }} className="flex px-3 font-semibold py-2.5 gap-2 items-center tracking-[0.5px] hover:opacity-70 transition-opacity">
+              <button ref={languageBtnRef} onClick={() => { setLanguagePanelStyle(computePanelPos(languageBtnRef, true)); setLanguageOpen(v => !v); setCurrencyOpen(false); }} className="flex px-3 font-semibold py-2.5 gap-2 items-center tracking-[0.5px] hover:opacity-70 transition-opacity">
                 <img src={language.flag} alt={language.label} width={26} height={26} className="rounded-full object-cover shrink-0" style={{ width: 26, height: 26 }} />
                 <span>{language.label}</span>
                 <ChevronDown />
@@ -314,7 +316,7 @@ export default function Header() {
       {currencyOpen && createPortal(
         <>
           <div className="fixed inset-0 z-[9990]" style={{ background: "rgba(0,0,0,0.45)" }} onClick={() => setCurrencyOpen(false)} />
-          <div className="fixed z-[9991] bg-white rounded-2xl overflow-hidden font-[Gilroy]" style={{ ...getPanelPos(currencyBtnRef, false), boxShadow: "0 8px 40px rgba(0,0,0,0.18)" }}>
+          <div className="fixed z-[9991] bg-white rounded-2xl overflow-hidden font-[Gilroy]" style={{ ...currencyPanelStyle, boxShadow: "0 8px 40px rgba(0,0,0,0.18)" }}>
             {CURRENCIES.map(c => (
               <button key={c.code} onClick={() => { setCurrency(c); setCurrencyOpen(false); }} className={`w-full flex items-center gap-4 px-4 py-3.5 transition-colors text-left ${currency.code === c.code ? "bg-brand-yellow" : "hover:bg-gray-50"}`} style={{ color: "#0D0A0B", fontSize: 18 }}>
                 <img src={c.flag} alt={c.code} width={26} height={26} className="rounded-full object-cover shrink-0" style={{ width: 26, height: 26 }} />
@@ -331,7 +333,7 @@ export default function Header() {
       {languageOpen && createPortal(
         <>
           <div className="fixed inset-0 z-[9990]" style={{ background: "rgba(0,0,0,0.45)" }} onClick={() => setLanguageOpen(false)} />
-          <div className="fixed z-[9991] bg-white rounded-2xl overflow-hidden font-[Gilroy]" style={{ ...getPanelPos(languageBtnRef, true), boxShadow: "0 8px 40px rgba(0,0,0,0.18)" }}>
+          <div className="fixed z-[9991] bg-white rounded-2xl overflow-hidden font-[Gilroy]" style={{ ...languagePanelStyle, boxShadow: "0 8px 40px rgba(0,0,0,0.18)" }}>
             {LANGUAGES.map(l => (
               <button key={l.code} onClick={() => { setLanguage(l); setLanguageOpen(false); }} className={`w-full flex items-center gap-4 px-4 py-3.5 transition-colors text-left ${language.code === l.code ? "bg-brand-yellow" : "hover:bg-gray-50"}`} style={{ color: "#0D0A0B", fontSize: 18 }}>
                 <img src={l.flag} alt={l.code} width={26} height={26} className="rounded-full object-cover shrink-0" style={{ width: 26, height: 26 }} />

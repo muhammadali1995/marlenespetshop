@@ -172,10 +172,6 @@
   --sticky-bundle-picker-bgcolor: #062d3e;
   --tr-border-width: 1px;
   --tr-review-box-stroke-color: var(--color-brand-navy);
-  --color-foreground: 13, 10, 11;
-  --font-body-scale: 1;
-  --inputs-radius: 0.5rem;
-  --buttons-radius-outset: 0.5rem;
 }
 
 body {
