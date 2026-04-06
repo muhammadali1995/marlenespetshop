@@ -50,9 +50,9 @@ export default function CartItemRow({ item }: { item: CartItem }) {
   return (
     <>
       {/* ── Mobile card ──────────────────────────────────────── */}
-      <div className="md:hidden relative rounded-2xl border border-gray-200 shadow-sm bg-white flex py-4 pr-4">
-        {/* Image — bleeds past left border */}
-        <div className="relative w-[130px] h-[130px] shrink-0 rounded-xl overflow-hidden -ml-3 mr-4 self-center">
+      <div className="md:hidden relative rounded-2xl border border-gray-200 shadow-sm bg-white flex py-4 px-4">
+        {/* Image */}
+        <div className="relative w-[130px] h-[130px] shrink-0 rounded-xl overflow-hidden mr-4 self-center">
           <Image src={item.image} alt={item.name} fill className="object-cover" />
         </div>
 

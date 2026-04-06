@@ -40,7 +40,7 @@ export default function BundleSelector({ selected, onChange }: BundleSelectorPro
                     e.stopPropagation();
                     setModalBundle(bundle);
                   }}
-                  className="flex items-center gap-1.5 bg-white/12 text-white border border-white backdrop-blur-[10px] rounded-full px-3 py-1 text-[11px] font-semibold shadow-sm whitespace-nowrap cursor-pointer hover:bg-white/20 transition-colors"
+                  className="flex items-center gap-1.5 bg-white/12 text-white border border-white backdrop-blur-[10px] rounded-full px-3 py-1 text-[9px] sm:text-[11px] font-semibold shadow-sm whitespace-nowrap cursor-pointer hover:bg-white/20 transition-colors"
                 >
                   <span className="flex items-center justify-center w-4 h-4 rounded-full border border-white text-[9px] font-bold shrink-0">?</span>
                   What&apos;s Included?

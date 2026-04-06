@@ -37,23 +37,23 @@ export default function CartPage() {
           <div className="mx-auto max-w-[1500px] px-6">
             {/* Title row */}
             <div className="flex items-center justify-between pt-10 pb-4">
-              <h1 className="text-[2.4rem] font-bold text-brand-dark">
+              <h1 className="text-[1.7rem] md:text-[2.4rem] font-bold text-brand-dark">
                 Your cart
               </h1>
               <Link
                 href="/products/kitty-kurlz"
-                className="underline underline-offset-2 decoration-1"
-                style={{ fontSize: "20px", color: "#0D0A0BD9" }}
+                className="underline underline-offset-2 decoration-1 text-sm md:text-[20px]"
+                style={{ color: "#0D0A0BD9" }}
               >
                 Continue shopping
               </Link>
             </div>
 
             {/* Column headers */}
-            <div className="hidden md:grid grid-cols-[80px_1fr_220px_200px] gap-6 pb-4 border-b border-brand-dark/10 text-xs font-normal uppercase text-brand-dark/70 tracking-wide">
-              <div className="col-span-2">Product</div>
-              <div>Quantity</div>
-              <div className="text-right">Total</div>
+            <div className="flex justify-between pb-4 border-b border-brand-dark/10 text-xs font-normal uppercase text-brand-dark/70 tracking-wide md:grid md:grid-cols-[80px_1fr_220px_200px] md:gap-6">
+              <div className="md:col-span-2">Product</div>
+              <div className="hidden md:block">Quantity</div>
+              <div className="md:text-right">Total</div>
             </div>
 
             {/* Cart items */}

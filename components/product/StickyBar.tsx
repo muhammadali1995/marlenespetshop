@@ -132,7 +132,7 @@ export default function StickyBar({ bundle, onBundleChange }: StickyBarProps) {
       </div>
 
       {/* ── Desktop layout (single row) ── */}
-      <div className="hidden lg:flex mx-auto w-full max-w-[1160px] h-[80px] px-6 lg:px-16 xl:px-6 items-center gap-4">
+      <div className="hidden lg:flex mx-auto w-full max-w-[1240px] h-[80px] px-6 lg:px-16 xl:px-6 items-center gap-4">
         {/* Thumbnail with badge */}
         <div className="relative w-20 h-16 rounded-lg overflow-hidden bg-white/10 flex-shrink-0">
           <Image
@@ -187,7 +187,7 @@ export default function StickyBar({ bundle, onBundleChange }: StickyBarProps) {
         {/* Add to cart */}
         <button
           onClick={handleAddToCart}
-          className="bg-brand-yellow text-brand-dark font-bold rounded-full px-8 py-3 text-base hover:brightness-95 transition-all flex items-center gap-2 flex-shrink-0"
+          className="bg-brand-yellow text-brand-dark font-bold w-full max-w-96 justify-center rounded-full px-8 py-3 text-base hover:brightness-95 transition-all flex items-center gap-2 flex-shrink-0"
         >
           Add to cart <CartIcon />
         </button>
