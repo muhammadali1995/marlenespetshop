@@ -6,10 +6,7 @@ interface WriteReviewModalProps {
   onClose: () => void;
 }
 
-const BG = "#d0e4f5";
-const INPUT_BG = "#d0e4f5";
-const BORDER = "rgba(100,140,180,0.4)";
-const LABEL_COLOR = "#6b8aaa";
+const BG = "#ffffff";
 const STAR_PATH = "M13.5 0.5L17.7791 8.61036L26.8148 10.1738L20.4237 16.7496L21.729 25.8262L13.5 21.78L5.27101 25.8262L6.57631 16.7496L0.185208 10.1738L9.22092 8.61036L13.5 0.5Z";
 
 export default function WriteReviewModal({ onClose }: WriteReviewModalProps) {
@@ -23,15 +20,19 @@ export default function WriteReviewModal({ onClose }: WriteReviewModalProps) {
 
   const active = hovered || rating;
 
+  const inputClass = "w-full rounded-lg px-4 py-3 text-sm outline-none transition-colors";
+  const inputStyle = { background: "#ffffff", border: "1px solid #d1d5db", color: "#374151" };
+  const labelStyle = { color: "#6b7280", background: "#ffffff" };
+
   return (
     <div
-      className="fixed inset-0 z-[2000] flex items-center justify-center sm:p-4"
+      className="fixed inset-0 z-[2000] flex items-center justify-center sm:p-9"
       style={{ background: "rgba(0,0,0,0.45)" }}
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
       <div
-        className="rounded-2xl w-full max-w-[770px] overflow-y-auto relative sm:mx-0"
-        style={{ maxHeight: "min(100%, 100vh)", background: BG }}
+        className="rounded-2xl w-full max-w-[770px] max-h-full overflow-y-auto relative"
+        style={{ background: BG }}
       >
         {/* Close */}
         <button
@@ -44,7 +45,7 @@ export default function WriteReviewModal({ onClose }: WriteReviewModalProps) {
           </svg>
         </button>
 
-        <div className="px-5 sm:px-10 py-8">
+        <div style={{ padding: "50px 16px" }}>
           {/* Title */}
           <h2 className="text-2xl font-bold text-center mb-6" style={{ color: "#4a6a8a" }}>
             Write a review
@@ -63,13 +64,13 @@ export default function WriteReviewModal({ onClose }: WriteReviewModalProps) {
                 <svg width="57" height="54" viewBox="0 0 27 26" fill="none">
                   <path
                     d={STAR_PATH}
-                    fill={active >= star ? "#6a8faf" : "#a8c4d8"}
+                    fill={active >= star ? "#F59E0B" : "#c8d6e0"}
                     style={{ transition: "fill 0.15s" }}
                   />
                 </svg>
                 <span
-                  className="text-xs font-medium px-1.5 py-0.5 rounded"
-                  style={{ color: "#4a6a8a", border: "1px solid rgba(100,140,180,0.5)", minWidth: 22, textAlign: "center" }}
+                  className="text-xs font-medium px-1.5 py-0.5"
+                  style={{ color: "#374151", border: "1px solid #d1d5db", minWidth: 22, textAlign: "center" }}
                 >
                   {star}
                 </span>
@@ -82,48 +83,32 @@ export default function WriteReviewModal({ onClose }: WriteReviewModalProps) {
             {/* Name + Email */}
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="flex-1 relative">
-                <label className="absolute -top-2.5 left-3 px-1 text-xs" style={{ color: LABEL_COLOR, background: BG }}>Your name</label>
-                <input
-                  type="text"
-                  className="w-full rounded-lg px-4 py-3 text-sm outline-none transition-colors"
-                  style={{ background: INPUT_BG, border: `1px solid ${BORDER}`, color: "#4a6a8a" }}
-                />
+                <label className="absolute -top-2.5 left-3 px-1 text-xs" style={labelStyle}>Your name</label>
+                <input type="text" className={inputClass} style={inputStyle} />
               </div>
               <div className="flex-1 relative">
-                <label className="absolute -top-2.5 left-3 px-1 text-xs" style={{ color: LABEL_COLOR, background: BG }}>Your email</label>
-                <input
-                  type="email"
-                  className="w-full rounded-lg px-4 py-3 text-sm outline-none transition-colors"
-                  style={{ background: INPUT_BG, border: `1px solid ${BORDER}`, color: "#4a6a8a" }}
-                />
+                <label className="absolute -top-2.5 left-3 px-1 text-xs" style={labelStyle}>Your email</label>
+                <input type="email" className={inputClass} style={inputStyle} />
               </div>
             </div>
 
             {/* Review title */}
             <div className="relative">
-              <label className="absolute -top-2.5 left-3 px-1 text-xs" style={{ color: LABEL_COLOR, background: BG }}>Review title</label>
-              <input
-                type="text"
-                className="w-full rounded-lg px-4 py-3 text-sm outline-none transition-colors"
-                style={{ background: INPUT_BG, border: `1px solid ${BORDER}`, color: "#4a6a8a" }}
-              />
+              <label className="absolute -top-2.5 left-3 px-1 text-xs" style={labelStyle}>Review title</label>
+              <input type="text" className={inputClass} style={inputStyle} />
             </div>
 
             {/* Review content */}
             <div className="relative">
-              <label className="absolute -top-2.5 left-3 px-1 text-xs" style={{ color: LABEL_COLOR, background: BG }}>Review content</label>
-              <textarea
-                rows={6}
-                className="w-full rounded-lg px-4 py-3 text-sm outline-none transition-colors resize-y"
-                style={{ background: INPUT_BG, border: `1px solid ${BORDER}`, color: "#4a6a8a" }}
-              />
+              <label className="absolute -top-2.5 left-3 px-1 text-xs" style={labelStyle}>Review content</label>
+              <textarea rows={6} className={`${inputClass} resize-y`} style={inputStyle} />
             </div>
 
             {/* Upload photos/videos */}
             <button
               type="button"
               className="w-full flex items-center justify-center gap-3 rounded-xl py-5 text-sm transition-colors"
-              style={{ border: "1.5px dashed rgba(100,140,180,0.5)", color: LABEL_COLOR }}
+              style={{ background: BG, border: "1.5px dashed rgba(100,140,180,0.5)", color: "#6b8aaa" }}
             >
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="16 16 12 12 8 16" />
@@ -135,13 +120,13 @@ export default function WriteReviewModal({ onClose }: WriteReviewModalProps) {
 
             {/* Profile picture */}
             <div>
-              <p className="text-sm mb-2" style={{ color: LABEL_COLOR }}>Profile picture</p>
+              <p className="text-sm mb-2" style={{ color: "#6b8aaa" }}>Profile picture</p>
               <button
                 type="button"
                 className="w-[72px] h-[72px] flex items-center justify-center rounded-xl transition-colors"
-                style={{ border: "1.5px dashed rgba(100,140,180,0.5)" }}
+                style={{ background: BG, border: "1.5px dashed rgba(100,140,180,0.5)" }}
               >
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={LABEL_COLOR} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                   <polyline points="17 8 12 3 7 8" />
                   <line x1="12" y1="3" x2="12" y2="15" />
@@ -150,13 +135,15 @@ export default function WriteReviewModal({ onClose }: WriteReviewModalProps) {
             </div>
 
             {/* Submit */}
-            <button
-              type="button"
-              className="w-full rounded-xl text-white font-bold text-base transition-opacity hover:opacity-90"
-              style={{ background: "#002544", padding: "16px 40px" }}
-            >
-              Submit
-            </button>
+            <div className="flex justify-center mt-auto pt-6">
+              <button
+                type="button"
+                className="w-full rounded-xl text-white font-bold text-base transition-opacity hover:opacity-90"
+                style={{ background: "#002544", padding: "16px 40px", maxWidth: 400 }}
+              >
+                Submit
+              </button>
+            </div>
           </div>
         </div>
       </div>
