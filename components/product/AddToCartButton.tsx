@@ -37,7 +37,7 @@ export default function AddToCartButton({ bundle }: AddToCartButtonProps) {
         Buy with
         <span className="font-black tracking-tight">shop</span>
       </button>
-      <button className="text-sm text-brand-dark/60 underline text-center hover:text-brand-dark">
+      <button className="text-sm text-brand-dark underline text-center pb-[1px]">
         More payment options
       </button>
     </div>
