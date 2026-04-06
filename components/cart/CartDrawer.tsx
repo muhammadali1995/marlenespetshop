@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { useCartStore, selectSubtotal, type CartItem } from "@/store/cartStore";
 import { formatPrice } from "@/lib/format";
 
@@ -76,6 +77,7 @@ function CartItemRow({ item }: { item: CartItem }) {
 }
 
 export default function CartDrawer({ open, onClose }: CartDrawerProps) {
+  const router = useRouter();
   const items = useCartStore((s) => s.items);
   const subtotal = useCartStore(selectSubtotal);
 
@@ -127,7 +129,10 @@ export default function CartDrawer({ open, onClose }: CartDrawerProps) {
         {/* Footer — Checkout button */}
         {items.length > 0 && (
           <div className="px-6 py-5 border-t border-brand-dark/10">
-            <button className="w-full rounded-full bg-brand-yellow py-4 font-bold text-brand-dark text-base hover:brightness-95 transition-all flex items-center justify-center gap-3">
+            <button
+              onClick={() => { onClose(); router.push("/checkout"); }}
+              className="w-full rounded-full bg-brand-yellow py-4 font-bold text-brand-dark text-base hover:brightness-95 transition-all flex items-center justify-center gap-3"
+            >
               <span>Checkout</span>
               <span>{formatPrice(subtotal)}</span>
             </button>
