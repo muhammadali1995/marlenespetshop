@@ -1,16 +1,16 @@
 "use client";
 
+import { useId } from "react";
+
 interface StarRatingProps {
   rating: number;
   size?: "sm" | "md" | "lg";
+  fillColor?: string;
 }
 
 const STAR_PATH = "M13.5 0.5L17.7791 8.61036L26.8148 10.1738L20.4237 16.7496L21.729 25.8262L13.5 21.78L5.27101 25.8262L6.57631 16.7496L0.185208 10.1738L9.22092 8.61036L13.5 0.5Z";
 
-function Star({ fill }: { fill: "full" | "half" | "empty" }) {
-  const id = Math.random().toString(36).slice(2);
-  const clipId = `star-clip-${id}`;
-
+function Star({ fill, clipId, fillColor }: { fill: "full" | "half" | "empty"; clipId: string; fillColor: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -26,13 +26,14 @@ function Star({ fill }: { fill: "full" | "half" | "empty" }) {
           </clipPath>
         </defs>
       )}
+
       {/* Empty background */}
       <path d={STAR_PATH} fill="#E8E8EC" />
       {/* Filled overlay */}
       {fill !== "empty" && (
         <path
           d={STAR_PATH}
-          fill="#F59E0B"
+          fill={fillColor}
           clipPath={fill === "half" ? `url(#${clipId})` : undefined}
         />
       )}
@@ -40,7 +41,8 @@ function Star({ fill }: { fill: "full" | "half" | "empty" }) {
   );
 }
 
-export default function StarRating({ rating, size = "md" }: StarRatingProps) {
+export default function StarRating({ rating, size = "md", fillColor = "#F59E0B" }: StarRatingProps) {
+  const baseId = useId();
   const sizes = { sm: 12, md: 16, lg: 20 };
   const px = sizes[size];
 
@@ -54,7 +56,7 @@ export default function StarRating({ rating, size = "md" }: StarRatingProps) {
         const fill = rating >= star ? "full" : rating >= star - 0.5 ? "half" : "empty";
         return (
           <span key={star} style={{ width: px, height: px, display: "inline-flex" }}>
-            <Star fill={fill} />
+            <Star fill={fill} clipId={`${baseId}-${star}`} fillColor={fillColor} />
           </span>
         );
       })}
