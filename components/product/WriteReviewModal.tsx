@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 
 interface WriteReviewModalProps {
   onClose: () => void;
@@ -26,7 +27,7 @@ export default function WriteReviewModal({ onClose }: WriteReviewModalProps) {
   const inputStyle = { background: "#ffffff", border: "1px solid #d1d5db", color: "#374151" };
   const labelStyle = { color: "#6b7280", background: "#ffffff" };
 
-  return (
+  return createPortal(
     <div
       className="fixed inset-0 z-[2000] flex items-center justify-center sm:p-9"
       style={{ background: "rgba(0,0,0,0.45)" }}
@@ -153,6 +154,7 @@ export default function WriteReviewModal({ onClose }: WriteReviewModalProps) {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
