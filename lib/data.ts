@@ -38,6 +38,8 @@ export const bundles = [
     bonus: "GET 1 FREE",
     badge: "2x",
     image: "/images/bundle-1.png",
+    modalDescription: "Connect 2 Kitty Kurlz like Lego to create the ultimate shapeshifting cat toy!",
+    bundleList: ["2x Kitty Kurlz", "2x Kitty Kurlz Balls"],
   },
   {
     id: "buy2get2",
@@ -46,6 +48,8 @@ export const bundles = [
     bonus: "GET 2 FREE",
     badge: "4x",
     image: "/images/bundle-1.png",
+    modalDescription: "Connect 4 Kitty Kurlz like Lego to create the ultimate shapeshifting cat toy!",
+    bundleList: ["4x Kitty Kurlz", "4x Kitty Kurlz Balls"],
   },
 ];
 
