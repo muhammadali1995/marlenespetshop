@@ -46,7 +46,7 @@ export default function FaqSection() {
 
       {/* Heading */}
       <div className="mx-auto max-w-[1440px] px-6 mb-8">
-        <h2 className="text-4xl font-black text-brand-dark">
+        <h2 className="text-4xl font-bold text-brand-dark">
           Frequently Asked
         </h2>
       </div>
