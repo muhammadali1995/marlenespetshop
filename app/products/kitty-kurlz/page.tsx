@@ -23,7 +23,7 @@ export default function KittyKurlzPage() {
     <>
       <Header />
 
-      <main className="pb-24">
+      <main>
         {/* Hero — 2-column grid */}
         <section className="mx-auto max-w-[1440px] px-6 lg:px-0 pb-10">
           <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-8 lg:gap-12">

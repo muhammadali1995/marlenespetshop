@@ -65,7 +65,7 @@ export default function StickyBar({ bundle, onBundleChange }: StickyBarProps) {
   return (
     <div className="sticky-bar fixed bottom-0 left-0 right-0 z-50 text-white">
       {/* ── Mobile layout (stacked) ── */}
-      <div className="sm:hidden px-4 pt-4 pb-3 flex flex-col gap-3">
+      <div className="lg:hidden px-4 pt-4 pb-3 flex flex-col gap-3">
         {/* Info row */}
         <div className="flex items-center gap-3">
           {/* Thumbnail with badge */}
@@ -132,7 +132,7 @@ export default function StickyBar({ bundle, onBundleChange }: StickyBarProps) {
       </div>
 
       {/* ── Desktop layout (single row) ── */}
-      <div className="hidden sm:flex mx-auto w-full max-w-[1160px] h-[80px] px-6 md:px-10 lg:px-16 xl:px-6 items-center gap-4">
+      <div className="hidden lg:flex mx-auto w-full max-w-[1160px] h-[80px] px-6 lg:px-16 xl:px-6 items-center gap-4">
         {/* Thumbnail with badge */}
         <div className="relative w-20 h-16 rounded-lg overflow-hidden bg-white/10 flex-shrink-0">
           <Image

@@ -201,7 +201,7 @@ html {
   box-shadow: 0 -1px 8px 1px rgba(4, 15, 12, 0.79);
 }
 
-@media (min-width: 640px) {
+@media (min-width: 1024px) {
   .sticky-bar {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
