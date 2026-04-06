@@ -1,5 +1,7 @@
 "use client";
 
+import { useId } from "react";
+
 interface StarRatingProps {
   rating: number;
   size?: "sm" | "md" | "lg";
@@ -8,7 +10,7 @@ interface StarRatingProps {
 const STAR_PATH = "M13.5 0.5L17.7791 8.61036L26.8148 10.1738L20.4237 16.7496L21.729 25.8262L13.5 21.78L5.27101 25.8262L6.57631 16.7496L0.185208 10.1738L9.22092 8.61036L13.5 0.5Z";
 
 function Star({ fill }: { fill: "full" | "half" | "empty" }) {
-  const id = Math.random().toString(36).slice(2);
+  const id = useId();
   const clipId = `star-clip-${id}`;
 
   return (
