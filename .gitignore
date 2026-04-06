@@ -42,3 +42,5 @@ next-env.d.ts
 
 # Claude Code
 .claude/
+temp_auto_push.bat
+temp_interactive_push.bat
