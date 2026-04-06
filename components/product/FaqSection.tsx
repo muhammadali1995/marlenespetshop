@@ -56,12 +56,14 @@ export default function FaqSection() {
 
         {/* Video wrapper — relative context for Watch Video badge */}
         <div className="relative shrink-0 w-[80vw] lg:w-1/2 mb-10 lg:mb-0">
-          <button
-            type="button"
+          <div
+            role="button"
+            tabIndex={0}
             className="relative overflow-hidden bg-brand-grey-card cursor-pointer
                        rounded-r-[9999px] w-screen lg:w-full"
             style={{ aspectRatio: "16/9" }}
             onClick={togglePlay}
+            onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") togglePlay(); }}
             aria-label={isPlaying ? "Pause" : "Play"}
           >
             <video
@@ -133,7 +135,7 @@ export default function FaqSection() {
                 )}
               </button>
             </div>
-          </button>
+          </div>
 
           {/* Watch Video badge — mobile only, overlaps bottom-right corner */}
           <div className="lg:hidden absolute -right-14 top-full -translate-y-1/2 z-20 w-20 h-20 rounded-full bg-brand-navy flex flex-col items-center justify-center cursor-pointer select-none">

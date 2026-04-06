@@ -121,10 +121,12 @@ export default function LifestyleStrip({ photos }: LifestyleStripProps) {
             const visible   = Math.abs(offset) <= maxVisible;
 
             return (
-              <button
+              <div
                 key={idx}
-                type="button"
+                role="button"
+                tabIndex={visible ? 0 : -1}
                 onClick={() => { if (visible) { setLightboxIdx(idx); setLightboxOpen(true); } }}
+                onKeyDown={(e) => { if (visible && (e.key === "Enter" || e.key === " ")) { setLightboxIdx(idx); setLightboxOpen(true); } }}
                 aria-label={`View photo ${idx + 1}`}
                 style={{
                   position: "absolute",
@@ -140,9 +142,6 @@ export default function LifestyleStrip({ photos }: LifestyleStripProps) {
                   cursor: visible ? "pointer" : "default",
                   zIndex: isActive ? 10 : maxVisible - Math.abs(offset),
                   pointerEvents: visible ? "auto" : "none",
-                  background: "none",
-                  border: "none",
-                  padding: 0,
                 }}
               >
                 <Image
@@ -171,7 +170,7 @@ export default function LifestyleStrip({ photos }: LifestyleStripProps) {
                     {isMuted ? <MuteIcon /> : <UnmuteIcon />}
                   </button>
                 )}
-              </button>
+              </div>
             );
           })}
         </div>
