@@ -18,7 +18,7 @@ import AosInit from "@/components/ui/FadeIn";
 import { product } from "@/lib/data";
 
 export default function KittyKurlzPage() {
-  const [bundle, setBundle] = useState("buy1get1");
+  const [bundle, setBundle] = useState<"buy1get1" | "buy2get2">("buy1get1");
 
   return (
     <>

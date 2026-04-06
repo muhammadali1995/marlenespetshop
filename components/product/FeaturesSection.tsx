@@ -29,7 +29,7 @@ export default function FeaturesSection() {
         <div className="lg:hidden flex flex-col gap-4">
           {features.map((f, i) => (
             <div
-              key={i}
+              key={f.title}
               className={`bg-brand-yellow px-8 py-6 ${i % 2 === 0 ? "rounded-r-full -ml-6 mr-10" : "rounded-l-full ml-10 -mr-6"}`}
             >
               <h3 className="font-bold text-brand-dark text-lg mb-2">{f.title}</h3>
@@ -40,8 +40,8 @@ export default function FeaturesSection() {
 
         {/* Desktop: grid layout */}
         <div className="hidden lg:grid lg:grid-cols-3 gap-2 mb-2">
-          {features.slice(0, 3).map((f, i) => (
-            <div key={i} className="bg-white rounded-full p-8">
+          {features.slice(0, 3).map((f) => (
+            <div key={f.title} className="bg-white rounded-full p-8">
               <h3 className="font-bold text-brand-dark text-lg mb-3 text-center">{f.title}</h3>
               <p className="text-brand-dark/70 text-xl leading-relaxed text-center">{f.description}</p>
             </div>

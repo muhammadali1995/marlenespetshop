@@ -6,8 +6,8 @@ import { bundles } from "@/lib/data";
 import WhatsIncludedModal from "./WhatsIncludedModal";
 
 interface BundleSelectorProps {
-  selected: string;
-  onChange: (id: string) => void;
+  selected: "buy1get1" | "buy2get2";
+  onChange: (id: "buy1get1" | "buy2get2") => void;
 }
 
 export default function BundleSelector({ selected, onChange }: BundleSelectorProps) {
@@ -21,7 +21,7 @@ export default function BundleSelector({ selected, onChange }: BundleSelectorPro
           return (
             <button
               key={bundle.id}
-              onClick={() => onChange(bundle.id)}
+              onClick={() => onChange(bundle.id as "buy1get1" | "buy2get2")}
               className="relative w-[130px] lg:w-[140px] h-[200px] rounded-2xl overflow-hidden transition-all"
             >
               {/* Bundle image — fills entire card */}

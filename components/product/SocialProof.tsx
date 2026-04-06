@@ -77,9 +77,9 @@ export default function SocialProof() {
         <div className="sm:hidden -mx-6 overflow-hidden mb-8">
           <div className="flex justify-center items-center gap-4">
             {socialProofPhotos.slice(0, 3).map((_, i) => (
-              <div key={i} onClick={() => openLightbox(i)} className="relative shrink-0 w-[200px] h-[200px] rounded-full overflow-hidden bg-brand-grey-card cursor-pointer">
+              <button key={i} onClick={() => openLightbox(i)} className="relative shrink-0 w-[200px] h-[200px] rounded-full overflow-hidden bg-brand-grey-card cursor-pointer" aria-label={`Open video ${i + 1}`}>
                 <video src="/video.mp4" autoPlay muted loop playsInline className="w-full h-full object-cover pointer-events-none" />
-              </div>
+              </button>
             ))}
           </div>
         </div>
@@ -94,9 +94,9 @@ export default function SocialProof() {
           onMouseLeave={stopDrag}
         >
           {socialProofPhotos.map((_, i) => (
-            <div key={i} onClick={() => openLightbox(i)} className="relative shrink-0 w-[200px] h-[200px] rounded-full overflow-hidden bg-brand-grey-card cursor-pointer">
+            <button key={i} onClick={() => openLightbox(i)} className="relative shrink-0 w-[200px] h-[200px] rounded-full overflow-hidden bg-brand-grey-card cursor-pointer" aria-label={`Open video ${i + 1}`}>
               <video src="/video.mp4" autoPlay muted loop playsInline className="w-full h-full object-cover pointer-events-none" />
-            </div>
+            </button>
           ))}
         </div>
 

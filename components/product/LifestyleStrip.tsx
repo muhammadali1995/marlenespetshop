@@ -121,9 +121,11 @@ export default function LifestyleStrip({ photos }: LifestyleStripProps) {
             const visible   = Math.abs(offset) <= maxVisible;
 
             return (
-              <div
+              <button
                 key={idx}
+                type="button"
                 onClick={() => { if (visible) { setLightboxIdx(idx); setLightboxOpen(true); } }}
+                aria-label={`View photo ${idx + 1}`}
                 style={{
                   position: "absolute",
                   left: "50%",
@@ -138,6 +140,9 @@ export default function LifestyleStrip({ photos }: LifestyleStripProps) {
                   cursor: visible ? "pointer" : "default",
                   zIndex: isActive ? 10 : maxVisible - Math.abs(offset),
                   pointerEvents: visible ? "auto" : "none",
+                  background: "none",
+                  border: "none",
+                  padding: 0,
                 }}
               >
                 <Image
@@ -166,7 +171,7 @@ export default function LifestyleStrip({ photos }: LifestyleStripProps) {
                     {isMuted ? <MuteIcon /> : <UnmuteIcon />}
                   </button>
                 )}
-              </div>
+              </button>
             );
           })}
         </div>

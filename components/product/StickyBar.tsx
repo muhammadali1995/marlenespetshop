@@ -8,8 +8,8 @@ import { product, bundles } from "@/lib/data";
 import { formatPrice } from "@/lib/format";
 
 interface StickyBarProps {
-  bundle: string;
-  onBundleChange: (id: string) => void;
+  bundle: "buy1get1" | "buy2get2";
+  onBundleChange: (id: "buy1get1" | "buy2get2") => void;
 }
 
 function CartIcon() {
@@ -53,7 +53,7 @@ export default function StickyBar({ bundle, onBundleChange }: StickyBarProps) {
       image: "/images/bundle-1.png",
       price: product.salePrice,
       originalPrice: product.originalPrice,
-      bundle: bundle as "buy1get1" | "buy2get2",
+      bundle,
     });
     openCart();
   }
@@ -113,7 +113,7 @@ export default function StickyBar({ bundle, onBundleChange }: StickyBarProps) {
             </div>
             <select
               value={bundle}
-              onChange={(e) => onBundleChange(e.target.value)}
+              onChange={(e) => onBundleChange(e.target.value as "buy1get1" | "buy2get2")}
               className="absolute inset-0 opacity-0 cursor-pointer w-full"
             >
               <option value="buy1get1">BUY 1 GET 1 FREE</option>
@@ -176,7 +176,7 @@ export default function StickyBar({ bundle, onBundleChange }: StickyBarProps) {
           </div>
           <select
             value={bundle}
-            onChange={(e) => onBundleChange(e.target.value)}
+            onChange={(e) => onBundleChange(e.target.value as "buy1get1" | "buy2get2")}
             className="absolute inset-0 opacity-0 cursor-pointer w-full"
           >
             <option value="buy1get1">BUY 1 GET 1 FREE</option>
