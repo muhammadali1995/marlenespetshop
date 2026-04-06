@@ -2,7 +2,10 @@
 
 import Image from "next/image";
 import { useCartStore, type CartItem } from "@/store/cartStore";
-import { formatPrice } from "@/lib/format";
+
+function formatSom(n: number) {
+  return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "\u00A0") + " som";
+}
 
 function MinusIcon() {
   return (
@@ -86,17 +89,17 @@ export default function CartItemRow({ item }: { item: CartItem }) {
           {/* Prices */}
           <div>
             <p className="font-bold text-xl text-brand-dark leading-tight">
-              {formatPrice(item.price * item.quantity)}
+              {formatSom(item.price * item.quantity)}
             </p>
             <p className="text-sm text-brand-dark/40 line-through mt-0.5">
-              {formatPrice(item.originalPrice * item.quantity)}
+              {formatSom(item.originalPrice * item.quantity)}
             </p>
           </div>
         </div>
       </div>
 
       {/* ── Desktop row ───────────────────────────────────────── */}
-      <div className="hidden md:grid grid-cols-[80px_1fr_auto_auto] items-center gap-6 py-6">
+      <div className="hidden md:grid grid-cols-[80px_1fr_220px_200px] items-center gap-6 py-14">
         {/* Image */}
         <div className="relative w-[80px] h-[80px] rounded-xl overflow-hidden bg-brand-grey-card shrink-0">
           <Image src={item.image} alt={item.name} fill className="object-cover" />
@@ -116,15 +119,9 @@ export default function CartItemRow({ item }: { item: CartItem }) {
           <StepperButton onClick={() => updateQuantity(item.id, item.quantity - 1)} label="Decrease quantity">
             <MinusIcon />
           </StepperButton>
-          <input
-            type="number"
-            value={item.quantity}
-            min="1"
-            onChange={(e) => updateQuantity(item.id, parseInt(e.target.value) || 1)}
-            className="text-center text-[14px] text-brand-dark border-x border-brand-dark/10 bg-transparent [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-            style={{ width: "46px", height: "24.5px", padding: "0 6.25px" }}
-            aria-label={`Quantity for ${item.name}`}
-          />
+          <span className="text-center text-[14px] text-brand-dark w-5 select-none">
+            {item.quantity}
+          </span>
           <StepperButton onClick={() => updateQuantity(item.id, item.quantity + 1)} label="Increase quantity">
             <PlusIcon />
           </StepperButton>
@@ -139,12 +136,12 @@ export default function CartItemRow({ item }: { item: CartItem }) {
         </div>
 
         {/* Prices */}
-        <div className="text-right min-w-[9rem]">
-          <p className="text-sm text-brand-dark/50 line-through whitespace-nowrap">
-            {formatPrice(item.originalPrice * item.quantity)}
+        <div className="text-right">
+          <p className="text-[9px] text-brand-dark/50 line-through whitespace-nowrap">
+            {formatSom(item.originalPrice * item.quantity)}
           </p>
           <p className="font-bold whitespace-nowrap" style={{ fontSize: "20px", color: "#0D0A0B" }}>
-            {formatPrice(item.price * item.quantity)}
+            {formatSom(item.price * item.quantity)}
           </p>
         </div>
       </div>

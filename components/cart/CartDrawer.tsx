@@ -33,7 +33,7 @@ function CartItemRow({ item }: { item: CartItem }) {
             <p className="font-bold text-brand-dark text-sm">
               {formatPrice(item.price * item.quantity)}
             </p>
-            <p className="text-brand-dark/40 text-xs line-through">
+            <p className="text-brand-dark/40 text-[8px] line-through">
               {formatPrice(item.originalPrice * item.quantity)}
             </p>
           </div>
